@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.gizanfish">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:name="com.gizanfish.share.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="m">
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_order_details.OrderDetailsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_edit_profile.EditProfileActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_checkout.CheckoutActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_login.LoginActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_verification_code.VerificationCodeActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_product_details.ProductDetailsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_client_profile.ClientProfileActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.gizanfish.activities_fragments.bank_activity.BanksActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_signup.SignUpActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_about_app.AboutAppActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_home.HomeActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation" />
+
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_my_favorite.MyFavoriteActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation" />
+
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_search.SearchActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden"
+
+            />
+
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_notification.NotificationActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            />
+        <activity
+            android:name="com.gizanfish.activities_fragments.telr_activity.TelrActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            />
+        <activity
+            android:name="com.gizanfish.activities_fragments.activity_images.ImagesActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+
+            />
+        <activity android:name="com.gizanfish.activities_fragments.activity_splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>
