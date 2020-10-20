@@ -8,6 +8,12 @@
         android:layout_height="match_parent"
         >
         <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/sp_bg"
+            android:scaleType="centerCrop"
+            />
+        <ImageView
             android:layout_width="220dp"
             android:layout_height="150dp"
             app:layout_constraintTop_toTopOf="parent"
