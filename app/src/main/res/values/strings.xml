@@ -195,5 +195,7 @@
     <string name="best_offers">Best Offers</string>
     <string name="personal_information">Personal Information</string>
     <string name="electronic_cards">Electronic Cards</string>
+    <string name="descriptions">Descriptions</string>
+    <string name="preparation_way">Preparation way</string>
 
 </resources>
