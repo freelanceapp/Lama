@@ -181,7 +181,7 @@
 
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recViewAccessories"
+                            android:id="@+id/recViewMostSeller"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp" />
@@ -189,7 +189,7 @@
                     </LinearLayout>
 
                     <ProgressBar
-                        android:id="@+id/progBarAccessories"
+                        android:id="@+id/progBarMostSeller"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:layout_gravity="center" />

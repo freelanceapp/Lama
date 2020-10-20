@@ -49,7 +49,7 @@ public class ProductSizesAdapter extends RecyclerView.Adapter<ProductSizesAdapte
                 notifyDataSetChanged();
             }
         });
-        if (i == position) {
+        /*if (i == position) {
             if (context instanceof ProductDetailsActivity) {
                 ProductDetailsActivity productDetailsActivity = (ProductDetailsActivity) context;
                 productDetailsActivity.setsizeid(sizesList.get(i));
@@ -58,7 +58,7 @@ public class ProductSizesAdapter extends RecyclerView.Adapter<ProductSizesAdapte
         } else {
             holder.binding.cons.setBackground(context.getResources().getDrawable(R.drawable.small_rounded_memory_unselected));
 
-        }
+        }*/
     }
 
     @Override

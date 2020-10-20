@@ -49,7 +49,7 @@ public class ProductColorsAdapter extends RecyclerView.Adapter<ProductColorsAdap
                notifyDataSetChanged();
             }
         });
-        if(i==position){
+     /*   if(i==position){
             if (context instanceof ProductDetailsActivity) {
                 ProductDetailsActivity productDetailsActivity = (ProductDetailsActivity) context;
                  productDetailsActivity.setselectcolors(colorsList.get(i));
@@ -59,7 +59,7 @@ public class ProductColorsAdapter extends RecyclerView.Adapter<ProductColorsAdap
         else {
             holder.binding.cardView.setBackground(null);
 
-        }
+        }*/
     }
 
     @Override

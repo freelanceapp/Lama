@@ -106,6 +106,13 @@ public interface Service {
     Call<ProductDataModel> Search(@Query("pagination") String pagination,
                                   @Query("user_id") int user_id);
 
+    @GET("api/get-most-sale")
+    Call<ProductDataModel> getMostSeller(@Query("pagination") String pagination);
+
+
+    @GET("api/get-box")
+    Call<ProductDataModel> getFamilyBoxes(@Query("pagination") String pagination);
+
     @GET("api/category-product")
     Call<CategoryProductDataModel> getCategoryProducts(@Query("pagination") String pagination,
                                                        @Query("user_id") int user_id);

@@ -35,4 +35,6 @@
     <color name="color5">#F6C712</color>
     <color name="offer_grid_1">#ffc333</color>
     <color name="offer_grid_2">#C18D0F</color>
+    <color name="trans_black">#55000000</color>
+
 </resources>
