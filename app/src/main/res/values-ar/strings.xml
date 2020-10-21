@@ -200,5 +200,7 @@
     <string name="best_offers">افضل العروض</string>
     <string name="personal_information">البيانات الشخصية</string>
     <string name="electronic_cards">البطاقة الإلكترونية</string>
+    <string name="descriptions">المواصفات</string>
+    <string name="preparation_way">طريقة التحضير</string>
 
 </resources>

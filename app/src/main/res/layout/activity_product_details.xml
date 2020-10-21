@@ -108,8 +108,8 @@
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            >
+                            android:layout_height="wrap_content">
+
                             <FrameLayout
                                 android:id="@+id/fl"
                                 android:layout_width="match_parent"
@@ -148,65 +148,86 @@
 
 
                             </FrameLayout>
+
                             <LinearLayout
                                 android:id="@+id/llPrice"
                                 android:layout_width="60dp"
                                 android:layout_height="100dp"
-                                android:orientation="vertical"
-                                android:gravity="center"
-                                android:background="@drawable/offer_bg2"
-                                app:layout_constraintTop_toBottomOf="@id/fl"
-                                app:layout_constraintBottom_toBottomOf="@id/fl"
-                                app:layout_constraintEnd_toEndOf="parent"
                                 android:layout_marginStart="10dp"
                                 android:layout_marginEnd="10dp"
+                                android:background="@drawable/offer_bg2"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                app:layout_constraintBottom_toBottomOf="@id/fl"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/fl"
 
                                 >
+
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:textSize="12sp"
-                                    android:textColor="@color/white"
-                                    android:text='@{model.price+"\n"+@string/sar}'
                                     android:gravity="center"
-                                    />
+                                    android:text='@{model.price+"\n"+@string/sar}'
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
                             </LinearLayout>
+
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@id/fl"
-                                app:layout_constraintEnd_toStartOf="@id/llPrice"
                                 android:layout_margin="10dp"
-                                android:textSize="16sp"
                                 android:textColor="@color/color2"
-                                />
+                                android:textSize="16sp"
+                                app:layout_constraintEnd_toStartOf="@id/llPrice"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/fl" />
 
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <com.google.android.material.tabs.TabLayout
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="8dp"
-                            app:tabTextColor="@color/gray9"
-                            app:tabSelectedTextColor="@color/white"
-                            app:tabBackground="@drawable/tab_order"
-                            />
+                            android:layout_height="35dp"
+                            >
+
+                            <TextView
+                                android:id="@+id/descriptions"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/descriptions"
+                                android:textColor="@color/white"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="16dp"
+                                android:gravity="center_vertical"
+                                android:background="@color/colorPrimary"
+                                />
+
+                            <TextView
+                                android:id="@+id/preparation_way"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/preparation_way"
+                                android:gravity="center_vertical"
+                                android:textColor="@color/black"
+                                android:paddingStart="16dp"
+                                android:paddingEnd="16dp"
+                                />
+                        </LinearLayout>
+
                         <FrameLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="8dp"
                             android:background="@drawable/small_rounded_gray"
-                            android:padding="8dp"
-                            >
+                            android:padding="8dp">
+
                             <TextView
                                 android:id="@+id/tvData"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="16sp"
-                                android:textColor="@color/black"/>
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
                         </FrameLayout>
 
                     </LinearLayout>

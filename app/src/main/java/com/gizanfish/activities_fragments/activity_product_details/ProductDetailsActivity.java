@@ -15,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,6 +62,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     private SingleProductDataModel singleProductDataModel;
 
 
+
     @Override
     protected void attachBaseContext(Context newBase) {
         Paper.init(newBase);
@@ -100,6 +102,23 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
         binding.tab.setupWithViewPager(binding.pager);
         binding.progBarSlider.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
 
+
+
+        binding.descriptions.setOnClickListener(v -> {
+            binding.descriptions.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            binding.descriptions.setTextColor(getResources().getColor(R.color.white));
+            binding.preparationWay.setBackgroundColor(getResources().getColor(R.color.gray2));
+            binding.preparationWay.setTextColor(getResources().getColor(R.color.black));
+            binding.tvData.setText(singleProductDataModel.getContents());
+        });
+        binding.preparationWay.setOnClickListener(v -> {
+            binding.descriptions.setBackgroundColor(getResources().getColor(R.color.gray2));
+            binding.descriptions.setTextColor(getResources().getColor(R.color.black));
+            binding.preparationWay.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+            binding.preparationWay.setTextColor(getResources().getColor(R.color.white));
+            binding.tvData.setText(singleProductDataModel.getFeatures());
+
+        });
 
     }
 
@@ -160,7 +179,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
 
         binding.setModel(body);
         this.singleProductDataModel = body;
-
+        binding.tvData.setText(singleProductDataModel.getContents());
         binding.progBarSlider.setVisibility(View.GONE);
         slidingImage__adapter = new ProductDetialsSlidingImage_Adapter(this, body.getProducts_images());
         binding.pager.setAdapter(slidingImage__adapter);
