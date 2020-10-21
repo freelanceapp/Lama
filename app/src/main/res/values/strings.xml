@@ -197,5 +197,6 @@
     <string name="electronic_cards">Electronic Cards</string>
     <string name="descriptions">Descriptions</string>
     <string name="preparation_way">Preparation way</string>
+    <string name="quantity">Quantity</string>
 
 </resources>

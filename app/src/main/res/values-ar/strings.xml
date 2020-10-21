@@ -202,5 +202,6 @@
     <string name="electronic_cards">البطاقة الإلكترونية</string>
     <string name="descriptions">المواصفات</string>
     <string name="preparation_way">طريقة التحضير</string>
+    <string name="quantity">Quantity</string>
 
 </resources>

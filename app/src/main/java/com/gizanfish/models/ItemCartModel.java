@@ -8,17 +8,15 @@ public class ItemCartModel implements Serializable {
     private double price;
     private int amount;
     private String sub_image;
-    private String price_id;
-    private String size_id;
 
-    public ItemCartModel(String product_id, String title, double price, int amount, String sub_image, String price_id, String size_id) {
+
+    public ItemCartModel(String product_id, String title, double price, int amount, String sub_image) {
         this.product_id = product_id;
         this.title = title;
         this.price = price;
         this.amount = amount;
         this.sub_image = sub_image;
-        this.price_id = price_id;
-        this.size_id = size_id;
+
     }
 
     public String getProduct_id() {
@@ -63,19 +61,5 @@ public class ItemCartModel implements Serializable {
         this.sub_image = sub_image;
     }
 
-    public String getPrice_id() {
-        return price_id;
-    }
 
-    public void setPrice_id(String price_id) {
-        this.price_id = price_id;
-    }
-
-    public String getSize_id() {
-        return size_id;
-    }
-
-    public void setSize_id(String size_id) {
-        this.size_id = size_id;
-    }
 }

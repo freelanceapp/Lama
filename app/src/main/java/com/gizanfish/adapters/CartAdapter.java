@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.gizanfish.activities_fragments.activity_cart.CartActivity;
 import com.makeramen.roundedimageview.RoundedImageView;
 import com.gizanfish.R;
 import com.gizanfish.activities_fragments.activity_home.HomeActivity;
@@ -28,12 +29,9 @@ import java.util.Locale;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Cart_Holder> {
     private List<ItemCartModel> itemCartModelList;
     private Context context;
-    private HomeActivity activity;
-    private Fragment_Family_Box fragment_familyBox;
 
-    public CartAdapter(Fragment_Family_Box fragment_familyBox, List<ItemCartModel> itemCartModelList, Context context) {
+    public CartAdapter(List<ItemCartModel> itemCartModelList, Context context) {
         this.itemCartModelList = itemCartModelList;
-        this.fragment_familyBox = fragment_familyBox;
         this.context = context;
     }
 
@@ -50,17 +48,20 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Cart_Holder> {
         holder.BindData(model);
 
         holder.imgIncrease.setOnClickListener(v -> {
+                    CartActivity cartActivity = (CartActivity) context;
                     ItemCartModel model2 = itemCartModelList.get(holder.getAdapterPosition());
                     int count = model2.getAmount() + 1;
                     holder.tvAmount.setText(String.valueOf(count));
                     model2.setAmount(count);
                     itemCartModelList.set(holder.getAdapterPosition(), model2);
-                    //fragment_familyBox.increase_decrease(model2, holder.getAdapterPosition());
+                    cartActivity.increase_decrease(model2, holder.getAdapterPosition());
                     notifyItemChanged(holder.getAdapterPosition());
                 }
 
         );
         holder.imgDecrease.setOnClickListener(v -> {
+                    CartActivity cartActivity = (CartActivity) context;
+
                     ItemCartModel model2 = itemCartModelList.get(holder.getAdapterPosition());
                     int count = model2.getAmount();
                     if (count > 1) {
@@ -68,7 +69,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.Cart_Holder> {
                         model2.setAmount(count);
                         holder.tvAmount.setText(String.valueOf(count));
                         itemCartModelList.set(holder.getAdapterPosition(), model2);
-                        //fragment_familyBox.increase_decrease(model2, holder.getAdapterPosition());
+                        cartActivity.increase_decrease(model2, holder.getAdapterPosition());
                         notifyItemChanged(holder.getAdapterPosition());
                     }
 

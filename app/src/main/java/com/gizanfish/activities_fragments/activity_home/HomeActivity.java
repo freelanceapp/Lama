@@ -30,6 +30,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.gizanfish.R;
+import com.gizanfish.activities_fragments.activity_cart.CartActivity;
+import com.gizanfish.activities_fragments.activity_checkout.CheckoutActivity;
 import com.gizanfish.activities_fragments.activity_home.fragments.Fragment_Family_Box;
 import com.gizanfish.activities_fragments.activity_home.fragments.Fragment_Department;
 import com.gizanfish.activities_fragments.activity_home.fragments.Fragment_Main;
@@ -106,7 +108,7 @@ public class HomeActivity extends AppCompatActivity {
 
         binding.flSearch.setOnClickListener(view -> {
 
-            Intent intent = new Intent(this, SearchActivity.class);
+            Intent intent = new Intent(this, CartActivity.class);
             startActivityForResult(intent, 100);
 
         });

@@ -54,7 +54,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     private ActivityProductDetailsBinding binding;
     private String lang;
     private SingleProductDataModel productDataModel;
-    private int product_id;
+    private String product_id;
     private Preferences preferences;
     private UserModel userModel;
     private ProductDetialsSlidingImage_Adapter slidingImage__adapter;
@@ -83,7 +83,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     private void getDataFromIntent() {
         Intent intent = getIntent();
         if (intent != null) {
-            product_id = intent.getIntExtra("product_id", 0);
+            product_id= intent.getIntExtra("product_id", 0)+"";
 
         }
 
@@ -119,8 +119,65 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
             binding.tvData.setText(singleProductDataModel.getFeatures());
 
         });
+        binding.imageDecrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Integer.parseInt(binding.tvAmount.getText().toString()) > 1) {
+                    binding.tvAmount.setText((Integer.parseInt(binding.tvAmount.getText().toString()) - 1) + "");
+                }
+            }
+        });
+        binding.imageIncrease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                binding.tvAmount.setText((Integer.parseInt(binding.tvAmount.getText().toString()) + 1) + "");
+
+            }
+        });
+        binding.flAddToCart.setOnClickListener(v -> addToCart(singleProductDataModel));
+
 
     }
+    public void addToCart(SingleProductDataModel singleProductDataModel) {
+            if (cartSingleton.getItemCartModelList() != null && cartSingleton.getItemCartModelList().size() > 0) {
+                int postion = -1;
+
+                for (int i = 0; i < cartSingleton.getItemCartModelList().size(); i++) {
+                    ItemCartModel itemCartModel = cartSingleton.getItemCartModelList().get(i);
+                  //  Log.e("fllflfl", color_id + " " + itemCartModel.getPrice_id());
+
+                    if (product_id.equals(itemCartModel.getProduct_id() + "")) {
+                        postion = i;
+                        break;
+                    }
+                }
+                if (postion > -1) {
+                    ItemCartModel itemCartModel = cartSingleton.getItemCartModelList().get(postion);
+                    itemCartModel.setAmount(itemCartModel.getAmount() + Integer.parseInt(binding.tvAmount.getText().toString()));
+                    itemCartModel.setPrice(itemCartModel.getAmount() * singleProductDataModel.getPrice());
+                    cartSingleton.deleteItem(postion);
+                    cartSingleton.addItem(itemCartModel);
+//                    if (binding.expandLayout.isExpanded()) {
+//                        binding.expandLayout.collapse(true);
+//                    } else {
+//                        binding.expandLayout.expand(true);
+//                    }
+                    Toast.makeText(this, getResources().getString(R.string.add_to_cart), Toast.LENGTH_SHORT).show();
+                } else {
+                    ItemCartModel itemCartModel = new ItemCartModel(product_id, singleProductDataModel.getTitle(), singleProductDataModel.getPrice(),  Integer.parseInt(binding.tvAmount.getText().toString()), singleProductDataModel.getImage());
+                    cartSingleton.addItem(itemCartModel);
+
+                    Toast.makeText(this, getResources().getString(R.string.add_to_cart), Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                ItemCartModel itemCartModel = new ItemCartModel(product_id, singleProductDataModel.getTitle(), singleProductDataModel.getPrice(),  Integer.parseInt(binding.tvAmount.getText().toString()),singleProductDataModel.getImage() );
+                cartSingleton.addItem(itemCartModel);
+
+                Toast.makeText(this, getResources().getString(R.string.add_to_cart), Toast.LENGTH_SHORT).show();
+            }
+
+    }
+
 
     private void getOrder() {
         ProgressDialog dialog = Common.createProgressDialog(this, getString(R.string.wait));

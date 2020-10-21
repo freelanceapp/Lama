@@ -133,7 +133,7 @@ public interface Service {
     );
 
     @GET("api/product")
-    Call<SingleProductDataModel> Product_detials(@Query("product_id") int product_id);
+    Call<SingleProductDataModel> Product_detials(@Query("product_id") String product_id);
 
     @GET("api/one-order")
     Call<OrderModel> order_detials(@Query("order_id") int order_id);
