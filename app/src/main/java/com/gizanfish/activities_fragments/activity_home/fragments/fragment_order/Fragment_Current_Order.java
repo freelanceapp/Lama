@@ -113,6 +113,8 @@ public class Fragment_Current_Order extends Fragment implements SwipeRefreshLayo
                             if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {
                                 orderModelList.clear();
                                 orderModelList.addAll(response.body().getData());
+                                Log.e("mmmmmmm",orderModelList.size()+"");
+
                                 if (orderModelList.size() > 0) {
 
                                     adapter.notifyDataSetChanged();
