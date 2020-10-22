@@ -25,6 +25,7 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import com.gizanfish.singleton.CartSingleton;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -80,6 +81,7 @@ public class Fragment_Address extends Fragment implements OnMapReadyCallback, Go
     private final String fineLocPerm = Manifest.permission.ACCESS_FINE_LOCATION;
     private final int loc_req = 1225;
     private AddOrderModel addOrderModel;
+    private CartSingleton singleton;
 
 
     public static Fragment_Address newInstance(AddOrderModel addOrderModel) {
@@ -106,6 +108,7 @@ public class Fragment_Address extends Fragment implements OnMapReadyCallback, Go
 
 
     private void initView() {
+        singleton = CartSingleton.newInstance();
         activity = (CheckoutActivity) getActivity();
         lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         binding.setAction(this);
@@ -409,9 +412,12 @@ public class Fragment_Address extends Fragment implements OnMapReadyCallback, Go
     public void onNext() {
 
         if (addOrderModel.isStep1Valid(activity)) {
+            addOrderModel.setProducts(singleton.getItemCartModelList());
             activity.updateModel(addOrderModel);
-            activity.displayFragmentPaymentType();
+            activity.createOrder();
         }
+
+
     }
 
     @Override

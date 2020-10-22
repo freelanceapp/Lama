@@ -65,7 +65,7 @@
                     />
 
                 <TextView
-
+                    android:id="@+id/tvtitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -73,7 +73,6 @@
                     android:layout_marginEnd="5dp"
                     android:clickable="false"
                     android:longClickable="false"
-                    android:text="@{model.title}"
                     android:textColor="@color/white"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -188,31 +187,28 @@
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="35dp"
-                            >
+                            android:layout_height="35dp">
 
                             <TextView
                                 android:id="@+id/descriptions"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="@string/descriptions"
-                                android:textColor="@color/white"
+                                android:background="@color/colorPrimary"
+                                android:gravity="center_vertical"
                                 android:paddingStart="16dp"
                                 android:paddingEnd="16dp"
-                                android:gravity="center_vertical"
-                                android:background="@color/colorPrimary"
-                                />
+                                android:text="@string/descriptions"
+                                android:textColor="@color/white" />
 
                             <TextView
                                 android:id="@+id/preparation_way"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="@string/preparation_way"
                                 android:gravity="center_vertical"
-                                android:textColor="@color/black"
                                 android:paddingStart="16dp"
                                 android:paddingEnd="16dp"
-                                />
+                                android:text="@string/preparation_way"
+                                android:textColor="@color/black" />
                         </LinearLayout>
 
                         <FrameLayout
@@ -235,13 +231,13 @@
                 </androidx.core.widget.NestedScrollView>
 
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="bottom"
-                >
+                android:orientation="horizontal">
 
                 <FrameLayout
                     android:layout_width="0dp"
@@ -334,7 +330,6 @@
                         >
 
 
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -349,6 +344,7 @@
                             android:textColor="@color/white"
                             android:textSize="15sp"
                             tools:ignore="RtlCompat" />
+
                         <FrameLayout
                             android:layout_width="25dp"
                             android:layout_height="25dp"

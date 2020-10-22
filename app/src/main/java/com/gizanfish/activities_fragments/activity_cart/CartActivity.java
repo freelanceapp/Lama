@@ -38,29 +38,30 @@ import java.util.Locale;
 
 import io.paperdb.Paper;
 
-public class CartActivity extends AppCompatActivity implements Listeners.BackListener,Swipe.SwipeListener{
+public class CartActivity extends AppCompatActivity implements Listeners.BackListener, Swipe.SwipeListener {
     private ActivityCartBinding binding;
     private String lang;
     private LinearLayoutManager manager;
     private CartSingleton singleton;
     private CartAdapter adapter;
-    private List<ItemCartModel> itemCartModelList;    private Preferences preferences;
+    private List<ItemCartModel> itemCartModelList;
+    private Preferences preferences;
     private UserModel userModel;
-    private double total=0;
+    private double total = 0;
     private boolean isDataChanged = false;
 
     @Override
     protected void attachBaseContext(Context newBase) {
         Paper.init(newBase);
-        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang","ar")));
+        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", "ar")));
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_cart);
         initView();
     }
-
 
 
     private void initView() {
@@ -75,17 +76,19 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
         itemCartModelList.addAll(singleton.getItemCartModelList());
         manager = new LinearLayoutManager(this);
         binding.recView.setLayoutManager(manager);
-        adapter = new CartAdapter( itemCartModelList, this);
-
+        adapter = new CartAdapter(itemCartModelList, this);
+       // binding.recView.setAdapter(adapter);
         ItemTouchHelper.SimpleCallback simpleCallback = new Swipe(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, this);
         ItemTouchHelper helper = new ItemTouchHelper(simpleCallback);
         helper.attachToRecyclerView(binding.recView);
 
         binding.btnCheckout.setOnClickListener(view -> navigateToCheckoutActivity());
+        updateUI();
 //        Log.e("llll",settingmodel.getSettings().getDelivery_value()+"");
 
 
     }
+
     private void navigateToCheckoutActivity() {
         if (userModel != null) {
             Intent intent = new Intent(this, CheckoutActivity.class);
@@ -115,14 +118,13 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
         if (itemCartModelList.size() == 0) {
             // Log.e("lllllss", itemCartModelList.size() + "");
 
-            binding.btnCheckout.setVisibility(View.GONE);
+            binding.consTotal.setVisibility(View.GONE);
             binding.llEmptyCart.setVisibility(View.VISIBLE);
             binding.tvTotal.setText("");
 
         } else {
-            binding.btnCheckout.setVisibility(View.VISIBLE);
+            binding.consTotal.setVisibility(View.VISIBLE);
             binding.llEmptyCart.setVisibility(View.GONE);
-
 
 
         }
@@ -130,16 +132,18 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
         //updateCartCount(itemCartModelList.size());
 
     }
+
     private void calculateTotal() {
         total = 0;
-        for (ItemCartModel model:itemCartModelList){
+        for (ItemCartModel model : itemCartModelList) {
 
-            total += model.getAmount()*model.getPrice();
+            total += model.getAmount() * model.getPrice();
 
         }
 
-        binding.tvTotal.setText(String.format(Locale.ENGLISH,"%s %s",String.valueOf(total),getString(R.string.sar)));
+        binding.tvTotal.setText(String.format(Locale.ENGLISH, "%s %s", String.valueOf(total), getString(R.string.sar)));
     }
+
     @Override
     public void onSwipe(int pos, int dir) {
         CreateCartDeleteDialog(pos);
@@ -168,7 +172,7 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
                 updateUI();
                 //  calculateTotal();
                 if (itemCartModelList.size() == 0) {
-                  //  binding.llCheckout.setVisibility(View.GONE);
+                    //  binding.llCheckout.setVisibility(View.GONE);
                     binding.llEmptyCart.setVisibility(View.VISIBLE);
                     //binding.llTotal.setVisibility(View.GONE);
 
@@ -190,8 +194,8 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
 
     @Override
     public void back() {
-        if (isDataChanged){
-            Log.e("gg","yyy");
+        if (isDataChanged) {
+            Log.e("gg", "yyy");
             setResult(RESULT_OK);
         }
         finish();
@@ -203,14 +207,13 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
     }
 
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode==100&&resultCode==RESULT_OK&&data!=null){
+        if (requestCode == 100 && resultCode == RESULT_OK && data != null) {
             OrderModel orderModel = (OrderModel) data.getSerializableExtra("data");
             navigateToOrderDetailsActivity(orderModel);
-            preferences.create_update_userData(this,null);
+          //  preferences.u(this, null);
             updateUI();
             finish();
         }
@@ -218,7 +221,7 @@ public class CartActivity extends AppCompatActivity implements Listeners.BackLis
 
     private void navigateToOrderDetailsActivity(OrderModel orderModel) {
         Intent intent = new Intent(this, OrderDetailsActivity.class);
-        intent.putExtra("data",orderModel);
+        intent.putExtra("data", orderModel);
         startActivity(intent);
     }
 

@@ -30,6 +30,7 @@ import com.gizanfish.preferences.Preferences;
 import com.gizanfish.remote.Api;
 import com.gizanfish.share.Common;
 import com.gizanfish.singleton.CartSingleton;
+import com.gizanfish.tags.Tags;
 
 import java.io.IOException;
 import java.util.List;
@@ -254,7 +255,7 @@ public class CheckoutActivity extends AppCompatActivity implements Listeners.Bac
             dialog.show();
             //  String date = new SimpleDateFormat("dd-MM-yyyy",Locale.ENGLISH).format(new Date(addOrderModel.getDate()));
             //  itemCartUploadModel = new ItemCartUploadModel(userModel.getUser().getUser_id(),addOrderModel.getAddress(),String.valueOf(addOrderModel.getLat()),String.valueOf(addOrderModel.getLng()),date,String.valueOf(addOrderModel.getTime()/1000),addOrderModel.getPayment_type(),singleton.getItemCartModelList(),String.valueOf(copoun),String.valueOf(total_cost));
-            Api.getService("http://pay.anaqh.com.sa/")
+            Api.getService(Tags.base_url)
                     .createOrder(userModel.getUser().getToken(), addOrderModel)
                     .enqueue(new Callback<OrderModel>() {
                         @Override
@@ -265,19 +266,19 @@ public class CheckoutActivity extends AppCompatActivity implements Listeners.Bac
 
                                 if (response.body() != null) {
 
-                                    orderModel = response.body();
-                                    if (addOrderModel.getPay_type().equals("cash")) {
+//                                    orderModel = response.body();
+//                                    if (addOrderModel.getPay_type().equals("cash")) {
                                         Toast.makeText(CheckoutActivity.this, getString(R.string.suc), Toast.LENGTH_SHORT).show();
                                         Intent intent = getIntent();
                                         intent.putExtra("data", orderModel);
                                         setResult(RESULT_OK, intent);
                                         finish();
-                                    } else {
-                                        Intent intent = new Intent(CheckoutActivity.this, TelrActivity.class);
-                                        intent.putExtra("data", response.body().getTler());
-                                        startActivityForResult(intent, 200);
-
-                                    }
+//                                    } else {
+//                                        Intent intent = new Intent(CheckoutActivity.this, TelrActivity.class);
+//                                        intent.putExtra("data", response.body().getTler());
+//                                        startActivityForResult(intent, 200);
+//
+//                                    }
 //                                    }else {
 //                                        Intent intent = new Intent(CheckoutActivity.this, OnlinePaymentActivity.class);
 //                                        intent.putExtra("data", response.body());
