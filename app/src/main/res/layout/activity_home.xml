@@ -10,7 +10,9 @@
         <variable
             name="notCount"
             type="Integer" />
-
+        <variable
+            name="cartcount"
+            type="Integer" />
         <variable
             name="title"
             type="String" />
@@ -119,7 +121,18 @@
                           android:padding="8dp"
                           android:src="@drawable/ic_cart"
                           android:tint="@color/colorPrimary" />
-
+                      <TextView
+                          android:layout_width="17dp"
+                          android:layout_height="17dp"
+                          android:layout_margin="2dp"
+                          android:background="@drawable/circle_primary2"
+                          android:clickable="false"
+                          android:gravity="center"
+                          android:longClickable="false"
+                          android:singleLine="true"
+                          android:text='@{String.valueOf(cartcount),default="0"}'
+                          android:textColor="@color/white"
+                          android:textSize="12sp" />
 
                   </FrameLayout>
               </LinearLayout>

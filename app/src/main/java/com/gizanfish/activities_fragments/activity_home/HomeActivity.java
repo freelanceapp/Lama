@@ -825,7 +825,7 @@ public class HomeActivity extends AppCompatActivity {
 
 
     public void updateCartCount(int count) {
-
+binding.setCartcount(count);
     }
 
     @Override

@@ -38,6 +38,8 @@ import com.gizanfish.share.Common;
 import com.gizanfish.singleton.CartSingleton;
 import com.gizanfish.tags.Tags;
 
+import org.jsoup.Jsoup;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +62,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     private ProductDetialsSlidingImage_Adapter slidingImage__adapter;
     private CartSingleton cartSingleton;
     private SingleProductDataModel singleProductDataModel;
-
+    private CartSingleton singleton;
 
 
     @Override
@@ -83,7 +85,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     private void getDataFromIntent() {
         Intent intent = getIntent();
         if (intent != null) {
-            product_id= intent.getIntExtra("product_id", 0)+"";
+            product_id = intent.getIntExtra("product_id", 0) + "";
 
         }
 
@@ -101,7 +103,6 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
         binding.setModel(productDataModel);
         binding.tab.setupWithViewPager(binding.pager);
         binding.progBarSlider.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-
 
 
         binding.descriptions.setOnClickListener(v -> {
@@ -138,44 +139,45 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
 
 
     }
+
     public void addToCart(SingleProductDataModel singleProductDataModel) {
-            if (cartSingleton.getItemCartModelList() != null && cartSingleton.getItemCartModelList().size() > 0) {
-                int postion = -1;
+        if (cartSingleton.getItemCartModelList() != null && cartSingleton.getItemCartModelList().size() > 0) {
+            int postion = -1;
 
-                for (int i = 0; i < cartSingleton.getItemCartModelList().size(); i++) {
-                    ItemCartModel itemCartModel = cartSingleton.getItemCartModelList().get(i);
-                  //  Log.e("fllflfl", color_id + " " + itemCartModel.getPrice_id());
+            for (int i = 0; i < cartSingleton.getItemCartModelList().size(); i++) {
+                ItemCartModel itemCartModel = cartSingleton.getItemCartModelList().get(i);
+                //  Log.e("fllflfl", color_id + " " + itemCartModel.getPrice_id());
 
-                    if (product_id.equals(itemCartModel.getProduct_id() + "")) {
-                        postion = i;
-                        break;
-                    }
+                if (product_id.equals(itemCartModel.getProduct_id() + "")) {
+                    postion = i;
+                    break;
                 }
-                if (postion > -1) {
-                    ItemCartModel itemCartModel = cartSingleton.getItemCartModelList().get(postion);
-                    itemCartModel.setAmount(itemCartModel.getAmount() + Integer.parseInt(binding.tvAmount.getText().toString()));
-                    itemCartModel.setPrice(itemCartModel.getAmount() * singleProductDataModel.getPrice());
-                    cartSingleton.deleteItem(postion);
-                    cartSingleton.addItem(itemCartModel);
+            }
+            if (postion > -1) {
+                ItemCartModel itemCartModel = cartSingleton.getItemCartModelList().get(postion);
+                itemCartModel.setAmount(itemCartModel.getAmount() + Integer.parseInt(binding.tvAmount.getText().toString()));
+                itemCartModel.setPrice(itemCartModel.getAmount() * singleProductDataModel.getPrice());
+                cartSingleton.deleteItem(postion);
+                cartSingleton.addItem(itemCartModel);
 //                    if (binding.expandLayout.isExpanded()) {
 //                        binding.expandLayout.collapse(true);
 //                    } else {
 //                        binding.expandLayout.expand(true);
 //                    }
-                    Toast.makeText(this, getResources().getString(R.string.add_to_cart), Toast.LENGTH_SHORT).show();
-                } else {
-                    ItemCartModel itemCartModel = new ItemCartModel(product_id, singleProductDataModel.getTitle(), singleProductDataModel.getPrice(),  Integer.parseInt(binding.tvAmount.getText().toString()), singleProductDataModel.getImage());
-                    cartSingleton.addItem(itemCartModel);
-
-                    Toast.makeText(this, getResources().getString(R.string.add_to_cart), Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(this, getResources().getString(R.string.add_to_cart), Toast.LENGTH_SHORT).show();
             } else {
-                ItemCartModel itemCartModel = new ItemCartModel(product_id, singleProductDataModel.getTitle(), singleProductDataModel.getPrice(),  Integer.parseInt(binding.tvAmount.getText().toString()),singleProductDataModel.getImage() );
+                ItemCartModel itemCartModel = new ItemCartModel(product_id, singleProductDataModel.getTitle(), singleProductDataModel.getPrice(), Integer.parseInt(binding.tvAmount.getText().toString()), singleProductDataModel.getImage());
                 cartSingleton.addItem(itemCartModel);
 
                 Toast.makeText(this, getResources().getString(R.string.add_to_cart), Toast.LENGTH_SHORT).show();
             }
+        } else {
+            ItemCartModel itemCartModel = new ItemCartModel(product_id, singleProductDataModel.getTitle(), singleProductDataModel.getPrice(), Integer.parseInt(binding.tvAmount.getText().toString()), singleProductDataModel.getImage());
+            cartSingleton.addItem(itemCartModel);
 
+            Toast.makeText(this, getResources().getString(R.string.add_to_cart), Toast.LENGTH_SHORT).show();
+        }
+        binding.setCartcount(cartSingleton.getItemCartModelList().size());
     }
 
 
@@ -235,14 +237,22 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     private void UPDATEUI(SingleProductDataModel body) {
 
         binding.setModel(body);
+        try {
+            binding.tvtitle.setText(Jsoup.parse(body.getTitle()).text());
+            binding.tvData.setText(Jsoup.parse(body.getContents()).text());
+
+        } catch (Exception e) {
+            binding.tvtitle.setText(body.getTitle());
+            binding.tvData.setText(singleProductDataModel.getContents());
+
+            Log.e("kskskks", e.toString());
+        }
         this.singleProductDataModel = body;
-        binding.tvData.setText(singleProductDataModel.getContents());
         binding.progBarSlider.setVisibility(View.GONE);
         slidingImage__adapter = new ProductDetialsSlidingImage_Adapter(this, body.getProducts_images());
         binding.pager.setAdapter(slidingImage__adapter);
 
     }
-
 
 
     @Override
@@ -282,5 +292,17 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     }
 
 
+    public void updateCartCount(int count) {
+        binding.setCartcount(count);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        singleton = CartSingleton.newInstance();
+        if (singleton.getItemCartModelList() != null) {
+            updateCartCount(singleton.getItemCount());
+        }
+
+    }
 }
