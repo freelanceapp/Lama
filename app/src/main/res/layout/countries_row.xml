@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.gizanfish.models.CountryModel" />
+            type="com.lama.models.CountryModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

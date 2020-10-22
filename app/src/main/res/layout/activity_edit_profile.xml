@@ -13,16 +13,16 @@
 
         <variable
             name="backListener"
-            type="com.gizanfish.interfaces.Listeners.BackListener" />
+            type="com.lama.interfaces.Listeners.BackListener" />
         \
 
         <variable
             name="editModel"
-            type="com.gizanfish.models.EditProfileModel" />
+            type="com.lama.models.EditProfileModel" />
 
         <variable
             name="updateListener"
-            type="com.gizanfish.interfaces.Listeners.UpdateProfileListener" />
+            type="com.lama.interfaces.Listeners.UpdateProfileListener" />
 
     </data>
 

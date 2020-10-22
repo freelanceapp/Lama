@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.gizanfish.models.OrderModel" />
+            type="com.lama.models.OrderModel" />
     </data>
 
     <LinearLayout

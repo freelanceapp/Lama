@@ -7,7 +7,7 @@
 
         <variable
             name="bankModel"
-            type="com.gizanfish.models.BankDataModel.BankModel" />
+            type="com.lama.models.BankDataModel.BankModel" />
 
         <import type="android.view.View" />
 

@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.gizanfish.models.MainCategoryDataModel.Data" />
+            type="com.lama.models.MainCategoryDataModel.Data" />
 
         <variable
             name="lang"

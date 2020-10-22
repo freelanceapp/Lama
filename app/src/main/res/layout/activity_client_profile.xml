@@ -17,11 +17,11 @@
 
         <variable
             name="model"
-            type="com.gizanfish.models.UserModel" />
+            type="com.lama.models.UserModel" />
 
         <variable
             name="backListener"
-            type="com.gizanfish.interfaces.Listeners.BackListener" />
+            type="com.lama.interfaces.Listeners.BackListener" />
     </data>
 
     <LinearLayout

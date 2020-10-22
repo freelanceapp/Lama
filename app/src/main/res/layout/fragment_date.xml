@@ -6,7 +6,7 @@
 
         <variable
             name="action"
-            type="com.gizanfish.interfaces.Listeners.NextPreviousAction" />
+            type="com.lama.interfaces.Listeners.NextPreviousAction" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

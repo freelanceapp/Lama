@@ -6,11 +6,11 @@
     <data>
         <variable
             name="action"
-            type="com.gizanfish.interfaces.Listeners.SettingActions" />
+            type="com.lama.interfaces.Listeners.SettingActions" />
 
         <variable
             name="model"
-            type="com.gizanfish.models.UserModel" />
+            type="com.lama.models.UserModel" />
         <variable
             name="lang"
             type="String" />

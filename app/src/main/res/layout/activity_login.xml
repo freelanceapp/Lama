@@ -11,11 +11,11 @@
 
         <variable
             name="listener"
-            type="com.gizanfish.interfaces.Listeners.LoginListener" />
+            type="com.lama.interfaces.Listeners.LoginListener" />
 
         <variable
             name="loginModel"
-            type="com.gizanfish.models.LoginModel" />
+            type="com.lama.models.LoginModel" />
     </data>
 
     <FrameLayout

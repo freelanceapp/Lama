@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.gizanfish.models.SingleProductDataModel.Sizes.Colors" />
+            type="com.lama.models.SingleProductDataModel.Sizes.Colors" />
 
         <import type="android.view.View" />
     </data>

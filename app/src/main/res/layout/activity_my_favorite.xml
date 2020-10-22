@@ -7,7 +7,7 @@
 
         <variable
             name="backListener"
-            type="com.gizanfish.interfaces.Listeners.BackListener" />
+            type="com.lama.interfaces.Listeners.BackListener" />
 
         <variable
             name="lang"

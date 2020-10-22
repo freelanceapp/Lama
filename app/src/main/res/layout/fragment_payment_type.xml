@@ -6,7 +6,7 @@
 
         <variable
             name="action"
-            type="com.gizanfish.interfaces.Listeners.PaymentTypeAction" />
+            type="com.lama.interfaces.Listeners.PaymentTypeAction" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

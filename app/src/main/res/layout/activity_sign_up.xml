@@ -7,11 +7,11 @@
 
         <variable
             name="listener"
-            type="com.gizanfish.interfaces.Listeners.SignUpListener" />
+            type="com.lama.interfaces.Listeners.SignUpListener" />
 
         <variable
             name="model"
-            type="com.gizanfish.models.SignUpModel" />
+            type="com.lama.models.SignUpModel" />
     </data>
 
     <FrameLayout

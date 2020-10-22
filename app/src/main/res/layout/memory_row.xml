@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.gizanfish.models.SingleProductDataModel.Sizes.Size" />
+            type="com.lama.models.SingleProductDataModel.Sizes.Size" />
 
         <variable
             name="lang"
