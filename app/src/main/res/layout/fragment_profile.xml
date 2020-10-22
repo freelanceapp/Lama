@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="action"
+            type="com.gizanfish.interfaces.Listeners.SettingActions" />
 
         <variable
             name="model"
@@ -117,8 +120,146 @@
                         android:layout_marginEnd="10dp"
                         android:textColor="@color/color2"
                         android:textSize="14sp"
-                        android:text='@{model.user.phone_code+model.user.phone}'
+                        android:text='@{model.user.phone_code+model.user.phone+""}'
                         />
+                </LinearLayout>
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/small_rounded_gray"
+                android:onClick="@{()->action.whatsapp()}"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    >
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        >
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@color/colorPrimary"
+                            android:layout_gravity="center"
+                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_whatsapp"
+                            android:padding="2dp"
+                            />
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/color2"
+                        android:textSize="16sp"
+                        android:text="@string/contact_us_on_whatsapp"
+                        />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="3dp"
+                        app:cardBackgroundColor="@color/white"
+                        android:layout_margin="5dp"
+                        >
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_right_arrow"
+                            android:rotation='@{lang.equals("ar")?180:0}'
+                            android:tint="@color/color5"
+                            />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </FrameLayout>
+
+            <FrameLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/small_rounded_gray"
+                android:onClick="@{()->action.editProfile()}"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="10dp"
+                    >
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        >
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@color/color5"
+                            android:layout_gravity="center"
+                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_edit"
+                            android:tint="@color/white"
+                            android:padding="2dp"
+                            />
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/color2"
+                        android:textSize="16sp"
+                        android:text="@string/edit_profile"
+                        />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="3dp"
+                        app:cardBackgroundColor="@color/white"
+                        android:layout_margin="5dp"
+                        >
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_right_arrow"
+                            android:rotation='@{lang.equals("ar")?180:0}'
+                            android:tint="@color/color5"
+                            />
+                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
             </FrameLayout>
 
@@ -129,6 +270,79 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/small_rounded_gray"
+                android:onClick="@{()->action.aboutApp()}"
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    >
+                    <FrameLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        >
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@color/color2"
+                            android:layout_gravity="center"
+                            />
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_info"
+                            android:tint="@color/white"
+                            android:padding="2dp"
+                            />
+                    </FrameLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/color2"
+                        android:textSize="16sp"
+                        android:text="@string/about_app"
+                        />
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="3dp"
+                        app:cardBackgroundColor="@color/white"
+                        android:layout_margin="5dp"
+                        >
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_right_arrow"
+                            android:rotation='@{lang.equals("ar")?180:0}'
+                            android:tint="@color/color5"
+                            />
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/small_rounded_gray"
+                android:onClick="@{()->action.terms()}"
 
                 >
                 <LinearLayout
@@ -170,7 +384,7 @@
                         android:layout_marginEnd="10dp"
                         android:textColor="@color/color2"
                         android:textSize="16sp"
-                        android:text="@string/electronic_cards"
+                        android:text="@string/terms_and_conditions"
                         />
                     <androidx.cardview.widget.CardView
                         android:layout_width="40dp"
@@ -199,6 +413,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/small_rounded_gray"
+                android:onClick="@{()->action.logout()}"
 
                 >
                 <LinearLayout
@@ -219,14 +434,14 @@
                         <de.hdodenhof.circleimageview.CircleImageView
                             android:layout_width="35dp"
                             android:layout_height="35dp"
-                            android:src="@color/colorPrimary"
+                            android:src="@color/red"
                             android:layout_gravity="center"
                             />
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/ic_contact"
+                            android:src="@drawable/ic_logout"
                             android:tint="@color/white"
                             android:padding="2dp"
                             />
@@ -240,74 +455,7 @@
                         android:layout_marginEnd="10dp"
                         android:textColor="@color/color2"
                         android:textSize="16sp"
-                        android:text="@string/contact_us"
-                        />
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        app:cardCornerRadius="20dp"
-                        app:cardElevation="3dp"
-                        app:cardBackgroundColor="@color/white"
-                        android:layout_margin="5dp"
-                        >
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_right_arrow"
-                            android:rotation='@{lang.equals("ar")?180:0}'
-                            android:tint="@color/color5"
-                            />
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/small_rounded_gray"
-
-                >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_gravity="center_vertical"
-                    android:layout_margin="10dp"
-                    >
-                    <FrameLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        >
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
-                            android:src="@color/color5"
-                            android:layout_gravity="center"
-                            />
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center"
-                            android:src="@drawable/ic_edit"
-                            android:tint="@color/white"
-                            android:padding="2dp"
-                            />
-                    </FrameLayout>
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
-                        android:textColor="@color/color2"
-                        android:textSize="16sp"
-                        android:text="@string/edit_profile"
+                        android:text="@string/logout"
                         />
                     <androidx.cardview.widget.CardView
                         android:layout_width="40dp"

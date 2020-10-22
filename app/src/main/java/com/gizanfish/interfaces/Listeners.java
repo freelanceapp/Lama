@@ -25,31 +25,15 @@ public interface Listeners {
     }
 
     interface SettingActions {
-        void order();
 
-        void charge();
-
-        void returns();
-
+        void editProfile();
         void terms();
 
         void aboutApp();
 
         void logout();
 
-        void favorite();
-
-        void bankAccount();
-
         void share();
-
-        void rateApp();
-
-        void arLang();
-
-        void enLang();
-
-        void profile();
 
         void whatsapp();
 
