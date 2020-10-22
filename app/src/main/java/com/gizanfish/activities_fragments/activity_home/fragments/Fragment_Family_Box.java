@@ -26,6 +26,7 @@ import com.gizanfish.R;
 import com.gizanfish.activities_fragments.activity_checkout.CheckoutActivity;
 import com.gizanfish.activities_fragments.activity_home.HomeActivity;
 import com.gizanfish.activities_fragments.activity_order_details.OrderDetailsActivity;
+import com.gizanfish.activities_fragments.activity_product_details.ProductDetailsActivity;
 import com.gizanfish.adapters.CartAdapter;
 import com.gizanfish.adapters.FamilyBoxesAdapter;
 import com.gizanfish.adapters.MostSellerAdapter;
@@ -167,5 +168,10 @@ public class Fragment_Family_Box extends Fragment {
 
     }
 
+    public void setItemDataOffers(SingleProductDataModel model) {
 
+        Intent intent = new Intent(activity, ProductDetailsActivity.class);
+        intent.putExtra("product_id", model.getId());
+        startActivityForResult(intent, 100);
+    }
 }

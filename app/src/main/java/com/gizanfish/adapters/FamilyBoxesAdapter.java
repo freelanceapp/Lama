@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.gizanfish.R;
 import com.gizanfish.activities_fragments.activity_home.fragments.Fragment_Department;
+import com.gizanfish.activities_fragments.activity_home.fragments.Fragment_Family_Box;
 import com.gizanfish.activities_fragments.activity_home.fragments.Fragment_Main;
 import com.gizanfish.activities_fragments.activity_home.fragments.fragment_order.Fragment_Order;
 import com.gizanfish.activities_fragments.activity_search.SearchActivity;
@@ -58,9 +59,11 @@ public class FamilyBoxesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
                     Fragment_Main fragment_main = (Fragment_Main) fragment;
                     fragment_main.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
-                } else if (fragment instanceof Fragment_Order) {
-                    Fragment_Order fragment_order = (Fragment_Order) fragment;
-                    //fragment_order.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
+                }
+
+                else if (fragment instanceof Fragment_Family_Box) {
+                    Fragment_Family_Box fragment_order = (Fragment_Family_Box) fragment;
+                    fragment_order.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
                 } else if (fragment instanceof Fragment_Department) {
                     Fragment_Department fragment_department = (Fragment_Department) fragment;
                     fragment_department.setItemDataOffers(list.get(myHolder.getAdapterPosition()));

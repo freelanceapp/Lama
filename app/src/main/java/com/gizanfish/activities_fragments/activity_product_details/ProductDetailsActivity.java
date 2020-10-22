@@ -62,6 +62,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     private ProductDetialsSlidingImage_Adapter slidingImage__adapter;
     private CartSingleton cartSingleton;
     private SingleProductDataModel singleProductDataModel;
+    private CartSingleton singleton;
 
 
     @Override
@@ -176,7 +177,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
 
             Toast.makeText(this, getResources().getString(R.string.add_to_cart), Toast.LENGTH_SHORT).show();
         }
-
+        binding.setCartcount(cartSingleton.getItemCartModelList().size());
     }
 
 
@@ -238,12 +239,15 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
         binding.setModel(body);
         try {
             binding.tvtitle.setText(Jsoup.parse(body.getTitle()).text());
+            binding.tvData.setText(Jsoup.parse(body.getContents()).text());
+
         } catch (Exception e) {
             binding.tvtitle.setText(body.getTitle());
+            binding.tvData.setText(singleProductDataModel.getContents());
+
             Log.e("kskskks", e.toString());
         }
         this.singleProductDataModel = body;
-        binding.tvData.setText(singleProductDataModel.getContents());
         binding.progBarSlider.setVisibility(View.GONE);
         slidingImage__adapter = new ProductDetialsSlidingImage_Adapter(this, body.getProducts_images());
         binding.pager.setAdapter(slidingImage__adapter);
@@ -288,4 +292,17 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     }
 
 
+    public void updateCartCount(int count) {
+        binding.setCartcount(count);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        singleton = CartSingleton.newInstance();
+        if (singleton.getItemCartModelList() != null) {
+            updateCartCount(singleton.getItemCount());
+        }
+
+    }
 }

@@ -50,7 +50,7 @@ public class CheckoutActivity extends AppCompatActivity implements Listeners.Bac
     private Fragment_Payment_Type fragment_payment_type;
     private AddOrderModel addOrderModel;
     private CartSingleton singleton;
-   // private ItemCartUploadModel itemCartUploadModel;
+    // private ItemCartUploadModel itemCartUploadModel;
     private UserModel userModel;
     private Preferences preferences;
     public double total_cost = 0.0;
@@ -266,13 +266,13 @@ public class CheckoutActivity extends AppCompatActivity implements Listeners.Bac
 
                                 if (response.body() != null) {
 
-//                                    orderModel = response.body();
+                                    orderModel = response.body();
 //                                    if (addOrderModel.getPay_type().equals("cash")) {
-                                        Toast.makeText(CheckoutActivity.this, getString(R.string.suc), Toast.LENGTH_SHORT).show();
-                                        Intent intent = getIntent();
-                                        intent.putExtra("data", orderModel);
-                                        setResult(RESULT_OK, intent);
-                                        finish();
+                                    Toast.makeText(CheckoutActivity.this, getString(R.string.suc), Toast.LENGTH_SHORT).show();
+                                    Intent intent = getIntent();
+                                    intent.putExtra("data", orderModel);
+                                    setResult(RESULT_OK, intent);
+                                    finish();
 //                                    } else {
 //                                        Intent intent = new Intent(CheckoutActivity.this, TelrActivity.class);
 //                                        intent.putExtra("data", response.body().getTler());
