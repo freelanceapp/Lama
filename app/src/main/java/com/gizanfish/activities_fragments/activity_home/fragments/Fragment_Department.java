@@ -88,16 +88,19 @@ public class Fragment_Department extends Fragment {
 
         binding.progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
 
-        binding.recViewOffer.setLayoutManager(new GridLayoutManager(activity, 2));
+        binding.recViewOffer.setLayoutManager(new LinearLayoutManager(activity));
         offersAdapter = new OffersAdapter(offersDataList, activity, this);
         binding.recViewOffer.setAdapter(offersAdapter);
         binding.tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int pos = tab.getPosition();
-                MainCategoryDataModel.Data categoryModel = mainDepartmentsList.get(pos);
-                department_id = categoryModel.getId() + "";
-                getOffersProducts();
+                if (mainDepartmentsList.size()>0){
+                    MainCategoryDataModel.Data categoryModel = mainDepartmentsList.get(pos);
+                    department_id = categoryModel.getId() + "";
+                    getOffersProducts();
+                }
+
             }
 
             @Override
@@ -122,6 +125,7 @@ public class Fragment_Department extends Fragment {
                     public void onResponse(Call<MainCategoryDataModel> call, Response<MainCategoryDataModel> response) {
                         binding.progBar.setVisibility(View.GONE);
                         if (response.isSuccessful()) {
+
                             updateTabUI(response.body());
 
                         } else {
@@ -244,13 +248,6 @@ public class Fragment_Department extends Fragment {
 
     }
 
-    public void setDepartment() {
-        getOffersProducts();
-    }
-
-    public void updateCartCount(int itemCount) {
-        activity.updateCartCount(itemCount);
-    }
 
     public void setItemDataOffers(SingleProductDataModel model) {
 
@@ -261,6 +258,9 @@ public class Fragment_Department extends Fragment {
 
 
     private void updateTabUI(MainCategoryDataModel data) {
+        mainDepartmentsList.clear();
+        mainDepartmentsList.addAll(data.getData());
+
         for (MainCategoryDataModel.Data categoryModel1 : data.getData()) {
 
             binding.tab.addTab(binding.tab.newTab().setText(categoryModel1.getTitle()));
@@ -268,8 +268,7 @@ public class Fragment_Department extends Fragment {
 
         }
 
-        new Handler().postDelayed(
-                () -> binding.tab.getTabAt(0).select(), 100);
+        new Handler().postDelayed(() -> binding.tab.getTabAt(0).select(), 100);
 
 
     }

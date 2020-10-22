@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+
         <variable
             name="lang"
             type="String" />
+
 
     </data>
 
@@ -19,12 +22,12 @@
             android:id="@+id/tab"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            app:tabBackground="@drawable/tab_order_indicator"
+            app:tabBackground="@drawable/tab_order"
             app:tabGravity="fill"
             app:tabIndicatorHeight="0dp"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/white" />
+            app:tabTextColor="@color/colorPrimary" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
