@@ -122,7 +122,6 @@
                 <TextView
                     android:id="@+id/tvStatus"
                     order_status="@{model.order_status}"
-                    pay_type="@{model.pay_type}"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"

@@ -130,12 +130,9 @@ public class UI_General_Method {
     }
 
 
-    @BindingAdapter({"order_status", "pay_type"})
-    public static void orderStatus(TextView textView, String status, String pay_type) {
-        if (pay_type.equals("card")) {
-            textView.setText(textView.getContext().getString(R.string.accepted));
-
-        } else if (status.equals("new_order")) {
+    @BindingAdapter({"order_status"})
+    public static void orderStatus(TextView textView, String status) {
+    if (status.equals("new_order")) {
             textView.setText(textView.getContext().getString(R.string.new_order));
         } else if (status.equals("driver_accept")) {
             textView.setText(textView.getContext().getString(R.string.accepted));
