@@ -27,7 +27,12 @@
             app:tabIndicatorHeight="0dp"
             app:tabMode="scrollable"
             app:tabSelectedTextColor="@color/white"
-            app:tabTextColor="@color/colorPrimary" />
+            app:tabTextColor="@color/colorPrimary"
+
+
+
+
+            />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
