@@ -19,7 +19,7 @@ import com.lama.R;
 import com.lama.activities_fragments.activity_home.HomeActivity;
 import com.lama.activities_fragments.activity_product_details.ProductDetailsActivity;
 import com.lama.adapters.FamilyBoxesAdapter;
-import com.lama.databinding.FragmentFamilyBoxBinding;
+import com.lama.databinding.FragmentMyReservationsBinding;
 import com.lama.models.ProductDataModel;
 import com.lama.models.SingleProductDataModel;
 import com.lama.models.UserModel;
@@ -36,24 +36,24 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_Family_Box extends Fragment {
+public class Fragment_My_Reservations extends Fragment {
 
     private HomeActivity activity;
-    private FragmentFamilyBoxBinding binding;
+    private FragmentMyReservationsBinding binding;
     private Preferences preferences;
     private UserModel userModel;
     private String lang;
     private LinearLayoutManager manager;
     private List<SingleProductDataModel> familyBoxesList;
     private FamilyBoxesAdapter familyBoxesAdapter;
-    public static Fragment_Family_Box newInstance() {
-        return new Fragment_Family_Box();
+    public static Fragment_My_Reservations newInstance() {
+        return new Fragment_My_Reservations();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_family_box, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_reservations, container, false);
         initView();
         getFamilyBoxes();
         return binding.getRoot();

@@ -1,43 +1,42 @@
 {
   "project_info": {
-    "project_number": "342798312969",
-    "firebase_url": "https://gizan-fish.firebaseio.com",
-    "project_id": "gizan-fish",
-    "storage_bucket": "gizan-fish.appspot.com"
+    "project_number": "1004124992709",
+    "firebase_url": "https://lamah-2f266.firebaseio.com",
+    "project_id": "lamah-2f266",
+    "storage_bucket": "lamah-2f266.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:342798312969:android:ac2e133c03495e83b83ad8",
+        "mobilesdk_app_id": "1:1004124992709:android:89b74781c7124957f92cac",
         "android_client_info": {
-          "package_name": "com.gizanfish"
+          "package_name": "com.lama"
         }
       },
       "oauth_client": [
         {
-          "client_id": "342798312969-h7la663ic5rnmtp5n4oni4ueq20vv80q.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.gizanfish",
-            "certificate_hash": "0b354f3a0c02eaba29510595124a7d68aea8edf3"
-          }
-        },
-        {
-          "client_id": "342798312969-qs9eb3ov10e9ja279a0s6ipmvolbbnrv.apps.googleusercontent.com",
+          "client_id": "1004124992709-p51lt3qjrue17uarrrspl4he9qtgrh2j.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDLu9RnGFwrQ35OeVh7R9Inbd3DIJgTbh4"
+          "current_key": "AIzaSyBAzeVqmWvBie38W_r5zZSVIb3MwiMlJRM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "342798312969-qs9eb3ov10e9ja279a0s6ipmvolbbnrv.apps.googleusercontent.com",
+              "client_id": "1004124992709-p51lt3qjrue17uarrrspl4he9qtgrh2j.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1004124992709-mglsu10fcbufdlc7ieg7sm2ki1e20gpf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ragaaab.Lamah"
+              }
             }
           ]
         }

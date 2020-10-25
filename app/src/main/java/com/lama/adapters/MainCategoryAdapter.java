@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lama.R;
 import com.lama.activities_fragments.activity_home.HomeActivity;
-import com.lama.activities_fragments.activity_home.fragments.Fragment_Department;
-import com.lama.activities_fragments.activity_home.fragments.fragment_order.Fragment_Order;
+import com.lama.activities_fragments.activity_home.fragments.Fragment_Search;
+import com.lama.activities_fragments.activity_home.fragments.Fragment_Profile;
 import com.lama.databinding.MainCategoryRowBinding;
 import com.lama.models.MainCategoryDataModel;
 
@@ -31,8 +31,8 @@ public class MainCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private HomeActivity activity;
     private String lang;
     private Fragment fragment;
-    private Fragment_Order fragment_order;
-    private Fragment_Department fragment_department;
+    private Fragment_Profile fragment_profile;
+    private Fragment_Search fragment_search;
     private int i = -1;
 
     public MainCategoryAdapter(List<MainCategoryDataModel.Data> list, Context context, Fragment fragment) {
@@ -64,7 +64,7 @@ public class MainCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         MyHolder myHolder = (MyHolder) holder;
         MainCategoryDataModel.Data mainDepartments = list.get(position);
 
-        myHolder.binding.cardView.setCardBackgroundColor(Color.parseColor(mainDepartments.getBackground()));
+       /* myHolder.binding.cardView.setCardBackgroundColor(Color.parseColor(mainDepartments.getBackground()));
         myHolder.binding.setModel(mainDepartments);
         myHolder.binding.setLang(lang);
         myHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -73,18 +73,18 @@ public class MainCategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 i = position;
                 notifyDataSetChanged();
             }
-        });
+        });*/
         if (i == position) {
-            if (fragment instanceof Fragment_Order) {
-                fragment_order = (Fragment_Order) fragment;
+            if (fragment instanceof Fragment_Profile) {
+                fragment_profile = (Fragment_Profile) fragment;
                // fragment_order.setDepartment(list.get(holder.getLayoutPosition()).getId() + "");
-            } else if (fragment instanceof Fragment_Department) {
-                fragment_department = (Fragment_Department) fragment;
+            } else if (fragment instanceof Fragment_Search) {
+                fragment_search = (Fragment_Search) fragment;
                 //fragment_department.setDepartment(list.get(holder.getLayoutPosition()).getId() + "");
             }
-            myHolder.binding.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.second));
+            //myHolder.binding.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.second));
         } else {
-            myHolder.binding.cardView.setCardBackgroundColor(Color.parseColor(mainDepartments.getBackground()));
+        //    myHolder.binding.cardView.setCardBackgroundColor(Color.parseColor(mainDepartments.getBackground()));
         }
 
     }

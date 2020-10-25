@@ -31,11 +31,11 @@ import androidx.fragment.app.FragmentManager;
 
 import com.lama.R;
 import com.lama.activities_fragments.activity_cart.CartActivity;
-import com.lama.activities_fragments.activity_home.fragments.Fragment_Family_Box;
-import com.lama.activities_fragments.activity_home.fragments.Fragment_Department;
+import com.lama.activities_fragments.activity_home.fragments.Fragment_My_Reservations;
+import com.lama.activities_fragments.activity_home.fragments.Fragment_Search;
 import com.lama.activities_fragments.activity_home.fragments.Fragment_Main;
+import com.lama.activities_fragments.activity_home.fragments.Fragment_Settings;
 import com.lama.activities_fragments.activity_home.fragments.Fragment_Profile;
-import com.lama.activities_fragments.activity_home.fragments.fragment_order.Fragment_Order;
 import com.lama.activities_fragments.activity_login.LoginActivity;
 import com.lama.activities_fragments.activity_notification.NotificationActivity;
 import com.lama.databinding.ActivityHomeBinding;
@@ -70,10 +70,10 @@ public class HomeActivity extends AppCompatActivity {
     private Preferences preferences;
     private FragmentManager fragmentManager;
     private Fragment_Main fragment_main;
-    private Fragment_Family_Box fragment_familyBox;
-    private Fragment_Order fragment_order;
+    private Fragment_My_Reservations fragment_familyBox;
     private Fragment_Profile fragment_profile;
-    private Fragment_Department fragment_department;
+    private Fragment_Settings fragment_settings;
+    private Fragment_Search fragment_search;
     private UserModel userModel;
     private String lang;
     private String token;
@@ -104,12 +104,6 @@ public class HomeActivity extends AppCompatActivity {
         binding.setLang(lang);
 
 
-        binding.flSearch.setOnClickListener(view -> {
-
-            Intent intent = new Intent(this, CartActivity.class);
-            startActivityForResult(intent, 100);
-
-        });
 
 
         binding.flNotification.setOnClickListener(view -> {
@@ -130,21 +124,21 @@ public class HomeActivity extends AppCompatActivity {
             displayFragmentMain();
         });
 
-        binding.flDepartments.setOnClickListener(v -> {
-            displayFragmentDepartment();
+        binding.flSearch.setOnClickListener(v -> {
+            displayFragmentSearch();
         });
 
-        binding.flFamilyBox.setOnClickListener(v -> {
-            displayFragmentFamilyBox();
-        });
-
-        binding.flMyOrder.setOnClickListener(v -> {
-
-            displayFragmentMyOrder();
+        binding.flMyReservations.setOnClickListener(v -> {
+            displayFragmentMyReservations();
         });
 
         binding.flProfile.setOnClickListener(v -> {
+
             displayFragmentProfile();
+        });
+
+        binding.flSettings.setOnClickListener(v -> {
+            displayFragmentSettings();
         });
 
         displayFragmentMain();
@@ -218,15 +212,15 @@ public class HomeActivity extends AppCompatActivity {
             if (fragment_familyBox != null && fragment_familyBox.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_familyBox).commit();
             }
-            if (fragment_department != null && fragment_department.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_department).commit();
+            if (fragment_search != null && fragment_search.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_search).commit();
             }
-            if (fragment_order != null && fragment_order.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_order).commit();
-            }
-
             if (fragment_profile != null && fragment_profile.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_profile).commit();
+            }
+
+            if (fragment_settings != null && fragment_settings.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_settings).commit();
             }
             if (fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().show(fragment_main).commit();
@@ -241,35 +235,35 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void displayFragmentDepartment() {
+    public void displayFragmentSearch() {
 
         try {
             updateDepartmentsUi();
-            if (fragment_department == null) {
-                fragment_department = Fragment_Department.newInstance();
+            if (fragment_search == null) {
+                fragment_search = Fragment_Search.newInstance();
             }
 
 
             if (fragment_main != null && fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_main).commit();
             }
-            if (fragment_profile != null && fragment_profile.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_profile).commit();
+            if (fragment_settings != null && fragment_settings.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_settings).commit();
             }
 
-            if (fragment_order != null && fragment_order.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_order).commit();
+            if (fragment_profile != null && fragment_profile.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_profile).commit();
             }
 
             if (fragment_familyBox != null && fragment_familyBox.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_familyBox).commit();
             }
 
-            if (fragment_department.isAdded()) {
-                fragmentManager.beginTransaction().show(fragment_department).commit();
+            if (fragment_search.isAdded()) {
+                fragmentManager.beginTransaction().show(fragment_search).commit();
 
             } else {
-                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_department, "fragment_department").addToBackStack("fragment_department").commit();
+                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_search, "fragment_department").addToBackStack("fragment_department").commit();
 
             }
             binding.setTitle(getString(R.string.department));
@@ -277,25 +271,25 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    public void displayFragmentFamilyBox() {
+    public void displayFragmentMyReservations() {
         try {
             updateFamilyBoxUi();
             if (fragment_familyBox == null) {
-                fragment_familyBox = Fragment_Family_Box.newInstance();
+                fragment_familyBox = Fragment_My_Reservations.newInstance();
             }
 
-            if (fragment_profile != null && fragment_profile.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_profile).commit();
+            if (fragment_settings != null && fragment_settings.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_settings).commit();
             }
-            if (fragment_department != null && fragment_department.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_department).commit();
+            if (fragment_search != null && fragment_search.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_search).commit();
             }
             if (fragment_main != null && fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_main).commit();
             }
 
-            if (fragment_order != null && fragment_order.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_order).commit();
+            if (fragment_profile != null && fragment_profile.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_profile).commit();
             }
             if (fragment_familyBox.isAdded()) {
                 fragmentManager.beginTransaction().show(fragment_familyBox).commit();
@@ -309,46 +303,10 @@ public class HomeActivity extends AppCompatActivity {
 
     }
 
-    public void displayFragmentMyOrder() {
-
-        try {
-            updateOrderUi();
-            if (fragment_order == null) {
-                fragment_order = Fragment_Order.newInstance();
-            }
-
-
-            if (fragment_main != null && fragment_main.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_main).commit();
-            }
-            if (fragment_department != null && fragment_department.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_department).commit();
-            }
-
-            if (fragment_profile != null && fragment_profile.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_profile).commit();
-            }
-
-            if (fragment_familyBox != null && fragment_familyBox.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_familyBox).commit();
-            }
-
-            if (fragment_order.isAdded()) {
-                fragmentManager.beginTransaction().show(fragment_order).commit();
-
-            } else {
-                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_order, "fragment_order").addToBackStack("fragment_order").commit();
-
-            }
-            binding.setTitle(getString(R.string.offers));
-        } catch (Exception e) {
-        }
-    }
-
     public void displayFragmentProfile() {
 
         try {
-            updateProfileUi();
+            updateOrderUi();
             if (fragment_profile == null) {
                 fragment_profile = Fragment_Profile.newInstance();
             }
@@ -357,12 +315,12 @@ public class HomeActivity extends AppCompatActivity {
             if (fragment_main != null && fragment_main.isAdded()) {
                 fragmentManager.beginTransaction().hide(fragment_main).commit();
             }
-            if (fragment_department != null && fragment_department.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_department).commit();
+            if (fragment_search != null && fragment_search.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_search).commit();
             }
 
-            if (fragment_order != null && fragment_order.isAdded()) {
-                fragmentManager.beginTransaction().hide(fragment_order).commit();
+            if (fragment_settings != null && fragment_settings.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_settings).commit();
             }
 
             if (fragment_familyBox != null && fragment_familyBox.isAdded()) {
@@ -373,7 +331,43 @@ public class HomeActivity extends AppCompatActivity {
                 fragmentManager.beginTransaction().show(fragment_profile).commit();
 
             } else {
-                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_profile, "fragment_profile").addToBackStack("fragment_profile").commit();
+                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_profile, "fragment_order").addToBackStack("fragment_order").commit();
+
+            }
+            binding.setTitle(getString(R.string.offers));
+        } catch (Exception e) {
+        }
+    }
+
+    public void displayFragmentSettings() {
+
+        try {
+            updateProfileUi();
+            if (fragment_settings == null) {
+                fragment_settings = Fragment_Settings.newInstance();
+            }
+
+
+            if (fragment_main != null && fragment_main.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_main).commit();
+            }
+            if (fragment_search != null && fragment_search.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_search).commit();
+            }
+
+            if (fragment_profile != null && fragment_profile.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_profile).commit();
+            }
+
+            if (fragment_familyBox != null && fragment_familyBox.isAdded()) {
+                fragmentManager.beginTransaction().hide(fragment_familyBox).commit();
+            }
+
+            if (fragment_settings.isAdded()) {
+                fragmentManager.beginTransaction().show(fragment_settings).commit();
+
+            } else {
+                fragmentManager.beginTransaction().add(R.id.fragment_app_container, fragment_settings, "fragment_profile").addToBackStack("fragment_profile").commit();
 
             }
             binding.setTitle(getString(R.string.more));
@@ -389,25 +383,25 @@ public class HomeActivity extends AppCompatActivity {
         binding.tvHome.setTextColor(ContextCompat.getColor(this,R.color.white));
         binding.tvHome.setVisibility(View.VISIBLE);
 
-        binding.flDepartments.setBackgroundResource(0);
-        binding.iconDepts.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvDepts.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvDepts.setVisibility(View.GONE);
+        binding.flSearch.setBackgroundResource(0);
+        binding.iconSearch.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvSearch.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvSearch.setVisibility(View.GONE);
 
-        binding.flFamilyBox.setBackgroundResource(0);
-        binding.iconBox.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvBox.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvBox.setVisibility(View.GONE);
-
-        binding.flMyOrder.setBackgroundResource(0);
-        binding.iconOrder.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvOrder.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvOrder.setVisibility(View.GONE);
+        binding.flMyReservations.setBackgroundResource(0);
+        binding.iconReservations.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvReservations.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvReservations.setVisibility(View.GONE);
 
         binding.flProfile.setBackgroundResource(0);
-        binding.iconUser.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvUser.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvUser.setVisibility(View.GONE);
+        binding.iconProfile.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvProfile.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvProfile.setVisibility(View.GONE);
+
+        binding.flSettings.setBackgroundResource(0);
+        binding.iconSettings.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvSettings.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvSettings.setVisibility(View.GONE);
 
     }
     private void updateDepartmentsUi(){
@@ -416,25 +410,25 @@ public class HomeActivity extends AppCompatActivity {
         binding.tvHome.setTextColor(ContextCompat.getColor(this,R.color.black));
         binding.tvHome.setVisibility(View.GONE);
 
-        binding.flDepartments.setBackgroundResource(R.drawable.small_rounded_btn_primary);
-        binding.iconDepts.setColorFilter(ContextCompat.getColor(this,R.color.white));
-        binding.tvDepts.setTextColor(ContextCompat.getColor(this,R.color.white));
-        binding.tvDepts.setVisibility(View.VISIBLE);
+        binding.flSearch.setBackgroundResource(R.drawable.small_rounded_btn_primary);
+        binding.iconSearch.setColorFilter(ContextCompat.getColor(this,R.color.white));
+        binding.tvSearch.setTextColor(ContextCompat.getColor(this,R.color.white));
+        binding.tvSearch.setVisibility(View.VISIBLE);
 
-        binding.flFamilyBox.setBackgroundResource(0);
-        binding.iconBox.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvBox.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvBox.setVisibility(View.GONE);
-
-        binding.flMyOrder.setBackgroundResource(0);
-        binding.iconOrder.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvOrder.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvOrder.setVisibility(View.GONE);
+        binding.flMyReservations.setBackgroundResource(0);
+        binding.iconReservations.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvReservations.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvReservations.setVisibility(View.GONE);
 
         binding.flProfile.setBackgroundResource(0);
-        binding.iconUser.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvUser.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvUser.setVisibility(View.GONE);
+        binding.iconProfile.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvProfile.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvProfile.setVisibility(View.GONE);
+
+        binding.flSettings.setBackgroundResource(0);
+        binding.iconSettings.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvSettings.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvSettings.setVisibility(View.GONE);
 
     }
     private void updateFamilyBoxUi(){
@@ -443,25 +437,25 @@ public class HomeActivity extends AppCompatActivity {
         binding.tvHome.setTextColor(ContextCompat.getColor(this,R.color.black));
         binding.tvHome.setVisibility(View.GONE);
 
-        binding.flDepartments.setBackgroundResource(0);
-        binding.iconDepts.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvDepts.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvDepts.setVisibility(View.GONE);
+        binding.flSearch.setBackgroundResource(0);
+        binding.iconSearch.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvSearch.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvSearch.setVisibility(View.GONE);
 
-        binding.flFamilyBox.setBackgroundResource(R.drawable.small_rounded_btn_primary);
-        binding.iconBox.setColorFilter(ContextCompat.getColor(this,R.color.white));
-        binding.tvBox.setTextColor(ContextCompat.getColor(this,R.color.white));
-        binding.tvBox.setVisibility(View.VISIBLE);
-
-        binding.flMyOrder.setBackgroundResource(0);
-        binding.iconOrder.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvOrder.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvOrder.setVisibility(View.GONE);
+        binding.flMyReservations.setBackgroundResource(R.drawable.small_rounded_btn_primary);
+        binding.iconReservations.setColorFilter(ContextCompat.getColor(this,R.color.white));
+        binding.tvReservations.setTextColor(ContextCompat.getColor(this,R.color.white));
+        binding.tvReservations.setVisibility(View.VISIBLE);
 
         binding.flProfile.setBackgroundResource(0);
-        binding.iconUser.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvUser.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvUser.setVisibility(View.GONE);
+        binding.iconProfile.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvProfile.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvProfile.setVisibility(View.GONE);
+
+        binding.flSettings.setBackgroundResource(0);
+        binding.iconSettings.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvSettings.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvSettings.setVisibility(View.GONE);
 
     }
     private void updateOrderUi(){
@@ -470,25 +464,26 @@ public class HomeActivity extends AppCompatActivity {
         binding.tvHome.setTextColor(ContextCompat.getColor(this,R.color.black));
         binding.tvHome.setVisibility(View.GONE);
 
-        binding.flDepartments.setBackgroundResource(0);
-        binding.iconDepts.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvDepts.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvDepts.setVisibility(View.GONE);
+        binding.flSearch.setBackgroundResource(0);
+        binding.iconSearch.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvSearch.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvSearch.setVisibility(View.GONE);
 
-        binding.flFamilyBox.setBackgroundResource(0);
-        binding.iconBox.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvBox.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvBox.setVisibility(View.GONE);
 
-        binding.flMyOrder.setBackgroundResource(R.drawable.small_rounded_btn_primary);
-        binding.iconOrder.setColorFilter(ContextCompat.getColor(this,R.color.white));
-        binding.tvOrder.setTextColor(ContextCompat.getColor(this,R.color.white));
-        binding.tvOrder.setVisibility(View.VISIBLE);
+        binding.flMyReservations.setBackgroundResource(0);
+        binding.iconReservations.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvReservations.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvReservations.setVisibility(View.GONE);
 
-        binding.flProfile.setBackgroundResource(0);
-        binding.iconUser.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvUser.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvUser.setVisibility(View.GONE);
+        binding.flProfile.setBackgroundResource(R.drawable.small_rounded_btn_primary);
+        binding.iconProfile.setColorFilter(ContextCompat.getColor(this,R.color.white));
+        binding.tvProfile.setTextColor(ContextCompat.getColor(this,R.color.white));
+        binding.tvProfile.setVisibility(View.VISIBLE);
+
+        binding.flSettings.setBackgroundResource(0);
+        binding.iconSettings.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvSettings.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvSettings.setVisibility(View.GONE);
 
     }
     private void updateProfileUi(){
@@ -497,25 +492,26 @@ public class HomeActivity extends AppCompatActivity {
         binding.tvHome.setTextColor(ContextCompat.getColor(this,R.color.black));
         binding.tvHome.setVisibility(View.GONE);
 
-        binding.flDepartments.setBackgroundResource(0);
-        binding.iconDepts.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvDepts.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvDepts.setVisibility(View.GONE);
+        binding.flSearch.setBackgroundResource(0);
+        binding.iconSearch.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvSearch.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvSearch.setVisibility(View.GONE);
 
-        binding.flFamilyBox.setBackgroundResource(0);
-        binding.iconBox.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvBox.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvBox.setVisibility(View.GONE);
 
-        binding.flMyOrder.setBackgroundResource(0);
-        binding.iconOrder.setColorFilter(ContextCompat.getColor(this,R.color.black));
-        binding.tvOrder.setTextColor(ContextCompat.getColor(this,R.color.black));
-        binding.tvOrder.setVisibility(View.GONE);
+        binding.flMyReservations.setBackgroundResource(0);
+        binding.iconReservations.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvReservations.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvReservations.setVisibility(View.GONE);
 
-        binding.flProfile.setBackgroundResource(R.drawable.small_rounded_btn_primary);
-        binding.iconUser.setColorFilter(ContextCompat.getColor(this,R.color.white));
-        binding.tvUser.setTextColor(ContextCompat.getColor(this,R.color.white));
-        binding.tvUser.setVisibility(View.VISIBLE);
+        binding.flProfile.setBackgroundResource(0);
+        binding.iconProfile.setColorFilter(ContextCompat.getColor(this,R.color.black));
+        binding.tvProfile.setTextColor(ContextCompat.getColor(this,R.color.black));
+        binding.tvProfile.setVisibility(View.GONE);
+
+        binding.flSettings.setBackgroundResource(R.drawable.small_rounded_btn_primary);
+        binding.iconSettings.setColorFilter(ContextCompat.getColor(this,R.color.white));
+        binding.tvSettings.setTextColor(ContextCompat.getColor(this,R.color.white));
+        binding.tvSettings.setVisibility(View.VISIBLE);
 
     }
 

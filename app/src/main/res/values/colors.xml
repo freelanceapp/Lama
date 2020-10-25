@@ -14,8 +14,15 @@
     <color name="gray5">#c3c3c3</color>
     <color name="gray6">#a0a0a0</color>
     <color name="gray7">#f8f8f8</color>
-    <color name="gray8">#6f6d6d</color>
-    <color name="gray9">#616161</color>
+    <color name="gray8">#b0afbb</color>
+    <color name="gray9">#757575</color>
+    <color name="gray10">#f2f2f2</color>
+    <color name="gray11">#5f6366</color>
+    <color name="gray12">#474646</color>
+    <color name="gray13">#dcdcdc</color>
+    <color name="gray14">#939292</color>
+    <color name="gray15">#b1b0b0</color>
+    <color name="gray16">#f5f5f5</color>
     <color name="third">#f6f6f6</color>
     <color name="card_bg">#f5f5f3</color>
     <color name="text_title">#3d64af</color>
@@ -36,5 +43,6 @@
     <color name="offer_grid_1">#ffc333</color>
     <color name="offer_grid_2">#C18D0F</color>
     <color name="trans_black">#55000000</color>
+    <color name="gray1_trans">#ddf5f5f5</color>
 
 </resources>

@@ -203,5 +203,14 @@
     <string name="descriptions">المواصفات</string>
     <string name="preparation_way">طريقة التحضير</string>
     <string name="quantity">Quantity</string>
-
+    <string name="my_reservations">حجوزاتى</string>
+    <string name="settings">الأعدادات</string>
+    <string name="general_settings">الأعدادات العامة</string>
+    <string name="terms_of_service">الشروط والأحكام</string>
+    <string name="help">المساعدة</string>
+    <string name="version_no">رقم الأصدار</string>
+    <string name="notification_tone">نغمة التنبيه</string>
+    <string name="default1">عادى</string>
+    <string name="Become_a_partner">كن شريكا</string>
+    <string name="Social_Media">مواقع التواصل</string>
 </resources>

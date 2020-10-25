@@ -3,6 +3,7 @@ package com.lama.preferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.lama.models.DefaultSettings;
 import com.lama.models.UserModel;
 import com.lama.tags.Tags;
 import com.google.gson.Gson;
@@ -21,7 +22,19 @@ public class Preferences {
         return instance;
     }
 
-
+    public DefaultSettings getAppSetting(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences("settingsRef", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        return gson.fromJson(preferences.getString("settings", ""), DefaultSettings.class);
+    }
+    public void createUpdateAppSetting(Context context, DefaultSettings settings) {
+        SharedPreferences preferences = context.getSharedPreferences("settingsRef", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String data = gson.toJson(settings);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("settings", data);
+        editor.apply();
+    }
     public void setIsLanguageSelected(Context context) {
         SharedPreferences preferences = context.getSharedPreferences("language_selected", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();

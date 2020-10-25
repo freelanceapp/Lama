@@ -89,8 +89,7 @@ public class EditProfileActivity extends AppCompatActivity implements Listeners.
 
 
     private void updateUI() {
-        binding.edtName.setText(userModel.getUser().getName());
-        binding.edtEmail.setText(userModel.getUser().getEmail());
+        binding.edtName.setText(userModel.getUser().getName()+"");
 
         editProfileModel.setName(userModel.getUser().getName());
         editProfileModel.setEmail(userModel.getUser().getEmail());

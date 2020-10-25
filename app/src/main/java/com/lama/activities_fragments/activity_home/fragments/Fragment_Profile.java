@@ -76,11 +76,7 @@ public class Fragment_Profile extends Fragment implements Listeners.SettingActio
     }
 
 
-    @Override
-    public void editProfile() {
-        Intent intent = new Intent(activity, EditProfileActivity.class);
-        startActivity(intent);
-    }
+
 
     @Override
     public void terms() {
@@ -111,11 +107,38 @@ public class Fragment_Profile extends Fragment implements Listeners.SettingActio
     }
 
     @Override
-    public void whatsapp() {
-        if (settingmodel != null && settingmodel.getSettings().getWhatsapp() != null) {
-            ViewSocial("https://api.whatsapp.com/send?phone=" + settingmodel.getSettings().getWhatsapp());
-        }
+    public void onEditProfile() {
+        Intent intent = new Intent(activity, EditProfileActivity.class);
+        intent.putExtra("data",preferences.getUserData(activity));
+        startActivityForResult(intent,2);
     }
+
+    @Override
+    public void onLanguageSetting() {
+
+    }
+
+    @Override
+    public void onPrivacy() {
+
+    }
+
+    @Override
+    public void onRate() {
+
+    }
+
+    @Override
+    public void onTone() {
+
+    }
+
+    @Override
+    public void about() {
+
+    }
+
+
 
     private void getAppData() {
 

@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lama.R;
-import com.lama.activities_fragments.activity_home.fragments.Fragment_Department;
+import com.lama.activities_fragments.activity_home.fragments.Fragment_Search;
 import com.lama.activities_fragments.activity_home.fragments.Fragment_Main;
-import com.lama.activities_fragments.activity_home.fragments.fragment_order.Fragment_Order;
+import com.lama.activities_fragments.activity_home.fragments.Fragment_Profile;
 import com.lama.activities_fragments.activity_search.SearchActivity;
 import com.lama.databinding.OfferRowBinding;
 import com.lama.models.SingleProductDataModel;
@@ -57,12 +57,12 @@ public class MostSellerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
                     Fragment_Main fragment_main = (Fragment_Main) fragment;
                     fragment_main.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
-                } else if (fragment instanceof Fragment_Order) {
-                    Fragment_Order fragment_order = (Fragment_Order) fragment;
+                } else if (fragment instanceof Fragment_Profile) {
+                    Fragment_Profile fragment_profile = (Fragment_Profile) fragment;
                     //fragment_order.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
-                } else if (fragment instanceof Fragment_Department) {
-                    Fragment_Department fragment_department = (Fragment_Department) fragment;
-                    fragment_department.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
+                } else if (fragment instanceof Fragment_Search) {
+                    Fragment_Search fragment_search = (Fragment_Search) fragment;
+                  //  fragment_search.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
                 } else if (context instanceof SearchActivity) {
                     SearchActivity searchActivity = (SearchActivity) context;
                     searchActivity.setItemDataOffers(list.get(myHolder.getAdapterPosition()));

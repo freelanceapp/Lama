@@ -18,7 +18,7 @@
             />
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -46,18 +46,6 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
 
-                    <com.google.android.material.tabs.TabLayout
-                        android:id="@+id/tab"
-                        android:layout_width="wrap_content"
-                        android:layout_height="7dp"
-                        android:layout_gravity="bottom|center_horizontal"
-                        android:layout_margin="8dp"
-                        android:layout_marginBottom="8dp"
-                        app:tabBackground="@drawable/tab_indicator"
-                        app:tabGravity="fill"
-                        app:tabIndicatorHeight="0dp"
-                        app:tabMaxWidth="7dp"
-                        app:tabMode="scrollable" />
 
                     <ProgressBar
                         android:id="@+id/progBarSlider"
@@ -65,151 +53,61 @@
                         android:layout_height="35dp"
                         android:layout_gravity="center" />
                 </FrameLayout>
-
-                <FrameLayout
-                    android:id="@+id/flMostSeller"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:minHeight="200dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    >
-
-                    <LinearLayout
-                        android:id="@+id/llFavoriteOffer"
+                    <FrameLayout
+                        android:id="@+id/flCategory"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/best_offers"
-                                android:textColor="@color/black"
-                                android:textSize="13sp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:layout_height="wrap_content">
 
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recViewFavoriteOffers"
+                            android:id="@+id/recViewdepart"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp" />
 
-                    </LinearLayout>
 
-                    <ProgressBar
-                        android:id="@+id/progBarOffer"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_gravity="center" />
+                        <ProgressBar
+                            android:id="@+id/progBarCategory"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            />
+                    </FrameLayout>
 
-                </FrameLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/most_seller"
-                    android:textColor="@color/black"
-                    android:textSize="13sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginTop="5dp"
-                    />
-
-
-                <FrameLayout
-                    android:id="@+id/flMostRate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:minHeight="200dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-
-
-                    >
-
-                    <LinearLayout
+                    <FrameLayout
+                        android:id="@+id/flProducts"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/mobile_accessories"
-                                android:textColor="@color/black"
-                                android:textSize="13sp"
-                                android:visibility="gone"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <Button
-                                android:layout_width="wrap_content"
-                                android:layout_height="35dp"
-                                android:layout_margin="5dp"
-                                android:background="@drawable/rounded_stroke_primary"
-                                android:text="@string/show_all"
-                                android:textColor="@color/colorPrimary"
-                                android:textSize="13sp"
-                                android:visibility="gone"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-
-                                />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
+                        android:layout_marginTop="10dp"
+                        android:minHeight="200dp"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp"
+                        >
                         <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recViewMostSeller"
+                            android:id="@+id/recView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp" />
 
-                    </LinearLayout>
 
-                    <ProgressBar
-                        android:id="@+id/progBarMostSeller"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_gravity="center" />
-                </FrameLayout>
+                        <ProgressBar
+                            android:id="@+id/progBar"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_gravity="center" />
 
 
+                    </FrameLayout>
+
+
+                </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:rotation="90"
-            android:src="@drawable/ic_left_arrow"
-            android:tint="@color/colorPrimary"
-            android:visibility="gone"
-            app:backgroundTint="@color/white"
-            app:borderWidth="2dp"
-            app:elevation="5dp" />
-    </FrameLayout>
 </layout>

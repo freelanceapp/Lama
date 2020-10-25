@@ -21,7 +21,7 @@ import com.lama.R;
 import com.lama.activities_fragments.activity_home.HomeActivity;
 import com.lama.activities_fragments.activity_product_details.ProductDetailsActivity;
 import com.lama.adapters.OffersAdapter;
-import com.lama.databinding.FragmentDepartmentBinding;
+import com.lama.databinding.FragmentSearchBinding;
 import com.lama.models.MainCategoryDataModel;
 import com.lama.models.ProductDataModel;
 import com.lama.models.SingleProductDataModel;
@@ -40,10 +40,10 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fragment_Department extends Fragment {
+public class Fragment_Search extends Fragment {
 
     private HomeActivity activity;
-    private FragmentDepartmentBinding binding;
+    private FragmentSearchBinding binding;
     private Preferences preferences;
     private UserModel userModel;
     private String lang;
@@ -52,14 +52,14 @@ public class Fragment_Department extends Fragment {
     private OffersAdapter offersAdapter;
     private String department_id = "all";
 
-    public static Fragment_Department newInstance() {
-        return new Fragment_Department();
+    public static Fragment_Search newInstance() {
+        return new Fragment_Search();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_department, container, false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false);
         initView();
         getCategory();
         return binding.getRoot();
@@ -113,7 +113,7 @@ public class Fragment_Department extends Fragment {
 
     private void getCategory() {
 
-        Api.getService(Tags.base_url)
+       /* Api.getService(Tags.base_url)
                 .getCategory("off")
                 .enqueue(new Callback<MainCategoryDataModel>() {
                     @Override
@@ -158,7 +158,7 @@ public class Fragment_Department extends Fragment {
                             Log.e("Error", e.getMessage() + "__");
                         }
                     }
-                });
+                });*/
     }
 
     public void getOffersProducts() {
@@ -168,16 +168,16 @@ public class Fragment_Department extends Fragment {
         binding.tvNoData.setVisibility(View.GONE);
 
 
-        try {
-            int uid;
-
+        /*try {
+            int uid;*/
+/*
             if (userModel != null) {
                 uid = userModel.getUser().getId();
             } else {
                 uid = 0;
-            }
-            Api.getService(Tags.base_url).
-                    getOffersProducts("off", uid, department_id, "", "all").
+            }*/
+           /* Api.getService(Tags.base_url).
+                    getOffersProducts("off", department_id, "", "all").
                     enqueue(new Callback<ProductDataModel>() {
                         @Override
                         public void onResponse(Call<ProductDataModel> call, Response<ProductDataModel> response) {
@@ -239,19 +239,20 @@ public class Fragment_Department extends Fragment {
         } catch (Exception e) {
 
         }
-
+*/
 
     }
 
 
-    public void setItemDataOffers(SingleProductDataModel model) {
+   /* public void setItemDataOffers(SingleProductDataModel model) {
 
         Intent intent = new Intent(activity, ProductDetailsActivity.class);
         intent.putExtra("product_id", model.getId());
         startActivityForResult(intent, 100);
     }
 
-
+*/
+/*
     private void updateTabUI(MainCategoryDataModel data) {
         mainDepartmentsList.clear();
         mainDepartmentsList.addAll(data.getData());
@@ -267,4 +268,5 @@ public class Fragment_Department extends Fragment {
 
 
     }
+*/
 }

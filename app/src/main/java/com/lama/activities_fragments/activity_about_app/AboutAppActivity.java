@@ -65,11 +65,16 @@ public class AboutAppActivity extends AppCompatActivity implements Listeners.Bac
         binding.progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(this, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
 
         if (type == 1) {
-            binding.setTitle(getString(R.string.terms_and_conditions));
-        } else if (type == 2) {
             binding.setTitle(getString(R.string.about_app));
 
+        } else if (type == 2) {
+            binding.setTitle(getString(R.string.terms_and_conditions));
+
+        }else if (type == 3) {
+            binding.setTitle(getString(R.string.privacy));
+
         }
+
 
 
         getAppData();

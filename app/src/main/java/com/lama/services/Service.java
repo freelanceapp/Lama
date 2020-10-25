@@ -126,11 +126,12 @@ public interface Service {
 
     @GET("api/genaral-search")
     Call<ProductDataModel> getOffersProducts(@Query("pagination") String pagination,
-                                             @Query("user_id") int user_id,
                                              @Query("departemnt_id") String departemnt_id,
                                              @Query("brand_id") String brand_id,
-                                             @Query("have_offer") String have_offer
-    );
+                                             @Query("have_offer") String have_offer,
+                                             @Query("limit_per_page") String limit_per_page,
+                                             @Query("page") int page
+                                             );
 
     @GET("api/product")
     Call<SingleProductDataModel> Product_detials(@Query("product_id") String product_id);

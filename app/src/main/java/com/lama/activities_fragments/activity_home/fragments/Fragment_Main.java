@@ -17,15 +17,19 @@ import androidx.core.widget.NestedScrollView;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.google.android.material.tabs.TabLayout;
 import com.lama.R;
 import com.lama.activities_fragments.activity_home.HomeActivity;
 import com.lama.activities_fragments.activity_product_details.ProductDetailsActivity;
+import com.lama.adapters.CategoryAdapter;
 import com.lama.adapters.MostSellerAdapter;
 import com.lama.adapters.OffersAdapter;
 import com.lama.adapters.SlidingImage_Adapter;
 import com.lama.databinding.FragmentMainBinding;
+import com.lama.models.MainCategoryDataModel;
 import com.lama.models.ProductDataModel;
 import com.lama.models.SingleProductDataModel;
 import com.lama.models.Slider_Model;
@@ -59,10 +63,12 @@ public class Fragment_Main extends Fragment {
     private boolean isLoading = false;
     private UserModel userModel;
     private SlidingImage_Adapter slidingImage__adapter;
+    private List<MainCategoryDataModel.Data> mainDepartmentsList;
     private List<SingleProductDataModel> offersDataList;
     private OffersAdapter offersAdapter;
-    private List<SingleProductDataModel> mostSellerList;
-    private MostSellerAdapter mostSellerAdapter;
+    private String category_id = "all";
+    private CategoryAdapter categoryAdapter;
+
     public static Fragment_Main newInstance() {
         return new Fragment_Main();
     }
@@ -79,52 +85,55 @@ public class Fragment_Main extends Fragment {
         initView();
         get_slider();
         change_slide_image();
-        getOffersProducts();
-        getMostSeller();
+        getCategory();
     }
 
     private void initView() {
         offersDataList = new ArrayList<>();
-        mostSellerList=new ArrayList<>();
+        mainDepartmentsList = new ArrayList<>();
         activity = (HomeActivity) getActivity();
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(activity);
         Paper.init(activity);
         lang = Paper.book().read("lang", "ar");
 
-        binding.tab.setupWithViewPager(binding.pager);
         binding.progBarSlider.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-        binding.progBarOffer.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
-        binding.progBarMostSeller.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
+        binding.progBar.setVisibility(View.GONE);
+        categoryAdapter = new CategoryAdapter(mainDepartmentsList, this, activity);
 
+        binding.recViewdepart.setLayoutManager(new LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false));
 
-        binding.recViewFavoriteOffers.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
+        binding.recViewdepart.setAdapter(categoryAdapter);
+
         offersAdapter = new OffersAdapter(offersDataList, activity, this);
-        binding.recViewFavoriteOffers.setAdapter(offersAdapter);
 
-        binding.recViewMostSeller.setLayoutManager(new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false));
-        mostSellerAdapter = new MostSellerAdapter(mostSellerList, activity, this);
-        binding.recViewMostSeller.setAdapter(mostSellerAdapter);
+        binding.recView.setLayoutManager(manager);
+        binding.recView.setAdapter(offersAdapter);
 
-
-        binding.nested.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+        binding.recView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
-            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (scrollY > oldScrollY && scrollY > activity.getWindow().getWindowManager().getDefaultDisplay().getHeight()) {
-                    binding.fab.setVisibility(View.VISIBLE);
-                } else {
-                    binding.fab.setVisibility(View.GONE);
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0) {
+                    int total_item = binding.recView.getAdapter().getItemCount();
+                    int last_visible_item = ((LinearLayoutManager) binding.recView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
 
+                    if (total_item >= 20 && (total_item - last_visible_item) == 5 && !isLoading) {
+                        Log.e("kldkkdkdk", "dkkdkkdkdk");
+                        isLoading = true;
+                        int page = current_page + 1;
+                        offersDataList.add(null);
+                        offersAdapter.notifyItemInserted(offersDataList.size() - 1);
+
+                        loadMore(page);
+                    }
                 }
             }
         });
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                binding.nested.fullScroll(View.FOCUS_UP);
-                binding.fab.setVisibility(View.GONE);
-            }
-        });
+
+        getCategory();
+        getOffersProducts();
+
     }
 
     private void get_slider() {
@@ -200,59 +209,55 @@ public class Fragment_Main extends Fragment {
         startActivityForResult(intent, 100);
     }
 
-    public void getOffersProducts() {
-
+    private void getOffersProducts() {
         try {
-            int uid;
-
-            if (userModel != null) {
-                uid = userModel.getUser().getId();
-                Log.e("token", userModel.getUser().getToken());
-
-            } else {
-                uid = 0;
-            }
-            Api.getService(Tags.base_url).
-                    Search("off", uid).
-                    enqueue(new Callback<ProductDataModel>() {
+            offersDataList.clear();
+            // reDataList = new ArrayList<>();
+            offersAdapter.notifyDataSetChanged();
+            // binding.tvNoData.setVisibility(View.GONE);
+            binding.progBar.setVisibility(View.VISIBLE);
+            current_page = 1;
+            Api.getService(Tags.base_url)
+                    .getOffersProducts("on", category_id + "", "", "all", "20", current_page)
+                    .enqueue(new Callback<ProductDataModel>() {
                         @Override
                         public void onResponse(Call<ProductDataModel> call, Response<ProductDataModel> response) {
-                            binding.progBarOffer.setVisibility(View.GONE);
-
-                            if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {
-
-                                offersDataList.clear();
+                            binding.progBar.setVisibility(View.GONE);
+                            if (response.isSuccessful() && response.body() != null && response.body().getData() != null && response.body().getData().size() > 0) {
                                 offersDataList.addAll(response.body().getData());
                                 if (offersDataList.size() > 0) {
+                                    //   Log.e("lllll", reDataList.size() + "");
                                     offersAdapter.notifyDataSetChanged();
+
+                                    //  binding.tvNoData.setVisibility(View.GONE);
                                 } else {
+                                    //  binding.tvNoData.setVisibility(View.VISIBLE);
 
                                 }
-
                             } else {
-                                try {
-
-                                    Log.e("error", response.code() + "_" + response.errorBody().string());
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
                                 if (response.code() == 500) {
                                     Toast.makeText(activity, "Server Error", Toast.LENGTH_SHORT).show();
 
 
                                 } else {
-                                    Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+                                    // binding.tvNoData.setVisibility(View.VISIBLE);
+                                    //   Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
 
+                                    try {
 
+                                        Log.e("error", response.code() + "_" + response.errorBody().string());
+                                    } catch (Exception e) {
+                                        //e.printStackTrace();
+                                    }
                                 }
                             }
                         }
 
                         @Override
                         public void onFailure(Call<ProductDataModel> call, Throwable t) {
-                            binding.progBarOffer.setVisibility(View.GONE);
                             try {
+                                binding.progBar.setVisibility(View.GONE);
+
                                 if (t.getMessage() != null) {
                                     Log.e("error", t.getMessage());
                                     if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
@@ -264,45 +269,41 @@ public class Fragment_Main extends Fragment {
 
                             } catch (Exception e) {
                             }
-
-
                         }
                     });
         } catch (Exception e) {
-
+            Log.e("flfllflfl", e.toString());
         }
-
-
     }
-    public void getMostSeller() {
+
+    private void loadMore(int page) {
+
 
         try {
 
-            Api.getService(Tags.base_url).
-                    getMostSeller("off").
-                    enqueue(new Callback<ProductDataModel>() {
+            Api.getService(Tags.base_url)
+                    .getOffersProducts("on", category_id + "", "", "all", "20", page)
+                    .enqueue(new Callback<ProductDataModel>() {
                         @Override
                         public void onResponse(Call<ProductDataModel> call, Response<ProductDataModel> response) {
-                            binding.progBarMostSeller.setVisibility(View.GONE);
+                            isLoading = false;
+                            if (offersDataList.get(offersDataList.size() - 1) == null) {
+                                offersDataList.remove(offersDataList.size() - 1);
+                                offersAdapter.notifyItemRemoved(offersDataList.size() - 1);
+                            }
 
-                            if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {
+                            if (response.isSuccessful() && response.body() != null && response.body().getData() != null && response.body().getData().size() > 0) {
 
-                                mostSellerList.clear();
-                                mostSellerList.addAll(response.body().getData());
-                                if (mostSellerList.size() > 0) {
-                                    mostSellerAdapter.notifyDataSetChanged();
-                                } else {
+                                int oldPos = offersDataList.size() - 1;
+
+                                offersDataList.addAll(response.body().getData());
+
+                                if (response.body().getData().size() > 0) {
+                                    // current_page = response.body().getCurrent_page();
+                                    offersAdapter.notifyItemRangeChanged(oldPos, offersDataList.size() - 1);
 
                                 }
-
                             } else {
-                                try {
-
-                                    Log.e("error", response.code() + "_" + response.errorBody().string());
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
                                 if (response.code() == 500) {
                                     Toast.makeText(activity, "Server Error", Toast.LENGTH_SHORT).show();
 
@@ -310,15 +311,27 @@ public class Fragment_Main extends Fragment {
                                 } else {
                                     Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
 
+                                    try {
 
+                                        Log.e("error", response.code() + "_" + response.errorBody().string());
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
                                 }
                             }
                         }
 
                         @Override
                         public void onFailure(Call<ProductDataModel> call, Throwable t) {
-                            binding.progBarOffer.setVisibility(View.GONE);
                             try {
+
+                                if (offersDataList.get(offersDataList.size() - 1) == null) {
+                                    isLoading = false;
+                                    offersDataList.remove(offersDataList.size() - 1);
+                                    offersAdapter.notifyItemRemoved(offersDataList.size() - 1);
+
+                                }
+
                                 if (t.getMessage() != null) {
                                     Log.e("error", t.getMessage());
                                     if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
@@ -330,25 +343,77 @@ public class Fragment_Main extends Fragment {
 
                             } catch (Exception e) {
                             }
-
-
                         }
                     });
         } catch (Exception e) {
 
         }
 
-
     }
 
+    private void getCategory() {
+        Api.getService(Tags.base_url)
+                .getCategory("off")
+                .enqueue(new Callback<MainCategoryDataModel>() {
+                    @Override
+                    public void onResponse(Call<MainCategoryDataModel> call, Response<MainCategoryDataModel> response) {
+                        binding.progBarCategory.setVisibility(View.GONE);
+                        if (response.isSuccessful()) {
+                            mainDepartmentsList.clear();
+                            mainDepartmentsList.addAll(response.body().getData());
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 100 && resultCode == RESULT_OK) {
-            getOffersProducts();
-            getMostSeller();
-        }
+                            if (mainDepartmentsList.size() > 0) {
+                                categoryAdapter.notifyDataSetChanged();
+//                                binding.tvNoDatadepart.setVisibility(View.GONE);
+                                Log.e(",dkdfkfkkfk", mainDepartmentsList.get(0).getTitle());
+                            } else {
+//                                binding.tvNoDatadepart.setVisibility(View.VISIBLE);
+
+                            }
+
+
+                        } else {
+                            binding.progBarCategory.setVisibility(View.GONE);
+
+                            try {
+                                Log.e("errorNotCode", response.code() + "__" + response.errorBody().string());
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                            if (response.code() == 500) {
+                                Toast.makeText(activity, "Server Error", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<MainCategoryDataModel> call, Throwable t) {
+                        try {
+                            binding.progBarCategory.setVisibility(View.GONE);
+
+                            if (t.getMessage() != null) {
+                                Log.e("error_not_code", t.getMessage() + "__");
+
+                                if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
+                                    Toast.makeText(activity, getString(R.string.something), Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        } catch (Exception e) {
+                            Log.e("Error", e.getMessage() + "__");
+                        }
+                    }
+                });
+    }
+
+    public void setitemData(String id) {
+
+        category_id = id;
+        getOffersProducts();
     }
 
 

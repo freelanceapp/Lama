@@ -26,16 +26,16 @@ public interface Listeners {
 
     interface SettingActions {
 
-        void editProfile();
         void terms();
-
         void aboutApp();
-
-        void logout();
-
         void share();
-
-        void whatsapp();
+        void onEditProfile();
+        void onLanguageSetting();
+        void onPrivacy();
+        void onRate();
+        void onTone();
+        void about();
+        void logout();
 
 
     }
