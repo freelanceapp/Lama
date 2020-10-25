@@ -63,7 +63,7 @@ public class CategoryProduct_Adapter extends RecyclerView.Adapter<RecyclerView.V
             if (fragment instanceof Fragment_Main) {
 
                 Fragment_Main fragment_main = (Fragment_Main) fragment;
-                fragment_main.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
+               // fragment_main.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
             }
 
 

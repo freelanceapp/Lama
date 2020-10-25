@@ -12,6 +12,7 @@ public class SingleProductDataModel implements Serializable {
     private int markter_id;
     private double price;
     private int price_id;
+    private String address;
     private String contents;
     private String details;
     private String features;
@@ -116,6 +117,10 @@ public class SingleProductDataModel implements Serializable {
 
     public String getColor() {
         return color;
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public boolean isUser_rate() {

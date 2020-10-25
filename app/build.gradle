@@ -68,5 +68,9 @@ dependencies {
     implementation 'com.github.FlyingPumba:SimpleRatingBar:v0.1.5'
     implementation 'com.chaos.view:pinview:1.4.3'
     implementation 'org.jsoup:jsoup:1.11.3'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'com.github.devlight:infinitecycleviewpager:1.0.2'
+
+
 }
 apply plugin: 'com.google.gms.google-services'
