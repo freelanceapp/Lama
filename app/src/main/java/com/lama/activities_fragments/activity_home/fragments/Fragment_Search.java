@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,7 +22,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.lama.R;
 import com.lama.activities_fragments.activity_home.HomeActivity;
 import com.lama.activities_fragments.activity_product_details.ProductDetailsActivity;
+import com.lama.activities_fragments.activity_search.SearchActivity;
 import com.lama.adapters.OffersAdapter;
+import com.lama.adapters.SearchAdapter;
 import com.lama.databinding.FragmentSearchBinding;
 import com.lama.models.MainCategoryDataModel;
 import com.lama.models.ProductDataModel;
@@ -49,8 +53,9 @@ public class Fragment_Search extends Fragment {
     private String lang;
     private List<MainCategoryDataModel.Data> mainDepartmentsList;
     private List<SingleProductDataModel> offersDataList;
-    private OffersAdapter offersAdapter;
+    private SearchAdapter offersAdapter;
     private String department_id = "all";
+    private String query="all";
 
     public static Fragment_Search newInstance() {
         return new Fragment_Search();
@@ -61,7 +66,7 @@ public class Fragment_Search extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false);
         initView();
-        getCategory();
+        search();
         return binding.getRoot();
     }
 
@@ -84,33 +89,60 @@ public class Fragment_Search extends Fragment {
         binding.progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
 
         binding.recViewOffer.setLayoutManager(new LinearLayoutManager(activity));
-        offersAdapter = new OffersAdapter(offersDataList, activity, this);
+        offersAdapter = new SearchAdapter(offersDataList, activity, this);
         binding.recViewOffer.setAdapter(offersAdapter);
-        binding.tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//        binding.tab.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                int pos = tab.getPosition();
+//                if (mainDepartmentsList.size()>0){
+//                    MainCategoryDataModel.Data categoryModel = mainDepartmentsList.get(pos);
+//                    department_id = categoryModel.getId() + "";
+//                    getOffersProducts();
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
+
+        binding.edtSearch.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                int pos = tab.getPosition();
-                if (mainDepartmentsList.size()>0){
-                    MainCategoryDataModel.Data categoryModel = mainDepartmentsList.get(pos);
-                    department_id = categoryModel.getId() + "";
-                    getOffersProducts();
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (editable.toString().length() > 0) {
+                    query = editable.toString();
+
+                    search();
+                    binding.progBar.setVisibility(View.GONE);
+                    binding.recViewOffer.setVisibility(View.VISIBLE);
+                } else {
+                    query = "all";
+                    //productModelList.clear();
+                    //searchAdapter.notifyDataSetChanged();
+
+
                 }
-
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
             }
         });
-
     }
-
     private void getCategory() {
 
        /* Api.getService(Tags.base_url)
@@ -243,6 +275,88 @@ public class Fragment_Search extends Fragment {
 
     }
 
+    public void search() {
+        offersDataList.clear();
+        offersAdapter.notifyDataSetChanged();
+        binding.progBar.setVisibility(View.VISIBLE);
+        binding.tvNoData.setVisibility(View.GONE);
+
+        try {
+            int uid;
+
+            if (userModel != null) {
+                uid = userModel.getUser().getId();
+            } else {
+                uid = 0;
+            }
+            Api.getService(Tags.base_url).
+                    Search("off", uid, query, "all","all","all").
+                    enqueue(new Callback<ProductDataModel>() {
+                        @Override
+                        public void onResponse(Call<ProductDataModel> call, Response<ProductDataModel> response) {
+                            binding.progBar.setVisibility(View.GONE);
+
+                            if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {
+
+                                offersDataList.clear();
+                                offersDataList.addAll(response.body().getData());
+                                if (offersDataList.size() > 0) {
+                                    offersAdapter.notifyDataSetChanged();
+                                    binding.tvNoData.setVisibility(View.GONE);
+
+                                } else {
+                                    binding.tvNoData.setVisibility(View.VISIBLE);
+
+                                }
+
+                            } else {
+                                binding.tvNoData.setVisibility(View.VISIBLE);
+
+                                try {
+
+                                    Log.e("error", response.code() + "_" + response.errorBody().string());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+
+                                if (response.code() == 500) {
+                                    Toast.makeText(activity, "Server Error", Toast.LENGTH_SHORT).show();
+
+
+                                } else {
+                                    Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+
+
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<ProductDataModel> call, Throwable t) {
+                            binding.progBar.setVisibility(View.GONE);
+                            binding.tvNoData.setVisibility(View.VISIBLE);
+                            try {
+                                if (t.getMessage() != null) {
+                                    Log.e("error", t.getMessage());
+                                    if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
+                                        Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(activity, t.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                            } catch (Exception e) {
+                            }
+
+
+                        }
+                    });
+        } catch (Exception e) {
+
+        }
+
+
+    }
 
    /* public void setItemDataOffers(SingleProductDataModel model) {
 

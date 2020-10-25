@@ -252,7 +252,7 @@ public class SearchActivity extends AppCompatActivity implements Listeners.BackL
                 uid = 0;
             }
             Api.getService(Tags.base_url).
-                    Search("off", uid, query, department_id).
+                    Search("off", uid, query, "all", "all", "all").
                     enqueue(new Callback<ProductDataModel>() {
                         @Override
                         public void onResponse(Call<ProductDataModel> call, Response<ProductDataModel> response) {

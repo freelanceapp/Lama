@@ -121,6 +121,9 @@ public interface Service {
     Call<ProductDataModel> Search(@Query("pagination") String pagination,
                                   @Query("user_id") int user_id,
                                   @Query("search_name") String search_name,
+                                  @Query("have_offer") String have_offer,
+                                  @Query("product_type") String product_type,
+
                                   @Query("departemnt_id") String departemnt_id
     );
 
