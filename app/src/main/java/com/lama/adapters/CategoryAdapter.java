@@ -10,9 +10,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lama.R;
+import com.lama.activities_fragments.activity_home.HomeActivity;
 import com.lama.activities_fragments.activity_home.fragments.Fragment_Main;
 import com.lama.databinding.MainCategoryRowBinding;
-import com.lama.models.CategoryProductDataModel;
 import com.lama.models.MainCategoryDataModel;
 
 
@@ -24,7 +24,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private Context context;
     private LayoutInflater inflater;
     private Fragment_Main fragment_main;
-    public CategoryAdapter(List<MainCategoryDataModel.Data> list, Fragment_Main fragment_main, Context context) {
+    public CategoryAdapter(List<MainCategoryDataModel.Data> list,Fragment_Main fragment_main, Context context) {
         this.list = list;
         this.context = context;
         inflater = LayoutInflater.from(context);
@@ -48,13 +48,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         MyHolder myHolder = (MyHolder) holder;
-       /* myHolder.binding.setModel(list.get(position).Data);
+///        myHolder.binding.setModel(list.get(position));
 
         myHolder.itemView.setOnClickListener(view -> {
-            Log.e("sssss",list.get(holder.getLayoutPosition())+"");
+            Log.e("sssss",list.get(holder.getLayoutPosition()).getId()+"");
 
-            fragment_main.setItemDataOffers(list.get(holder.getAdapterPosition())+"");
-        });*/
+            fragment_main.setitemData(list.get(holder.getLayoutPosition()).getId()+"");
+        });
     }
 
     @Override
