@@ -134,7 +134,7 @@ public interface Service {
                                              @Query("have_offer") String have_offer,
                                              @Query("limit_per_page") String limit_per_page,
                                              @Query("page") int page
-                                             );
+    );
 
     @GET("api/product")
     Call<SingleProductDataModel> Product_detials(@Query("product_id") String product_id);

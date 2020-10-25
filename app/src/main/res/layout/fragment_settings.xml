@@ -95,7 +95,6 @@
                 android:background="@color/white"
                 android:orientation="vertical">
 
-           
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -348,7 +347,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:gravity="center_vertical"
-                    android:onClick="@{()->actions.logout()}"
+                    android:onClick="@{()->actions.bepartener()}"
                     android:orientation="horizontal"
                     android:paddingStart="15dp"
                     android:paddingEnd="15dp"
@@ -420,15 +419,16 @@
                         />
 
                 </LinearLayout>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_marginStart="25dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="25dp"
                     android:layout_marginBottom="15sp"
                     android:text="@string/Social_Media"
-                    android:layout_gravity="center"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -438,43 +438,46 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:padding="3dp"
-                        android:src="@drawable/facebook"
-                         />
+                        android:src="@drawable/facebook" />
+
                     <ImageView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:padding="3dp"
-                        android:src="@drawable/google_plus"
-                        />
+                        android:src="@drawable/google_plus" />
+
                     <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:padding="3dp"
-                    android:src="@drawable/instagram"
-                    />
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:padding="3dp"
+                        android:src="@drawable/instagram" />
+
                     <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:padding="3dp"
-                    android:src="@drawable/twitter"
-                    />
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:padding="3dp"
+                        android:src="@drawable/twitter" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
                     android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:onClick="@{()->actions.logout()}"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
                         android:padding="3dp"
-                        android:src="@drawable/ic_logout2"
-                        />
+                        android:src="@drawable/ic_logout2" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

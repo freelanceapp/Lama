@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="lang"
+            type="String" />
+
+        <variable
+            name="listener"
+            type="com.lama.interfaces.Listeners.LoginListener" />
+
+        <variable
+            name="loginModel"
+            type="com.lama.models.LoginModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/back_login" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true"
+            android:scrollbars="none"
+            tools:context=".activities_fragments.activity_login.LoginActivity">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="30dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias=".35"
+
+                        android:layout_marginRight="25dp"
+                        android:layout_marginLeft="25dp"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginBottom="20dp"
+
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center"
+                                android:text="@string/become_a_partner_and_join_us_just_in_simple_steps"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="7dp"
+                                android:layout_marginTop="10dp"
+                                android:background="@drawable/ic_line" />
+                        </LinearLayout>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            app:counterEnabled="false"
+                            app:errorEnabled="false"
+                            app:helperTextEnabled="false"
+                            app:hintAnimationEnabled="false"
+                            app:hintEnabled="false"
+                            app:hintTextColor="@color/black"
+
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginTop="50dp"
+                            >
+
+                            <EditText
+                                android:id="@+id/edtname"
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+                                android:background="@color/transparent"
+                                android:hint="@string/name"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp"
+                                android:singleLine="true"
+
+                                android:textColor="@color/black"
+                                android:textColorHint="@color/gray4"
+                                android:textSize="15sp"
+
+                                />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/rounded_primary"
+                            />
+
+
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@drawable/small_rounded_btn_primary"
+                            android:text="@string/send_order"
+                            android:textColor="@color/white"
+                            android:textSize="17sp"
+
+                            />
+
+
+
+                    </LinearLayout>
+
+            </FrameLayout>
+        </ScrollView>
+
+    </FrameLayout>
+</layout>
