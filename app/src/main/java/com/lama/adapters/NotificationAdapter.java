@@ -62,7 +62,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
             myHolder.binding.setModel(list.get(position));
 
-            myHolder.binding.imageDelete.setOnClickListener(v -> {
+            myHolder.binding.carddelete.setOnClickListener(v -> {
                 NotificationDataModel.NotificationModel notificationModel = list.get(myHolder.getAdapterPosition());
                 activity.setItemData(notificationModel,myHolder.getAdapterPosition());
             });
