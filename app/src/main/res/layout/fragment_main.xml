@@ -32,7 +32,6 @@
             android:layout_height="match_parent"
             android:background="@color/gray0"
             android:fillViewport="true"
-            android:fitsSystemWindows="true"
             android:scrollbars="none">
 
             <LinearLayout
