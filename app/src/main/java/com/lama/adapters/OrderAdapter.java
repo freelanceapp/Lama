@@ -15,6 +15,7 @@ import com.lama.R;
 import com.lama.activities_fragments.activity_home.fragments.fragment_order.Fragment_Current_Order;
 import com.lama.activities_fragments.activity_home.fragments.fragment_order.Fragment_Previous_Order;
 import com.lama.databinding.LoadMoreBinding;
+import com.lama.databinding.MyReservationRowBinding;
 import com.lama.databinding.OrderRowBinding;
 import com.lama.models.OrderModel;
 
@@ -45,7 +46,7 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         if (viewType == DATA) {
-            OrderRowBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.order_row, parent, false);
+            MyReservationRowBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.my_reservation_row, parent, false);
             return new Holder1(binding);
 
 
@@ -94,9 +95,9 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     }
 
     public class Holder1 extends RecyclerView.ViewHolder {
-        private OrderRowBinding binding;
+        private MyReservationRowBinding binding;
 
-        public Holder1(@NonNull OrderRowBinding binding) {
+        public Holder1(@NonNull MyReservationRowBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

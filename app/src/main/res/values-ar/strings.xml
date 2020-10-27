@@ -213,9 +213,11 @@
     <string name="default1">عادى</string>
     <string name="Become_a_partner">كن شريكا</string>
     <string name="Social_Media">مواقع التواصل</string>
-    <string name="what_are_you_looking_for">what are you looking for</string>
-    <string name="no_data_found">No Data Found</string>
+    <string name="what_are_you_looking_for">عن ماذا تبحث</string>
+    <string name="no_data_found">لا يوجد بيانات لعرضها</string>
     <string name="become_a_partner_and_join_us_just_in_simple_steps">كن شريكا وانضم الينا فقط بخطوات بسيطة</string>
-    <string name="send_order">Send Order</string>
+    <string name="send_order">ارسال الطلب</string>
+    <string name="from">من</string>
+    <string name="to">الى</string>
     <string name="reserve_now">أحجز الأن</string>
 </resources>

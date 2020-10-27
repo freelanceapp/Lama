@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.lama.R;
 import com.lama.activities_fragments.activity_about_app.AboutAppActivity;
+import com.lama.activities_fragments.activity_bepartener.BePartenerActivity;
 import com.lama.activities_fragments.activity_edit_profile.EditProfileActivity;
 import com.lama.activities_fragments.activity_home.HomeActivity;
 import com.lama.activities_fragments.activity_language.LanguageActivity;
@@ -207,9 +208,11 @@ public class Fragment_Settings extends Fragment implements Listeners.SettingActi
         }
     }
 
+
     @Override
     public void bepartener() {
-
+        Intent intent = new Intent(activity, BePartenerActivity.class);
+        startActivity(intent);
     }
 
     @Override

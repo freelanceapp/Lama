@@ -15,6 +15,7 @@ import androidx.databinding.DataBindingUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
@@ -68,8 +69,11 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_product_details);
         getDataFromIntent();
-        getOrder();
+        updateUI();
+
+
         initView();
+        getOrder();
 
     }
 
@@ -102,7 +106,13 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
         });
     }
 
+    private void updateUI() {
 
+        SupportMapFragment fragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+        fragment.getMapAsync(this);
+
+
+    }
 
     private void getOrder() {
         ProgressDialog dialog = Common.createProgressDialog(this, getString(R.string.wait));
@@ -164,8 +174,12 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
         binding.progBarSlider.setVisibility(View.GONE);
         slidingImage__adapter = new ProductDetialsSlidingImage_Adapter(this, body.getProducts_images());
         binding.pager.setAdapter(slidingImage__adapter);
+        Log.e("eeee",singleProductDataModel.getLatitude()+"  ----"+singleProductDataModel.getLongitude());
+        if(mMap!=null){
+            Log.e("eeee",singleProductDataModel.getLatitude()+"  ----"+singleProductDataModel.getLongitude());
 
-    }
+            AddMarker(singleProductDataModel.getLatitude(),singleProductDataModel.getLongitude());
+    }}
 
 
     @Override
@@ -201,6 +215,9 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
         /*    Log.e("eeee",productDataModel.getLatitude()+"  ----"+productDataModel.getLongitude());
             AddMarker(productDataModel.getLatitude(), productDataModel.getLongitude());
 */
+            if(singleProductDataModel!=null){
+                AddMarker(singleProductDataModel.getLatitude(), singleProductDataModel.getLongitude());
+            }
 
         }
     }
@@ -213,13 +230,12 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
 
         if (marker == null) {
             marker = mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoom));
         } else {
             marker.setPosition(new LatLng(lat, lng));
-            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoom));
 
 
         }
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoom));
     }
 
 }

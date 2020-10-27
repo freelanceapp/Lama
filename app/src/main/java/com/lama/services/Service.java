@@ -189,7 +189,7 @@ public interface Service {
 
     @GET("api/my-orders")
     Call<OrderDataModel> getOrders(@Header("Authorization") String user_token,
-                                   @Query("order_status") String order_status,
+                                   @Query("user_id") String user_id,
                                    @Query("pagination") String pagination,
                                    @Query("page") int page,
                                    @Query("limit_per_page") int limit_per_page
@@ -230,5 +230,14 @@ public interface Service {
             @Field("product_id") String product_id,
             @Field("user_id") String user_id,
             @Field("rate") String rate
+    );
+    @FormUrlEncoded
+    @POST("api/send-partner")
+    Call<ResponseBody> bepartner(
+            @Field("name") String name,
+            @Field("phone") String phone,
+            @Field("latitude") String latitude,
+            @Field("longitude") String longitude,
+            @Field("address") String address
     );
 }

@@ -14,12 +14,16 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.lama.R;
 import com.lama.activities_fragments.activity_home.HomeActivity;
 import com.lama.activities_fragments.activity_product_details.ProductDetailsActivity;
 import com.lama.adapters.FamilyBoxesAdapter;
+import com.lama.adapters.OrderAdapter;
 import com.lama.databinding.FragmentMyReservationsBinding;
+import com.lama.models.OrderDataModel;
+import com.lama.models.OrderModel;
 import com.lama.models.ProductDataModel;
 import com.lama.models.SingleProductDataModel;
 import com.lama.models.UserModel;
@@ -44,8 +48,10 @@ public class Fragment_My_Reservations extends Fragment {
     private UserModel userModel;
     private String lang;
     private LinearLayoutManager manager;
-    private List<SingleProductDataModel> familyBoxesList;
-    private FamilyBoxesAdapter familyBoxesAdapter;
+    private OrderAdapter adapter;
+    private List<OrderModel> orderModelList;
+    private int current_page = 1;
+    private boolean isLoading = false;
     public static Fragment_My_Reservations newInstance() {
         return new Fragment_My_Reservations();
     }
@@ -55,7 +61,7 @@ public class Fragment_My_Reservations extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_reservations, container, false);
         initView();
-        getFamilyBoxes();
+     //   getFamilyBoxes();
         return binding.getRoot();
     }
 
@@ -68,7 +74,7 @@ public class Fragment_My_Reservations extends Fragment {
 
     private void initView() {
         activity = (HomeActivity) getActivity();
-        familyBoxesList=new ArrayList<>();
+        orderModelList=new ArrayList<>();
         Paper.init(activity);
         lang = Paper.book().read("lang", "ar");
         binding.setLang(lang);
@@ -77,41 +83,58 @@ public class Fragment_My_Reservations extends Fragment {
         manager = new LinearLayoutManager(activity);
         binding.recView.setLayoutManager(manager);
         binding.recView.setLayoutManager(new GridLayoutManager(activity,2));
-        familyBoxesAdapter = new FamilyBoxesAdapter(familyBoxesList, activity, this);
-        binding.recView.setAdapter(familyBoxesAdapter);
+        adapter = new OrderAdapter(activity, orderModelList, this);
+        binding.recView.setAdapter(adapter);
+
+        binding.recView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0) {
+                    int total_item = binding.recView.getAdapter().getItemCount();
+                    int last_visible_item = ((LinearLayoutManager) binding.recView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
+
+                    if (total_item >= 20 && (total_item - last_visible_item) == 5 && !isLoading) {
+
+                        isLoading = true;
+                        int page = current_page + 1;
+                        orderModelList.add(null);
+                        adapter.notifyItemInserted(orderModelList.size() - 1);
+
+                        loadMore(page);
+                    }
+                }
+            }
+        });
+        getOrders();
 
 
     }
 
-    public void getFamilyBoxes() {
-
+    private void getOrders() {
         try {
-
-            Api.getService(Tags.base_url).
-                    getFamilyBoxes("off").
-                    enqueue(new Callback<ProductDataModel>() {
+            current_page = 1;
+            Api.getService(Tags.base_url)
+                    .getOrders(userModel.getUser().getToken(), userModel.getUser().getId()+"", "on", current_page, 20)
+                    .enqueue(new Callback<OrderDataModel>() {
                         @Override
-                        public void onResponse(Call<ProductDataModel> call, Response<ProductDataModel> response) {
+                        public void onResponse(Call<OrderDataModel> call, Response<OrderDataModel> response) {
                             binding.progBar.setVisibility(View.GONE);
-
                             if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {
+                                orderModelList.clear();
+                                orderModelList.addAll(response.body().getData());
+                                Log.e("mmmmmmm",orderModelList.size()+"");
 
-                                familyBoxesList.clear();
-                                familyBoxesList.addAll(response.body().getData());
-                                if (familyBoxesList.size() > 0) {
-                                    familyBoxesAdapter.notifyDataSetChanged();
+                                if (orderModelList.size() > 0) {
+
+                                    adapter.notifyDataSetChanged();
+
+                                    binding.tvNoData.setVisibility(View.GONE);
                                 } else {
+                                    binding.tvNoData.setVisibility(View.VISIBLE);
 
                                 }
-
                             } else {
-                                try {
-
-                                    Log.e("error", response.code() + "_" + response.errorBody().string());
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
                                 if (response.code() == 500) {
                                     Toast.makeText(activity, "Server Error", Toast.LENGTH_SHORT).show();
 
@@ -119,15 +142,21 @@ public class Fragment_My_Reservations extends Fragment {
                                 } else {
                                     Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
 
+                                    try {
 
+                                        Log.e("error", response.code() + "_" + response.errorBody().string());
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
                                 }
                             }
                         }
 
                         @Override
-                        public void onFailure(Call<ProductDataModel> call, Throwable t) {
-                            binding.progBar.setVisibility(View.GONE);
+                        public void onFailure(Call<OrderDataModel> call, Throwable t) {
                             try {
+                                binding.progBar.setVisibility(View.GONE);
+
                                 if (t.getMessage() != null) {
                                     Log.e("error", t.getMessage());
                                     if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
@@ -139,21 +168,84 @@ public class Fragment_My_Reservations extends Fragment {
 
                             } catch (Exception e) {
                             }
-
-
                         }
                     });
         } catch (Exception e) {
 
         }
-
-
     }
 
-    public void setItemDataOffers(SingleProductDataModel model) {
+    private void loadMore(int page) {
+        try {
 
-        Intent intent = new Intent(activity, ProductDetailsActivity.class);
-        intent.putExtra("product_id", model.getId());
-        startActivityForResult(intent, 100);
+            Api.getService(Tags.base_url)
+                    .getOrders(userModel.getUser().getToken(), userModel.getUser().getId()+"", "on", page, 20)
+                    .enqueue(new Callback<OrderDataModel>() {
+                        @Override
+                        public void onResponse(Call<OrderDataModel> call, Response<OrderDataModel> response) {
+                            isLoading = false;
+                            orderModelList.remove(orderModelList.size() - 1);
+                            adapter.notifyItemRemoved(orderModelList.size() - 1);
+
+
+                            if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {
+
+                                int oldPos = orderModelList.size() - 1;
+
+                                orderModelList.addAll(response.body().getData());
+
+                                if (response.body().getData().size() > 0) {
+                                    current_page = response.body().getMeta().getCurrent_page();
+                                    adapter.notifyItemRangeChanged(oldPos, orderModelList.size() - 1);
+
+                                }
+                            } else {
+                                if (response.code() == 500) {
+                                    Toast.makeText(activity, "Server Error", Toast.LENGTH_SHORT).show();
+
+
+                                } else {
+                                    Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+
+                                    try {
+
+                                        Log.e("error", response.code() + "_" + response.errorBody().string());
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<OrderDataModel> call, Throwable t) {
+                            try {
+
+                                if (orderModelList.get(orderModelList.size() - 1) == null) {
+                                    isLoading = false;
+                                    orderModelList.remove(orderModelList.size() - 1);
+                                    adapter.notifyItemRemoved(orderModelList.size() - 1);
+
+                                }
+
+                                if (t.getMessage() != null) {
+                                    Log.e("error", t.getMessage());
+                                    if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
+                                        Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(activity, t.getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                            } catch (Exception e) {
+                            }
+                        }
+                    });
+        } catch (Exception e) {
+
+        }
     }
+
+
+
 }

@@ -129,7 +129,11 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         binding.flMyReservations.setOnClickListener(v -> {
-            displayFragmentMyReservations();
+            if(userModel!=null){
+            displayFragmentMyReservations();}
+            else {
+                Common.CreateDialogAlert(this,getResources().getString(R.string.please_sign_in_or_sign_up));
+            }
         });
 
         binding.flProfile.setOnClickListener(v -> {

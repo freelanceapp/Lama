@@ -6,8 +6,8 @@ import android.widget.Toast;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.databinding.ObservableField;
-import androidx.databinding.library.baseAdapters.BR;
 
+import com.lama.BR;
 import com.lama.R;
 
 import java.io.Serializable;

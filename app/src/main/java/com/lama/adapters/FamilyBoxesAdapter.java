@@ -61,7 +61,7 @@ public class FamilyBoxesAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
                 else if (fragment instanceof Fragment_My_Reservations) {
                     Fragment_My_Reservations fragment_order = (Fragment_My_Reservations) fragment;
-                    fragment_order.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
+//                    fragment_order.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
                 } else if (fragment instanceof Fragment_Search) {
                     Fragment_Search fragment_search = (Fragment_Search) fragment;
                    // fragment_search.setItemDataOffers(list.get(myHolder.getAdapterPosition()));

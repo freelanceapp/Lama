@@ -20,7 +20,7 @@ import java.util.Locale;
 
 import io.paperdb.Paper;
 
-class ReservationActivity extends AppCompatActivity implements Listeners.BackListener{
+public class ReservationActivity extends AppCompatActivity implements Listeners.BackListener{
     private ActivityReservationBinding binding;
     private String lang;
     private int type;

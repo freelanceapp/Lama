@@ -19,7 +19,7 @@ public class OrderModel implements Serializable {
     private double longitude;
     private String details;
     private String created_at;
-
+    private String title;
     private List<OrdersDetails> order_product;
 
     public int getId() {
@@ -82,6 +82,10 @@ public class OrderModel implements Serializable {
         return order_product;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     private Data tler;
 
     public Data getTler() {
@@ -94,6 +98,9 @@ public class OrderModel implements Serializable {
         private int order_id;
         private double price;
         private int amount;
+        private String book_date_from;
+        private String book_date_to;
+
         private ProductInfo product_info;
 
         public int getId() {
@@ -118,6 +125,14 @@ public class OrderModel implements Serializable {
 
         public ProductInfo getProduct_info() {
             return product_info;
+        }
+
+        public String getBook_date_from() {
+            return book_date_from;
+        }
+
+        public String getBook_date_to() {
+            return book_date_to;
         }
 
         public class ProductInfo implements Serializable {
