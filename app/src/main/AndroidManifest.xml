@@ -22,8 +22,16 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
-
-
+        <service
+            android:name=".notifications.FireBaseMessaging"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
         <activity
             android:name="com.lama.activities_fragments.activity_language.LanguageActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"

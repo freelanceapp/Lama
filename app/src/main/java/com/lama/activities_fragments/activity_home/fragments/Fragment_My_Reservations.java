@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.lama.R;
 import com.lama.activities_fragments.activity_home.HomeActivity;
+import com.lama.activities_fragments.activity_order_details.OrderDetailsActivity;
 import com.lama.activities_fragments.activity_product_details.ProductDetailsActivity;
 import com.lama.adapters.FamilyBoxesAdapter;
 import com.lama.adapters.OrderAdapter;
@@ -82,7 +83,7 @@ public class Fragment_My_Reservations extends Fragment {
         userModel = preferences.getUserData(activity);
         manager = new LinearLayoutManager(activity);
         binding.recView.setLayoutManager(manager);
-        binding.recView.setLayoutManager(new GridLayoutManager(activity,2));
+        binding.recView.setLayoutManager(new GridLayoutManager(activity,1));
         adapter = new OrderAdapter(activity, orderModelList, this);
         binding.recView.setAdapter(adapter);
 
@@ -246,6 +247,10 @@ public class Fragment_My_Reservations extends Fragment {
         }
     }
 
-
+    public void setItemData(OrderModel model) {
+        Intent intent = new Intent(activity, OrderDetailsActivity.class);
+        intent.putExtra("data", model);
+        startActivity(intent);
+    }
 
 }

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lama.R;
+import com.lama.activities_fragments.activity_home.fragments.Fragment_My_Reservations;
 import com.lama.activities_fragments.activity_home.fragments.fragment_order.Fragment_Current_Order;
 import com.lama.activities_fragments.activity_home.fragments.fragment_order.Fragment_Previous_Order;
 import com.lama.databinding.LoadMoreBinding;
@@ -78,6 +79,10 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 } else if (fragment instanceof Fragment_Previous_Order) {
                     Fragment_Previous_Order fragmentPreviousOrder = (Fragment_Previous_Order) fragment;
                     fragmentPreviousOrder.setItemData(model2);
+                }
+                else if (fragment instanceof Fragment_My_Reservations) {
+                    Fragment_My_Reservations fragment_my_reservations = (Fragment_My_Reservations) fragment;
+                    fragment_my_reservations.setItemData(model2);
                 }
             });
         } else if (holder instanceof LoadHolder) {

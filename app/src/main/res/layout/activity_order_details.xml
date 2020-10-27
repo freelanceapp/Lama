@@ -178,6 +178,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:gravity="center_vertical"
+                            android:visibility="gone"
                             android:orientation="horizontal">
 
                             <ImageView
@@ -196,7 +197,6 @@
                                 android:textSize="15sp" />
 
                             <TextView
-                                order_status="@{model.order_status}"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="5dp"
