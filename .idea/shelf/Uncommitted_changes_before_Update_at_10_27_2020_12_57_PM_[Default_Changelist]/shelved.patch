@@ -1,0 +1,1596 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    package=\"com.lama\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />\r\n    <uses-permission android:name=\"android.permission.CAMERA\" />\r\n    <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\" />\r\n    <uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />\r\n\r\n    <application\r\n        android:name=\".share.App\"\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/AppTheme\"\r\n        android:usesCleartextTraffic=\"true\"\r\n        tools:ignore=\"GoogleAppIndexingWarning\"\r\n        tools:targetApi=\"m\">\r\n\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_language.LanguageActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_order_details.OrderDetailsActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_cart.CartActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_edit_profile.EditProfileActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_checkout.CheckoutActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_login.LoginActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_verification_code.VerificationCodeActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_product_details.ProductDetailsActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_client_profile.ClientProfileActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.bank_activity.BanksActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_signup.SignUpActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_about_app.AboutAppActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\" />\r\n\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_home.HomeActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\" />\r\n\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_my_favorite.MyFavoriteActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\" />\r\n\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_search.SearchActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n            android:windowSoftInputMode=\"stateAlwaysHidden\"\r\n\r\n            />\r\n\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_notification.NotificationActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n\r\n            />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.telr_activity.TelrActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n\r\n            />\r\n        <activity\r\n            android:name=\"com.lama.activities_fragments.activity_images.ImagesActivity\"\r\n            android:configChanges=\"keyboardHidden|screenSize|orientation\"\r\n\r\n            />\r\n        <activity android:name=\"com.lama.activities_fragments.activity_splash.SplashActivity\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n\r\n        <meta-data\r\n            android:name=\"com.google.android.geo.API_KEY\"\r\n            android:value=\"@string/map_key\" />\r\n        <meta-data\r\n            android:name=\"com.google.android.gms.version\"\r\n            android:value=\"@integer/google_play_services_version\" />\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/AndroidManifest.xml	(date 1603796202580)
+@@ -28,6 +28,10 @@
+             android:configChanges="keyboardHidden|screenSize|orientation"
+             android:windowSoftInputMode="stateAlwaysHidden" />
+         <activity
++            android:name=".activities_fragments.activity_bepartener.BePartenerActivity"
++            android:configChanges="keyboardHidden|screenSize|orientation"
++            android:windowSoftInputMode="stateAlwaysHidden" />
++        <activity
+             android:name="com.lama.activities_fragments.activity_order_details.OrderDetailsActivity"
+             android:configChanges="keyboardHidden|screenSize|orientation"
+             android:windowSoftInputMode="stateAlwaysHidden" />
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"JDK\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ .idea/misc.xml	(date 1603788553405)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+   <component name="ProjectType">
+Index: app/src/main/java/com/lama/activities_fragments/activity_home/fragments/Fragment_Settings.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lama.activities_fragments.activity_home.fragments;\r\n\r\nimport android.content.ComponentName;\r\nimport android.content.Intent;\r\nimport android.content.pm.ActivityInfo;\r\nimport android.content.pm.ResolveInfo;\r\nimport android.media.Ringtone;\r\nimport android.media.RingtoneManager;\r\nimport android.net.Uri;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.databinding.DataBindingUtil;\r\nimport androidx.fragment.app.Fragment;\r\n\r\nimport com.lama.R;\r\nimport com.lama.activities_fragments.activity_about_app.AboutAppActivity;\r\nimport com.lama.activities_fragments.activity_edit_profile.EditProfileActivity;\r\nimport com.lama.activities_fragments.activity_home.HomeActivity;\r\nimport com.lama.activities_fragments.activity_language.LanguageActivity;\r\nimport com.lama.activities_fragments.activity_login.LoginActivity;\r\nimport com.lama.activities_fragments.activity_signup.SignUpActivity;\r\nimport com.lama.databinding.FragmentProfileBinding;\r\nimport com.lama.databinding.FragmentSettingsBinding;\r\nimport com.lama.interfaces.Listeners;\r\nimport com.lama.models.DefaultSettings;\r\nimport com.lama.models.SettingModel;\r\nimport com.lama.models.UserModel;\r\nimport com.lama.preferences.Preferences;\r\nimport com.lama.remote.Api;\r\nimport com.lama.share.Common;\r\nimport com.lama.tags.Tags;\r\n\r\n\r\nimport java.io.IOException;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Locale;\r\n\r\nimport io.paperdb.BuildConfig;\r\nimport io.paperdb.Paper;\r\nimport retrofit2.Call;\r\nimport retrofit2.Callback;\r\nimport retrofit2.Response;\r\n\r\nimport static android.app.Activity.RESULT_OK;\r\n\r\npublic class Fragment_Settings extends Fragment implements Listeners.SettingActions {\r\n\r\n    private HomeActivity activity;\r\n    private FragmentSettingsBinding binding;\r\n    private Preferences preferences;\r\n    private String lang;\r\n    private UserModel userModel;\r\n    private SettingModel settingmodel;\r\n    private DefaultSettings defaultSettings;\r\n\r\n    public static Fragment_Settings newInstance() {\r\n\r\n        return new Fragment_Settings();\r\n    }\r\n\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\r\n        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false);\r\n        return binding.getRoot();\r\n    }\r\n\r\n    @Override\r\n    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {\r\n        super.onViewCreated(view, savedInstanceState);\r\n        initView();\r\n       // getAppData();\r\n\r\n    }\r\n\r\n    private void initView() {\r\n        activity = (HomeActivity) getActivity();\r\n        preferences = Preferences.getInstance();\r\n        defaultSettings = preferences.getAppSetting(activity);\r\n        Paper.init(activity);\r\n        lang = Paper.book().read(\"lang\", Locale.getDefault().getLanguage());\r\n        binding.setLang(lang);\r\n        binding.setActions(this);\r\n        binding.tvVersion.setText(BuildConfig.VERSION_NAME);\r\n\r\n\r\n        if (defaultSettings!=null){\r\n            if (defaultSettings.getRingToneName()!=null&&!defaultSettings.getRingToneName().isEmpty()){\r\n                binding.tvRingtoneName.setText(defaultSettings.getRingToneName());\r\n            }else {\r\n                binding.tvRingtoneName.setText(getString(R.string.default1));\r\n            }\r\n        }else {\r\n            binding.tvRingtoneName.setText(getString(R.string.default1));\r\n\r\n        }\r\n    }\r\n\r\n\r\n    @Override\r\n    public void terms() {\r\n        Intent intent=new Intent(activity, AboutAppActivity.class);\r\n        intent.putExtra(\"type\",2);\r\n        startActivity(intent);\r\n    }\r\n\r\n    @Override\r\n    public void aboutApp() {\r\n        Intent intent=new Intent(activity, AboutAppActivity.class);\r\n        intent.putExtra(\"type\",1);\r\n        startActivity(intent);\r\n    }\r\n\r\n    @Override\r\n    public void share() {\r\n\r\n    }\r\n\r\n    @Override\r\n    public void onEditProfile() {\r\n        Intent intent = new Intent(activity, EditProfileActivity.class);\r\n        intent.putExtra(\"data\",preferences.getUserData(activity));\r\n        startActivityForResult(intent,2);\r\n    }\r\n\r\n    @Override\r\n    public void onLanguageSetting() {\r\n        Intent intent = new Intent(activity, LanguageActivity.class);\r\n        intent.putExtra(\"type\",1);\r\n        startActivity(intent);\r\n    }\r\n\r\n\r\n\r\n    @Override\r\n    public void onPrivacy() {\r\n        Intent intent=new Intent(activity, AboutAppActivity.class);\r\n        intent.putExtra(\"type\",3);\r\n        startActivity(intent);\r\n    }\r\n\r\n    @Override\r\n    public void onRate() {\r\n        String appId = activity.getPackageName();\r\n        Intent rateIntent = new Intent(Intent.ACTION_VIEW,\r\n                Uri.parse(\"market://details?id=\" + appId));\r\n        boolean marketFound = false;\r\n\r\n        final List<ResolveInfo> otherApps = activity.getPackageManager()\r\n                .queryIntentActivities(rateIntent, 0);\r\n        for (ResolveInfo otherApp : otherApps) {\r\n            if (otherApp.activityInfo.applicationInfo.packageName\r\n                    .equals(\"com.android.vending\")) {\r\n\r\n                ActivityInfo otherAppActivity = otherApp.activityInfo;\r\n                ComponentName componentName = new ComponentName(\r\n                        otherAppActivity.applicationInfo.packageName,\r\n                        otherAppActivity.name\r\n                );\r\n                rateIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);\r\n                rateIntent.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);\r\n                rateIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);\r\n                rateIntent.setComponent(componentName);\r\n                startActivity(rateIntent);\r\n                marketFound = true;\r\n                break;\r\n\r\n            }\r\n        }\r\n\r\n        if (!marketFound) {\r\n            Intent webIntent = new Intent(Intent.ACTION_VIEW,\r\n                    Uri.parse(\"https://play.google.com/store/apps/details?id=\" + appId));\r\n            startActivity(webIntent);\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void onTone() {\r\n        Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);\r\n        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);\r\n        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, \"Select Tone\");\r\n        intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, (Uri) null);\r\n        startActivityForResult(intent, 100);\r\n    }\r\n\r\n    @Override\r\n    public void about() {\r\n        Intent intent = new Intent(activity, AboutAppActivity.class);\r\n        intent.putExtra(\"type\", 2);\r\n        startActivity(intent);\r\n    }\r\n\r\n    @Override\r\n    public void logout() {\r\n        if (userModel != null) {\r\n            activity.logout();\r\n        } else {\r\n            Common.CreateDialogAlert(activity, getString(R.string.please_sign_in_or_sign_up));\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n        if (requestCode == 100 && resultCode == RESULT_OK && data != null) {\r\n            Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);\r\n\r\n\r\n            if (uri != null) {\r\n                Ringtone ringtone = RingtoneManager.getRingtone(activity,uri);\r\n                String name = ringtone.getTitle(activity);\r\n                binding.tvRingtoneName.setText(name);\r\n\r\n                if (defaultSettings==null){\r\n                    defaultSettings = new DefaultSettings();\r\n                }\r\n\r\n                defaultSettings.setRingToneUri(uri.toString());\r\n                defaultSettings.setRingToneName(name);\r\n                preferences.createUpdateAppSetting(activity,defaultSettings);\r\n\r\n\r\n            }\r\n        } else if (requestCode == 200 && resultCode == RESULT_OK ) {\r\n\r\n            activity.setResult(RESULT_OK);\r\n            //finish();\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/lama/activities_fragments/activity_home/fragments/Fragment_Settings.java	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/java/com/lama/activities_fragments/activity_home/fragments/Fragment_Settings.java	(date 1603796202620)
+@@ -20,6 +20,7 @@
+ 
+ import com.lama.R;
+ import com.lama.activities_fragments.activity_about_app.AboutAppActivity;
++import com.lama.activities_fragments.activity_bepartener.BePartenerActivity;
+ import com.lama.activities_fragments.activity_edit_profile.EditProfileActivity;
+ import com.lama.activities_fragments.activity_home.HomeActivity;
+ import com.lama.activities_fragments.activity_language.LanguageActivity;
+@@ -207,6 +208,12 @@
+         }
+     }
+ 
++    @Override
++    public void bepartener() {
++        Intent intent = new Intent(activity, BePartenerActivity.class);
++        startActivity(intent);
++    }
++
+     @Override
+     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+         super.onActivityResult(requestCode, resultCode, data);
+Index: app/src/main/res/layout/activity_bebartener.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n\r\n        <variable\r\n            name=\"lang\"\r\n            type=\"String\" />\r\n\r\n        <variable\r\n            name=\"listener\"\r\n            type=\"com.lama.interfaces.Listeners.LoginListener\" />\r\n\r\n        <variable\r\n            name=\"loginModel\"\r\n            type=\"com.lama.models.LoginModel\" />\r\n    </data>\r\n\r\n    <FrameLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n\r\n        >\r\n\r\n        <ImageView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:scaleType=\"fitXY\"\r\n            android:src=\"@drawable/back_login\" />\r\n\r\n        <ScrollView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:fillViewport=\"true\"\r\n            android:fitsSystemWindows=\"true\"\r\n            android:scrollbars=\"none\"\r\n            tools:context=\".activities_fragments.activity_login.LoginActivity\">\r\n\r\n            <FrameLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\">\r\n\r\n\r\n                    <LinearLayout\r\n                        android:layout_width=\"match_parent\"\r\n                        android:layout_height=\"wrap_content\"\r\n                        android:orientation=\"vertical\"\r\n                        android:layout_marginTop=\"30dp\"\r\n                        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n                        app:layout_constraintEnd_toEndOf=\"parent\"\r\n                        app:layout_constraintStart_toStartOf=\"parent\"\r\n                        app:layout_constraintTop_toTopOf=\"parent\"\r\n                        app:layout_constraintVertical_bias=\".35\"\r\n\r\n                        android:layout_marginRight=\"25dp\"\r\n                        android:layout_marginLeft=\"25dp\"\r\n                        >\r\n\r\n                        <LinearLayout\r\n                            android:layout_width=\"wrap_content\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_gravity=\"center_horizontal\"\r\n                            android:layout_marginBottom=\"20dp\"\r\n\r\n                            android:orientation=\"vertical\">\r\n\r\n                            <TextView\r\n                                android:layout_width=\"wrap_content\"\r\n                                android:layout_height=\"wrap_content\"\r\n                                android:layout_gravity=\"center_horizontal\"\r\n                                android:gravity=\"center\"\r\n                                android:text=\"@string/become_a_partner_and_join_us_just_in_simple_steps\"\r\n                                android:textColor=\"@color/black\"\r\n                                android:textSize=\"16sp\" />\r\n\r\n                            <View\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"7dp\"\r\n                                android:layout_marginTop=\"10dp\"\r\n                                android:background=\"@drawable/ic_line\" />\r\n                        </LinearLayout>\r\n                        <com.google.android.material.textfield.TextInputLayout\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:background=\"@color/transparent\"\r\n                            app:counterEnabled=\"false\"\r\n                            app:errorEnabled=\"false\"\r\n                            app:helperTextEnabled=\"false\"\r\n                            app:hintAnimationEnabled=\"false\"\r\n                            app:hintEnabled=\"false\"\r\n                            app:hintTextColor=\"@color/black\"\r\n\r\n                            android:layout_marginStart=\"20dp\"\r\n                            android:layout_marginEnd=\"20dp\"\r\n                            android:layout_marginTop=\"50dp\"\r\n                            >\r\n\r\n                            <EditText\r\n                                android:id=\"@+id/edtname\"\r\n                                android:layout_width=\"match_parent\"\r\n                                android:layout_height=\"45dp\"\r\n                                android:background=\"@color/transparent\"\r\n                                android:hint=\"@string/name\"\r\n                                android:paddingStart=\"10dp\"\r\n                                android:paddingEnd=\"10dp\"\r\n                                android:singleLine=\"true\"\r\n\r\n                                android:textColor=\"@color/black\"\r\n                                android:textColorHint=\"@color/gray4\"\r\n                                android:textSize=\"15sp\"\r\n\r\n                                />\r\n\r\n                        </com.google.android.material.textfield.TextInputLayout>\r\n                        <View\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"1dp\"\r\n                            android:layout_marginStart=\"20dp\"\r\n                            android:layout_marginEnd=\"20dp\"\r\n                            android:background=\"@drawable/rounded_primary\"\r\n                            />\r\n\r\n\r\n\r\n                        <Button\r\n                            android:layout_width=\"match_parent\"\r\n                            android:layout_height=\"wrap_content\"\r\n                            android:layout_marginStart=\"20dp\"\r\n                            android:layout_marginTop=\"40dp\"\r\n                            android:layout_marginEnd=\"20dp\"\r\n                            android:layout_marginBottom=\"20dp\"\r\n                            android:background=\"@drawable/small_rounded_btn_primary\"\r\n                            android:text=\"@string/send_order\"\r\n                            android:textColor=\"@color/white\"\r\n                            android:textSize=\"17sp\"\r\n\r\n                            />\r\n\r\n\r\n\r\n                    </LinearLayout>\r\n\r\n            </FrameLayout>\r\n        </ScrollView>\r\n\r\n    </FrameLayout>\r\n</layout>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_bebartener.xml	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/res/layout/activity_bebartener.xml	(date 1603795917656)
+@@ -5,24 +5,75 @@
+ 
+     <data>
+ 
++        <variable
++            name="backListener"
++            type="com.lama.interfaces.Listeners.BackListener" />
++
+         <variable
+             name="lang"
+             type="String" />
+-
+-        <variable
+-            name="listener"
+-            type="com.lama.interfaces.Listeners.LoginListener" />
+-
+-        <variable
+-            name="loginModel"
+-            type="com.lama.models.LoginModel" />
+     </data>
++<LinearLayout
++    android:layout_width="match_parent"
++    android:layout_height="wrap_content"
++    android:orientation="vertical"
++    >
++    <androidx.appcompat.widget.Toolbar
++        android:id="@+id/toolBar"
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        app:contentInsetEnd="0dp"
++        app:contentInsetLeft="0dp"
++        app:contentInsetRight="0dp"
++        app:contentInsetStart="0dp"
++
++        >
++
++        <LinearLayout
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginStart="8dp"
++            android:layout_marginEnd="8dp"
++            android:gravity="center_vertical"
++            android:onClick="@{()->backListener.back()}"
++            android:orientation="horizontal"
++
++            >
++
++            <ImageView
++                android:layout_width="35dp"
++                android:layout_height="35dp"
++                android:clickable="false"
++                android:longClickable="false"
++                android:padding="8dp"
++                android:rotation='@{lang.equals("ar")?180:0}'
++                android:src="@drawable/ic_left_arrow"
++                android:tint="@color/colorPrimary"
++
++                />
++
++            <TextView
++
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:layout_gravity="center_vertical"
++                android:layout_marginStart="5dp"
++                android:layout_marginEnd="5dp"
++                android:clickable="false"
++                android:longClickable="false"
++                android:text="@string/Become_a_partner"
++                android:textColor="@color/colorPrimary"
++                android:textSize="15sp" />
++        </LinearLayout>
++    </androidx.appcompat.widget.Toolbar>
++
+ 
+     <FrameLayout
+         android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-
++        android:layout_height="0dp"
++android:layout_weight="1"
+         >
++
+ 
+         <ImageView
+             android:layout_width="match_parent"
+@@ -43,107 +94,197 @@
+                 android:layout_height="wrap_content">
+ 
+ 
+-                    <LinearLayout
+-                        android:layout_width="match_parent"
+-                        android:layout_height="wrap_content"
+-                        android:orientation="vertical"
+-                        android:layout_marginTop="30dp"
+-                        app:layout_constraintBottom_toBottomOf="parent"
+-                        app:layout_constraintEnd_toEndOf="parent"
+-                        app:layout_constraintStart_toStartOf="parent"
+-                        app:layout_constraintTop_toTopOf="parent"
+-                        app:layout_constraintVertical_bias=".35"
+-
+-                        android:layout_marginRight="25dp"
+-                        android:layout_marginLeft="25dp"
+-                        >
++                <LinearLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_marginTop="30dp"
++                    android:orientation="vertical"
++                    app:layout_constraintBottom_toBottomOf="parent"
++                    app:layout_constraintEnd_toEndOf="parent"
++                    app:layout_constraintStart_toStartOf="parent"
++
++                    app:layout_constraintTop_toTopOf="parent"
++                    app:layout_constraintVertical_bias=".35">
+ 
+-                        <LinearLayout
+-                            android:layout_width="wrap_content"
+-                            android:layout_height="wrap_content"
+-                            android:layout_gravity="center_horizontal"
+-                            android:layout_marginBottom="20dp"
++                    <LinearLayout
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:layout_gravity="center_horizontal"
++                        android:layout_marginBottom="20dp"
+ 
+-                            android:orientation="vertical">
++                        android:orientation="vertical">
+ 
+-                            <TextView
+-                                android:layout_width="wrap_content"
+-                                android:layout_height="wrap_content"
+-                                android:layout_gravity="center_horizontal"
+-                                android:gravity="center"
+-                                android:text="@string/become_a_partner_and_join_us_just_in_simple_steps"
+-                                android:textColor="@color/black"
+-                                android:textSize="16sp" />
++                        <TextView
++                            android:layout_width="match_parent"
++                            android:layout_height="wrap_content"
++                            android:layout_gravity="center_horizontal"
++                            android:layout_marginStart="100dp"
++                            android:layout_marginEnd="100dp"
++                            android:gravity="center"
++                            android:lines="2"
++                            android:text="@string/become_a_partner_and_join_us_just_in_simple_steps"
++                            android:textColor="@color/black"
++                            android:textSize="16sp" />
+ 
+-                            <View
+-                                android:layout_width="match_parent"
+-                                android:layout_height="7dp"
+-                                android:layout_marginTop="10dp"
+-                                android:background="@drawable/ic_line" />
+-                        </LinearLayout>
+-                        <com.google.android.material.textfield.TextInputLayout
+-                            android:layout_width="match_parent"
+-                            android:layout_height="wrap_content"
+-                            android:background="@color/transparent"
+-                            app:counterEnabled="false"
+-                            app:errorEnabled="false"
+-                            app:helperTextEnabled="false"
+-                            app:hintAnimationEnabled="false"
+-                            app:hintEnabled="false"
+-                            app:hintTextColor="@color/black"
++                        <View
++                            android:layout_width="match_parent"
++                            android:layout_height="15dp"
++                            android:layout_marginStart="80dp"
++                            android:layout_marginTop="10dp"
++                            android:layout_marginEnd="80dp"
++                            android:background="@drawable/ic_line" />
++                    </LinearLayout>
++
++                    <com.google.android.material.textfield.TextInputLayout
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:layout_marginStart="20dp"
++                        android:layout_marginTop="50dp"
++                        android:layout_marginEnd="20dp"
++                        android:background="@color/transparent"
++                        app:counterEnabled="false"
++                        app:errorEnabled="false"
++                        app:helperTextEnabled="false"
++
++                        app:hintAnimationEnabled="false"
++                        app:hintEnabled="false"
++                        app:hintTextColor="@color/black">
++
++                        <EditText
++                            android:id="@+id/edtname"
++                            android:layout_width="match_parent"
++                            android:layout_height="45dp"
++                            android:background="@color/transparent"
++                            android:hint="@string/name"
++                            android:paddingStart="10dp"
++                            android:paddingEnd="10dp"
++                            android:singleLine="true"
++
++                            android:textColor="@color/black"
++                            android:textColorHint="@color/gray4"
++                            android:textSize="15sp"
++
++                            />
+ 
+-                            android:layout_marginStart="20dp"
+-                            android:layout_marginEnd="20dp"
+-                            android:layout_marginTop="50dp"
+-                            >
++                    </com.google.android.material.textfield.TextInputLayout>
++
++                    <View
++                        android:layout_width="match_parent"
++                        android:layout_height="1dp"
++                        android:layout_marginStart="20dp"
++                        android:layout_marginEnd="20dp"
++                        android:background="@color/icline" />
++
++
++                    <com.google.android.material.textfield.TextInputLayout
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:layout_marginStart="20dp"
++                        android:layout_marginTop="10dp"
++                        android:layout_marginEnd="20dp"
++                        android:background="@color/transparent"
++                        app:counterEnabled="false"
++                        app:errorEnabled="false"
++                        app:helperTextEnabled="false"
++
++                        app:hintAnimationEnabled="false"
++                        app:hintEnabled="false"
++                        app:hintTextColor="@color/black">
+ 
+-                            <EditText
+-                                android:id="@+id/edtname"
+-                                android:layout_width="match_parent"
+-                                android:layout_height="45dp"
+-                                android:background="@color/transparent"
+-                                android:hint="@string/name"
+-                                android:paddingStart="10dp"
+-                                android:paddingEnd="10dp"
+-                                android:singleLine="true"
++                        <EditText
++                            android:id="@+id/edtphone"
++                            android:layout_width="match_parent"
++                            android:layout_height="45dp"
++                            android:background="@color/transparent"
++                            android:hint="@string/phone"
++                            android:inputType="phone"
++                            android:paddingStart="10dp"
++                            android:paddingEnd="10dp"
++                            android:singleLine="true"
+ 
+-                                android:textColor="@color/black"
+-                                android:textColorHint="@color/gray4"
+-                                android:textSize="15sp"
++                            android:textColor="@color/black"
++                            android:textColorHint="@color/gray4"
++                            android:textSize="15sp"
+ 
+-                                />
++                            />
+ 
+-                        </com.google.android.material.textfield.TextInputLayout>
+-                        <View
+-                            android:layout_width="match_parent"
+-                            android:layout_height="1dp"
+-                            android:layout_marginStart="20dp"
+-                            android:layout_marginEnd="20dp"
+-                            android:background="@drawable/rounded_primary"
+-                            />
++                    </com.google.android.material.textfield.TextInputLayout>
++
++                    <View
++                        android:layout_width="match_parent"
++                        android:layout_height="1dp"
++                        android:layout_marginStart="20dp"
++                        android:layout_marginEnd="20dp"
++                        android:background="@color/icline" />
++
++                    <com.google.android.material.textfield.TextInputLayout
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:layout_marginStart="20dp"
++                        android:layout_marginTop="10dp"
++                        android:layout_marginEnd="20dp"
++                        android:background="@color/transparent"
++                        app:counterEnabled="false"
++                        app:errorEnabled="false"
++                        app:helperTextEnabled="false"
++
++                        app:hintAnimationEnabled="false"
++                        app:hintEnabled="false"
++                        app:hintTextColor="@color/black">
++
++                        <EditText
++                            android:id="@+id/edtlocation"
++                            android:layout_width="match_parent"
++                            android:layout_height="45dp"
++                            android:background="@color/transparent"
++                            android:hint="@string/location"
++                            android:imeOptions="actionSearch"
++                            android:paddingStart="10dp"
++                            android:paddingEnd="10dp"
++                            android:singleLine="true"
++                            android:textColor="@color/black"
++                            android:textColorHint="@color/gray4"
++                            android:textSize="15sp"
+ 
++                            />
+ 
++                    </com.google.android.material.textfield.TextInputLayout>
+ 
+-                        <Button
+-                            android:layout_width="match_parent"
+-                            android:layout_height="wrap_content"
+-                            android:layout_marginStart="20dp"
+-                            android:layout_marginTop="40dp"
+-                            android:layout_marginEnd="20dp"
+-                            android:layout_marginBottom="20dp"
+-                            android:background="@drawable/small_rounded_btn_primary"
+-                            android:text="@string/send_order"
+-                            android:textColor="@color/white"
+-                            android:textSize="17sp"
++                    <View
++                        android:layout_width="match_parent"
++                        android:layout_height="1dp"
++                        android:layout_marginStart="20dp"
++                        android:layout_marginEnd="20dp"
++                        android:background="@color/icline" />
++                    <fragment
++                        android:id="@+id/map"
++                        android:layout_marginStart="20dp"
++                        android:layout_marginEnd="20dp"
++                        android:name="com.google.android.gms.maps.SupportMapFragment"
++                        android:layout_width="match_parent"
++                        android:layout_height="200dp" />
++                    <Button
++                        android:id="@+id/btsend"
++                        android:layout_width="180dp"
++                        android:layout_height="wrap_content"
++                        android:layout_marginStart="20dp"
++                        android:layout_marginTop="40dp"
++                        android:layout_marginEnd="20dp"
++                        android:layout_marginBottom="20dp"
++                        android:layout_gravity="center"
++                        android:background="@drawable/small_rounded_btn_primary"
++                        android:text="@string/send_order"
++                        android:textColor="@color/white"
++                        android:textSize="17sp"
+ 
+-                            />
++                        />
+ 
+ 
+-
+-                    </LinearLayout>
++                </LinearLayout>
+ 
+             </FrameLayout>
+         </ScrollView>
+ 
+     </FrameLayout>
++</LinearLayout>
+ </layout>
+Index: app/src/main/java/com/lama/services/Service.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lama.services;\r\n\r\n\r\nimport com.lama.models.AddOrderModel;\r\nimport com.lama.models.BankDataModel;\r\nimport com.lama.models.CategoryProductDataModel;\r\nimport com.lama.models.FavouriteDataModel;\r\nimport com.lama.models.NotificationCount;\r\nimport com.lama.models.NotificationDataModel;\r\nimport com.lama.models.OrderDataModel;\r\nimport com.lama.models.OrderModel;\r\nimport com.lama.models.ProductDataModel;\r\nimport com.lama.models.MainCategoryDataModel;\r\nimport com.lama.models.PlaceGeocodeData;\r\nimport com.lama.models.PlaceMapDetailsData;\r\nimport com.lama.models.SettingModel;\r\nimport com.lama.models.SingleProductDataModel;\r\nimport com.lama.models.Slider_Model;\r\nimport com.lama.models.UserModel;\r\n\r\nimport okhttp3.MultipartBody;\r\nimport okhttp3.RequestBody;\r\nimport okhttp3.ResponseBody;\r\nimport retrofit2.Call;\r\nimport retrofit2.http.Body;\r\nimport retrofit2.http.Field;\r\nimport retrofit2.http.FormUrlEncoded;\r\nimport retrofit2.http.GET;\r\nimport retrofit2.http.Header;\r\nimport retrofit2.http.Multipart;\r\nimport retrofit2.http.POST;\r\nimport retrofit2.http.Part;\r\nimport retrofit2.http.Query;\r\n\r\npublic interface Service {\r\n\r\n\r\n    @GET(\"place/findplacefromtext/json\")\r\n    Call<PlaceMapDetailsData> searchOnMap(@Query(value = \"inputtype\") String inputtype,\r\n                                          @Query(value = \"input\") String input,\r\n                                          @Query(value = \"fields\") String fields,\r\n                                          @Query(value = \"language\") String language,\r\n                                          @Query(value = \"key\") String key\r\n    );\r\n\r\n    @GET(\"geocode/json\")\r\n    Call<PlaceGeocodeData> getGeoData(@Query(value = \"latlng\") String latlng,\r\n                                      @Query(value = \"language\") String language,\r\n                                      @Query(value = \"key\") String key);\r\n\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/login\")\r\n    Call<UserModel> login(@Field(\"phone_code\") String phone_code,\r\n                          @Field(\"phone\") String phone\r\n\r\n    );\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/logout\")\r\n    Call<ResponseBody> logout(@Header(\"Authorization\") String user_token,\r\n                              @Field(\"phone_token\") String phone_token,\r\n                              @Field(\"soft_type\") String soft_type\r\n\r\n\r\n    );\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/update-firebase\")\r\n    Call<ResponseBody> updatePhoneToken(@Header(\"Authorization\") String Authorization,\r\n                                        @Field(\"phone_token\") String phone_token,\r\n                                        @Field(\"soft_type\") String soft_type\r\n    );\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/register\")\r\n    Call<UserModel> signUpWithoutImage(\r\n            @Field(\"name\") String name,\r\n            @Field(\"phone_code\") String phone_code,\r\n            @Field(\"phone\") String phone,\r\n            @Field(\"email\") String email\r\n    );\r\n\r\n    @Multipart\r\n    @POST(\"api/register\")\r\n    Call<UserModel> signUpWithImage(@Part(\"name\") RequestBody name,\r\n                                    @Part(\"email\") RequestBody email,\r\n                                    @Part(\"phone_code\") RequestBody phone_code,\r\n                                    @Part(\"phone\") RequestBody phone,\r\n                                    @Part MultipartBody.Part logo\r\n\r\n\r\n    );\r\n\r\n    @GET(\"api/sttings\")\r\n    Call<SettingModel> getSetting(\r\n            @Header(\"lang\") String lang\r\n\r\n    );\r\n\r\n    @GET(\"api/slider\")\r\n    Call<Slider_Model> get_slider();\r\n\r\n\r\n    @GET(\"api/offers\")\r\n    Call<ProductDataModel> Search(@Query(\"pagination\") String pagination,\r\n                                  @Query(\"user_id\") int user_id);\r\n\r\n    @GET(\"api/get-most-sale\")\r\n    Call<ProductDataModel> getMostSeller(@Query(\"pagination\") String pagination);\r\n\r\n\r\n    @GET(\"api/get-box\")\r\n    Call<ProductDataModel> getFamilyBoxes(@Query(\"pagination\") String pagination);\r\n\r\n    @GET(\"api/category-product\")\r\n    Call<CategoryProductDataModel> getCategoryProducts(@Query(\"pagination\") String pagination,\r\n                                                       @Query(\"user_id\") int user_id);\r\n\r\n    @GET(\"api/genaral-search\")\r\n    Call<ProductDataModel> Search(@Query(\"pagination\") String pagination,\r\n                                  @Query(\"user_id\") int user_id,\r\n                                  @Query(\"search_name\") String search_name,\r\n                                  @Query(\"have_offer\") String have_offer,\r\n                                  @Query(\"product_type\") String product_type,\r\n\r\n                                  @Query(\"departemnt_id\") String departemnt_id\r\n    );\r\n\r\n    @GET(\"api/genaral-search\")\r\n    Call<ProductDataModel> getOffersProducts(@Query(\"pagination\") String pagination,\r\n                                             @Query(\"departemnt_id\") String departemnt_id,\r\n                                             @Query(\"brand_id\") String brand_id,\r\n                                             @Query(\"have_offer\") String have_offer,\r\n                                             @Query(\"limit_per_page\") String limit_per_page,\r\n                                             @Query(\"page\") int page\r\n    );\r\n\r\n    @GET(\"api/product\")\r\n    Call<SingleProductDataModel> Product_detials(@Query(\"product_id\") String product_id);\r\n\r\n    @GET(\"api/one-order\")\r\n    Call<OrderModel> order_detials(@Query(\"order_id\") int order_id);\r\n\r\n    @GET(\"api/brands\")\r\n    Call<MainCategoryDataModel> getBrands(\r\n            @Query(\"pagination\") String pagination\r\n    );\r\n\r\n    @GET(\"api/category\")\r\n    Call<MainCategoryDataModel> getCategory(\r\n            @Query(\"pagination\") String pagination\r\n    );\r\n\r\n    @GET(\"api/banks\")\r\n    Call<BankDataModel> getBanks();\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/favorite-action\")\r\n    Call<ResponseBody> addFavoriteProduct(\r\n            @Header(\"Authorization\") String Authorization,\r\n            @Field(\"product_id\") String product_id)\r\n            ;\r\n\r\n    @GET(\"api/my-favorites\")\r\n    Call<FavouriteDataModel> getMyFavoriteProducts(\r\n            @Header(\"Authorization\") String Authorization,\r\n            @Query(\"pagination\") String pagination\r\n    )\r\n            ;\r\n\r\n    @GET(\"api/my-notification\")\r\n    Call<NotificationDataModel> getNotification(\r\n            @Query(\"pagination\") String pagination\r\n            , @Header(\"Authorization\") String user_token\r\n\r\n\r\n    );\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/delete-notification\")\r\n    Call<ResponseBody> deleteNotification(@Header(\"Authorization\") String user_token,\r\n                                          @Field(\"notification_id\") int notification_id\r\n    );\r\n\r\n    @GET(\"api/count-unread\")\r\n    Call<NotificationCount> getUnreadNotificationCount(@Header(\"Authorization\") String user_token\r\n    );\r\n\r\n    @GET(\"api/my-orders\")\r\n    Call<OrderDataModel> getOrders(@Header(\"Authorization\") String user_token,\r\n                                   @Query(\"order_status\") String order_status,\r\n                                   @Query(\"pagination\") String pagination,\r\n                                   @Query(\"page\") int page,\r\n                                   @Query(\"limit_per_page\") int limit_per_page\r\n\r\n    );\r\n\r\n    @POST(\"api/create-order\")\r\n    Call<OrderModel> createOrder(\r\n\r\n            @Header(\"Authorization\") String Authorization,\r\n            @Body AddOrderModel addOrderModel)\r\n            ;\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/find-coupon\")\r\n    Call<SettingModel> getCouponValue(@Field(\"coupon_num\") String coupon_num);\r\n\r\n    @Multipart\r\n    @POST(\"api/update-profile\")\r\n    Call<UserModel> editClientProfileWithImage(@Header(\"Authorization\") String Authorization,\r\n                                               @Part(\"name\") RequestBody name,\r\n                                               @Part(\"email\") RequestBody email,\r\n                                               @Part MultipartBody.Part logo\r\n\r\n    );\r\n\r\n    @Multipart\r\n    @POST(\"api/update-profile\")\r\n    Call<UserModel> editClientProfileWithoutImage(@Header(\"Authorization\") String Authorization,\r\n                                                  @Part(\"name\") RequestBody name,\r\n                                                  @Part(\"email\") RequestBody email\r\n    );\r\n\r\n    @FormUrlEncoded\r\n    @POST(\"api/add-rate\")\r\n    Call<ResponseBody> rate(\r\n            @Header(\"Authorization\") String Authorization,\r\n            @Field(\"product_id\") String product_id,\r\n            @Field(\"user_id\") String user_id,\r\n            @Field(\"rate\") String rate\r\n    );\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/lama/services/Service.java	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/java/com/lama/services/Service.java	(date 1603796202508)
+@@ -189,7 +189,7 @@
+ 
+     @GET("api/my-orders")
+     Call<OrderDataModel> getOrders(@Header("Authorization") String user_token,
+-                                   @Query("order_status") String order_status,
++                                   @Query("user_id") String user_id,
+                                    @Query("pagination") String pagination,
+                                    @Query("page") int page,
+                                    @Query("limit_per_page") int limit_per_page
+@@ -231,4 +231,13 @@
+             @Field("user_id") String user_id,
+             @Field("rate") String rate
+     );
++    @FormUrlEncoded
++    @POST("api/send-partner")
++    Call<ResponseBody> bepartner(
++            @Field("name") String name,
++            @Field("phone") String phone,
++            @Field("latitude") String latitude,
++            @Field("longitude") String longitude,
++            @Field("address") String address
++    );
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/my_reservation_row.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\">\r\n    <data>\r\n        <variable\r\n            name=\"model\"\r\n            type=\"com.lama.models.SingleProductDataModel\" />\r\n        <variable\r\n            name=\"lang\"\r\n            type=\"String\" />\r\n    </data>\r\n    <androidx.cardview.widget.CardView\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        app:cardCornerRadius=\"8dp\"\r\n        app:cardBackgroundColor=\"@color/white\"\r\n        app:cardElevation=\"3dp\"\r\n        android:layout_marginStart=\"5dp\"\r\n        android:layout_marginEnd=\"5dp\"\r\n        android:layout_marginTop=\"5dp\"\r\n        >\r\n        <FrameLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"180dp\"\r\n\r\n            >\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n                android:orientation=\"vertical\">\r\n\r\n            <ImageView\r\n                product_image=\"@{model.image}\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"150dp\"/>\r\n\r\n            <TextView\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_gravity=\"bottom\"\r\n                android:gravity=\"center\"\r\n                android:layout_marginStart=\"10dp\"\r\n                android:layout_marginEnd=\"10dp\"\r\n                android:layout_marginBottom=\"10dp\"\r\n                android:textSize=\"12sp\"\r\n                android:textColor=\"@color/black\"\r\n                android:singleLine=\"true\"\r\n                android:text='@{model.title}'\r\n                />\r\n            </LinearLayout>\r\n\r\n        </FrameLayout>\r\n    </androidx.cardview.widget.CardView>\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/my_reservation_row.xml	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/res/layout/my_reservation_row.xml	(date 1603791716336)
+@@ -1,54 +1,168 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <layout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto">
++
+     <data>
++
+         <variable
+             name="model"
+-            type="com.lama.models.SingleProductDataModel" />
++            type="com.lama.models.OrderModel" />
++
+         <variable
+             name="lang"
+             type="String" />
+     </data>
+-    <androidx.cardview.widget.CardView
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        app:cardCornerRadius="8dp"
+-        app:cardBackgroundColor="@color/white"
+-        app:cardElevation="3dp"
+-        android:layout_marginStart="5dp"
+-        android:layout_marginEnd="5dp"
+-        android:layout_marginTop="5dp"
+-        >
++
++    <androidx.constraintlayout.widget.ConstraintLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content">
++
++        <androidx.cardview.widget.CardView
++            android:id="@+id/carddelete"
++            android:layout_width="100dp"
++            android:layout_height="100dp"
++            android:layout_marginStart="20dp"
++            android:layout_marginTop="10dp"
++            android:layout_gravity="center_vertical"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent">
++
++            <ImageView
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                android:padding="5dp"
++                android:scaleType="fitXY"
++                image="@{model.order_product.get(0).product_info.image}"
++                android:src="@drawable/family_top" />
++        </androidx.cardview.widget.CardView>
++
+         <FrameLayout
+             android:layout_width="match_parent"
+-            android:layout_height="180dp"
++            android:layout_height="200dp"
++            android:layout_marginTop="50dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent">
+ 
+-            >
+-            <LinearLayout
++            <androidx.cardview.widget.CardView
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+-                android:orientation="vertical">
++                android:layout_margin="15dp"
++                app:cardCornerRadius="10dp">
+ 
+-            <ImageView
+-                product_image="@{model.image}"
+-                android:layout_width="match_parent"
+-                android:layout_height="150dp"/>
++                <androidx.constraintlayout.widget.ConstraintLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="match_parent">
+ 
+-            <TextView
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:layout_gravity="bottom"
+-                android:gravity="center"
+-                android:layout_marginStart="10dp"
+-                android:layout_marginEnd="10dp"
+-                android:layout_marginBottom="10dp"
+-                android:textSize="12sp"
+-                android:textColor="@color/black"
+-                android:singleLine="true"
+-                android:text='@{model.title}'
+-                />
+-            </LinearLayout>
++                    <TextView
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="@{model.title}"
++                        android:textColor="@color/black"
++                        android:textSize="14sp"
++                        app:layout_constraintEnd_toEndOf="parent"
++                        app:layout_constraintHorizontal_bias=".4"
++                        app:layout_constraintStart_toStartOf="parent"
++                        app:layout_constraintTop_toTopOf="parent" />
++
++                    <LinearLayout
++                        android:id="@+id/ll"
++                        android:layout_width="0dp"
++                        android:layout_height="wrap_content"
++                        android:orientation="vertical"
++                        app:layout_constraintBottom_toBottomOf="parent"
++
++                        app:layout_constraintEnd_toStartOf="@+id/lll"
++                        app:layout_constraintStart_toStartOf="parent"
++                        app:layout_constraintTop_toTopOf="parent"
++                  >
++
++                        <LinearLayout
++                            android:layout_width="wrap_content"
++                            android:layout_height="wrap_content"
++                            android:orientation="horizontal">
++
++                            <ImageView
++                                android:layout_width="25dp"
++                                android:layout_height="25dp"
++                                android:padding="5dp"
++                                android:src="@drawable/ic_delte" />
++
++                            <TextView
++                                android:layout_width="wrap_content"
++                                android:layout_height="wrap_content"
++                                android:text="@string/from"
++                                android:textColor="@color/black"
++                                android:textSize="14sp"
++                                app:layout_constraintEnd_toEndOf="parent"
++                                app:layout_constraintHorizontal_bias=".3"
++                                app:layout_constraintStart_toStartOf="parent"
++                                app:layout_constraintTop_toTopOf="parent" />
++
++                        </LinearLayout>
+ 
+-        </FrameLayout>
+-    </androidx.cardview.widget.CardView>
++                        <TextView
++                            android:layout_width="wrap_content"
++                            android:layout_height="wrap_content"
++                            android:text="@{model.order_product.get(0).book_date_from}"
++                            android:textColor="@color/black"
++                            android:textSize="14sp"
++                            app:layout_constraintEnd_toEndOf="parent"
++                            app:layout_constraintHorizontal_bias=".3"
++                            app:layout_constraintStart_toStartOf="parent"
++                            app:layout_constraintTop_toTopOf="parent" />
++                    </LinearLayout>
++                    <LinearLayout
++                        android:id="@+id/lll"
++                        android:layout_width="0dp"
++                        android:layout_height="wrap_content"
++                        android:orientation="vertical"
++                        app:layout_constraintBottom_toBottomOf="parent"
++
++                        app:layout_constraintEnd_toEndOf="parent"
++                        app:layout_constraintStart_toEndOf="@+id/ll"
++                        app:layout_constraintTop_toTopOf="parent"
++                  >
++
++                        <LinearLayout
++                            android:layout_width="wrap_content"
++                            android:layout_height="wrap_content"
++                            android:orientation="horizontal">
++
++                            <ImageView
++                                android:layout_width="25dp"
++                                android:layout_height="25dp"
++                                android:padding="5dp"
++                                android:src="@drawable/ic_delte" />
++
++                            <TextView
++                                android:layout_width="wrap_content"
++                                android:layout_height="wrap_content"
++                                android:text="@string/to"
++                                android:textColor="@color/black"
++                                android:textSize="14sp"
++                                app:layout_constraintEnd_toEndOf="parent"
++                                app:layout_constraintHorizontal_bias=".3"
++                                app:layout_constraintStart_toStartOf="parent"
++                                app:layout_constraintTop_toTopOf="parent" />
++
++                        </LinearLayout>
++
++                        <TextView
++                            android:layout_width="wrap_content"
++                            android:layout_height="wrap_content"
++                            android:text="@{model.order_product.get(0).book_date_to}"
++                            android:textColor="@color/black"
++                            android:textSize="14sp"
++                            app:layout_constraintEnd_toEndOf="parent"
++                            app:layout_constraintHorizontal_bias=".3"
++                            app:layout_constraintStart_toStartOf="parent"
++                            app:layout_constraintTop_toTopOf="parent" />
++                    </LinearLayout>
++
++                </androidx.constraintlayout.widget.ConstraintLayout>
++            </androidx.cardview.widget.CardView>
++
++        </FrameLayout>
++    </androidx.constraintlayout.widget.ConstraintLayout>
+ </layout>
+\ No newline at end of file
+Index: app/src/main/res/layout/fragment_my_reservations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<layout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <data>\r\n        <variable\r\n            name=\"lang\"\r\n            type=\"String\" />\r\n    </data>\r\n\r\n    <FrameLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:background=\"@color/white\">\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:orientation=\"vertical\"\r\n            >\r\n            <ImageView\r\n                android:id=\"@+id/image\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"150dp\"\r\n                android:src=\"@drawable/family_top\"\r\n                />\r\n            <TextView\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_margin=\"10dp\"\r\n                android:textColor=\"@color/black\"\r\n                android:textSize=\"16sp\"\r\n                android:text=\"@string/family_box\"\r\n                />\r\n            <androidx.recyclerview.widget.RecyclerView\r\n                android:id=\"@+id/recView\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"match_parent\"\r\n\r\n                />\r\n\r\n        </LinearLayout>\r\n\r\n        <ProgressBar\r\n            android:id=\"@+id/progBar\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n            />\r\n\r\n        <TextView\r\n            android:id=\"@+id/tvNoData\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_gravity=\"center\"\r\n            android:textSize=\"18sp\"\r\n            android:textColor=\"@color/black\"\r\n            android:text=\"@string/no_data_to_show\"\r\n            android:visibility=\"gone\"\r\n            />\r\n    </FrameLayout>\r\n</layout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/fragment_my_reservations.xml	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/res/layout/fragment_my_reservations.xml	(date 1603792454862)
+@@ -19,20 +19,7 @@
+             android:layout_height="match_parent"
+             android:orientation="vertical"
+             >
+-            <ImageView
+-                android:id="@+id/image"
+-                android:layout_width="match_parent"
+-                android:layout_height="150dp"
+-                android:src="@drawable/family_top"
+-                />
+-            <TextView
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_margin="10dp"
+-                android:textColor="@color/black"
+-                android:textSize="16sp"
+-                android:text="@string/family_box"
+-                />
++
+             <androidx.recyclerview.widget.RecyclerView
+                 android:id="@+id/recView"
+                 android:layout_width="match_parent"
+Index: app/src/main/java/com/lama/activities_fragments/activity_home/fragments/Fragment_My_Reservations.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lama.activities_fragments.activity_home.fragments;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.annotation.Nullable;\r\nimport androidx.databinding.DataBindingUtil;\r\nimport androidx.fragment.app.Fragment;\r\nimport androidx.recyclerview.widget.GridLayoutManager;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\n\r\nimport com.lama.R;\r\nimport com.lama.activities_fragments.activity_home.HomeActivity;\r\nimport com.lama.activities_fragments.activity_product_details.ProductDetailsActivity;\r\nimport com.lama.adapters.FamilyBoxesAdapter;\r\nimport com.lama.databinding.FragmentMyReservationsBinding;\r\nimport com.lama.models.ProductDataModel;\r\nimport com.lama.models.SingleProductDataModel;\r\nimport com.lama.models.UserModel;\r\nimport com.lama.preferences.Preferences;\r\nimport com.lama.remote.Api;\r\nimport com.lama.tags.Tags;\r\n\r\nimport java.io.IOException;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\nimport io.paperdb.Paper;\r\nimport retrofit2.Call;\r\nimport retrofit2.Callback;\r\nimport retrofit2.Response;\r\n\r\npublic class Fragment_My_Reservations extends Fragment {\r\n\r\n    private HomeActivity activity;\r\n    private FragmentMyReservationsBinding binding;\r\n    private Preferences preferences;\r\n    private UserModel userModel;\r\n    private String lang;\r\n    private LinearLayoutManager manager;\r\n    private List<SingleProductDataModel> familyBoxesList;\r\n    private FamilyBoxesAdapter familyBoxesAdapter;\r\n    public static Fragment_My_Reservations newInstance() {\r\n        return new Fragment_My_Reservations();\r\n    }\r\n\r\n    @Nullable\r\n    @Override\r\n    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {\r\n        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_reservations, container, false);\r\n        initView();\r\n        getFamilyBoxes();\r\n        return binding.getRoot();\r\n    }\r\n\r\n    @Override\r\n    public void onActivityCreated(@Nullable Bundle savedInstanceState) {\r\n        super.onActivityCreated(savedInstanceState);\r\n\r\n    }\r\n\r\n\r\n    private void initView() {\r\n        activity = (HomeActivity) getActivity();\r\n        familyBoxesList=new ArrayList<>();\r\n        Paper.init(activity);\r\n        lang = Paper.book().read(\"lang\", \"ar\");\r\n        binding.setLang(lang);\r\n        preferences = Preferences.getInstance();\r\n        userModel = preferences.getUserData(activity);\r\n        manager = new LinearLayoutManager(activity);\r\n        binding.recView.setLayoutManager(manager);\r\n        binding.recView.setLayoutManager(new GridLayoutManager(activity,2));\r\n        familyBoxesAdapter = new FamilyBoxesAdapter(familyBoxesList, activity, this);\r\n        binding.recView.setAdapter(familyBoxesAdapter);\r\n\r\n\r\n    }\r\n\r\n    public void getFamilyBoxes() {\r\n\r\n        try {\r\n\r\n            Api.getService(Tags.base_url).\r\n                    getFamilyBoxes(\"off\").\r\n                    enqueue(new Callback<ProductDataModel>() {\r\n                        @Override\r\n                        public void onResponse(Call<ProductDataModel> call, Response<ProductDataModel> response) {\r\n                            binding.progBar.setVisibility(View.GONE);\r\n\r\n                            if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {\r\n\r\n                                familyBoxesList.clear();\r\n                                familyBoxesList.addAll(response.body().getData());\r\n                                if (familyBoxesList.size() > 0) {\r\n                                    familyBoxesAdapter.notifyDataSetChanged();\r\n                                } else {\r\n\r\n                                }\r\n\r\n                            } else {\r\n                                try {\r\n\r\n                                    Log.e(\"error\", response.code() + \"_\" + response.errorBody().string());\r\n                                } catch (IOException e) {\r\n                                    e.printStackTrace();\r\n                                }\r\n\r\n                                if (response.code() == 500) {\r\n                                    Toast.makeText(activity, \"Server Error\", Toast.LENGTH_SHORT).show();\r\n\r\n\r\n                                } else {\r\n                                    Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();\r\n\r\n\r\n                                }\r\n                            }\r\n                        }\r\n\r\n                        @Override\r\n                        public void onFailure(Call<ProductDataModel> call, Throwable t) {\r\n                            binding.progBar.setVisibility(View.GONE);\r\n                            try {\r\n                                if (t.getMessage() != null) {\r\n                                    Log.e(\"error\", t.getMessage());\r\n                                    if (t.getMessage().toLowerCase().contains(\"failed to connect\") || t.getMessage().toLowerCase().contains(\"unable to resolve host\")) {\r\n                                        Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();\r\n                                    } else {\r\n                                        Toast.makeText(activity, t.getMessage(), Toast.LENGTH_SHORT).show();\r\n                                    }\r\n                                }\r\n\r\n                            } catch (Exception e) {\r\n                            }\r\n\r\n\r\n                        }\r\n                    });\r\n        } catch (Exception e) {\r\n\r\n        }\r\n\r\n\r\n    }\r\n\r\n    public void setItemDataOffers(SingleProductDataModel model) {\r\n\r\n        Intent intent = new Intent(activity, ProductDetailsActivity.class);\r\n        intent.putExtra(\"product_id\", model.getId());\r\n        startActivityForResult(intent, 100);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/lama/activities_fragments/activity_home/fragments/Fragment_My_Reservations.java	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/java/com/lama/activities_fragments/activity_home/fragments/Fragment_My_Reservations.java	(date 1603791716230)
+@@ -14,12 +14,16 @@
+ import androidx.fragment.app.Fragment;
+ import androidx.recyclerview.widget.GridLayoutManager;
+ import androidx.recyclerview.widget.LinearLayoutManager;
++import androidx.recyclerview.widget.RecyclerView;
+ 
+ import com.lama.R;
+ import com.lama.activities_fragments.activity_home.HomeActivity;
+ import com.lama.activities_fragments.activity_product_details.ProductDetailsActivity;
+ import com.lama.adapters.FamilyBoxesAdapter;
++import com.lama.adapters.OrderAdapter;
+ import com.lama.databinding.FragmentMyReservationsBinding;
++import com.lama.models.OrderDataModel;
++import com.lama.models.OrderModel;
+ import com.lama.models.ProductDataModel;
+ import com.lama.models.SingleProductDataModel;
+ import com.lama.models.UserModel;
+@@ -44,8 +48,10 @@
+     private UserModel userModel;
+     private String lang;
+     private LinearLayoutManager manager;
+-    private List<SingleProductDataModel> familyBoxesList;
+-    private FamilyBoxesAdapter familyBoxesAdapter;
++    private OrderAdapter adapter;
++    private List<OrderModel> orderModelList;
++    private int current_page = 1;
++    private boolean isLoading = false;
+     public static Fragment_My_Reservations newInstance() {
+         return new Fragment_My_Reservations();
+     }
+@@ -55,7 +61,7 @@
+     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_reservations, container, false);
+         initView();
+-        getFamilyBoxes();
++     //   getFamilyBoxes();
+         return binding.getRoot();
+     }
+ 
+@@ -68,7 +74,7 @@
+ 
+     private void initView() {
+         activity = (HomeActivity) getActivity();
+-        familyBoxesList=new ArrayList<>();
++        orderModelList=new ArrayList<>();
+         Paper.init(activity);
+         lang = Paper.book().read("lang", "ar");
+         binding.setLang(lang);
+@@ -77,41 +83,123 @@
+         manager = new LinearLayoutManager(activity);
+         binding.recView.setLayoutManager(manager);
+         binding.recView.setLayoutManager(new GridLayoutManager(activity,2));
+-        familyBoxesAdapter = new FamilyBoxesAdapter(familyBoxesList, activity, this);
+-        binding.recView.setAdapter(familyBoxesAdapter);
++        adapter = new OrderAdapter(activity, orderModelList, this);
++        binding.recView.setAdapter(adapter);
++
++        binding.recView.addOnScrollListener(new RecyclerView.OnScrollListener() {
++            @Override
++            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
++                super.onScrolled(recyclerView, dx, dy);
++                if (dy > 0) {
++                    int total_item = binding.recView.getAdapter().getItemCount();
++                    int last_visible_item = ((LinearLayoutManager) binding.recView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
+ 
++                    if (total_item >= 20 && (total_item - last_visible_item) == 5 && !isLoading) {
+ 
+-    }
++                        isLoading = true;
++                        int page = current_page + 1;
++                        orderModelList.add(null);
++                        adapter.notifyItemInserted(orderModelList.size() - 1);
++
++                        loadMore(page);
++                    }
++                }
++            }
++        });
++        getOrders();
+ 
+-    public void getFamilyBoxes() {
+ 
++    }
++
++    private void getOrders() {
+         try {
+-
+-            Api.getService(Tags.base_url).
+-                    getFamilyBoxes("off").
+-                    enqueue(new Callback<ProductDataModel>() {
++            current_page = 1;
++            Api.getService(Tags.base_url)
++                    .getOrders(userModel.getUser().getToken(), userModel.getUser().getId()+"", "on", current_page, 20)
++                    .enqueue(new Callback<OrderDataModel>() {
+                         @Override
+-                        public void onResponse(Call<ProductDataModel> call, Response<ProductDataModel> response) {
++                        public void onResponse(Call<OrderDataModel> call, Response<OrderDataModel> response) {
+                             binding.progBar.setVisibility(View.GONE);
+-
+                             if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {
++                                orderModelList.clear();
++                                orderModelList.addAll(response.body().getData());
++                                Log.e("mmmmmmm",orderModelList.size()+"");
++
++                                if (orderModelList.size() > 0) {
+ 
+-                                familyBoxesList.clear();
+-                                familyBoxesList.addAll(response.body().getData());
+-                                if (familyBoxesList.size() > 0) {
+-                                    familyBoxesAdapter.notifyDataSetChanged();
++                                    adapter.notifyDataSetChanged();
++
++                                    binding.tvNoData.setVisibility(View.GONE);
+                                 } else {
++                                    binding.tvNoData.setVisibility(View.VISIBLE);
++
++                                }
++                            } else {
++                                if (response.code() == 500) {
++                                    Toast.makeText(activity, "Server Error", Toast.LENGTH_SHORT).show();
+ 
+-                                }
+ 
+-                            } else {
+-                                try {
++                                } else {
++                                    Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
++
++                                    try {
+ 
+-                                    Log.e("error", response.code() + "_" + response.errorBody().string());
+-                                } catch (IOException e) {
+-                                    e.printStackTrace();
++                                        Log.e("error", response.code() + "_" + response.errorBody().string());
++                                    } catch (IOException e) {
++                                        e.printStackTrace();
++                                    }
+                                 }
++                            }
++                        }
++
++                        @Override
++                        public void onFailure(Call<OrderDataModel> call, Throwable t) {
++                            try {
++                                binding.progBar.setVisibility(View.GONE);
++
++                                if (t.getMessage() != null) {
++                                    Log.e("error", t.getMessage());
++                                    if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
++                                        Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
++                                    } else {
++                                        Toast.makeText(activity, t.getMessage(), Toast.LENGTH_SHORT).show();
++                                    }
++                                }
++
++                            } catch (Exception e) {
++                            }
++                        }
++                    });
++        } catch (Exception e) {
++
++        }
++    }
+ 
++    private void loadMore(int page) {
++        try {
++
++            Api.getService(Tags.base_url)
++                    .getOrders(userModel.getUser().getToken(), userModel.getUser().getId()+"", "on", page, 20)
++                    .enqueue(new Callback<OrderDataModel>() {
++                        @Override
++                        public void onResponse(Call<OrderDataModel> call, Response<OrderDataModel> response) {
++                            isLoading = false;
++                            orderModelList.remove(orderModelList.size() - 1);
++                            adapter.notifyItemRemoved(orderModelList.size() - 1);
++
++
++                            if (response.isSuccessful() && response.body() != null && response.body().getData() != null) {
++
++                                int oldPos = orderModelList.size() - 1;
++
++                                orderModelList.addAll(response.body().getData());
++
++                                if (response.body().getData().size() > 0) {
++                                    current_page = response.body().getMeta().getCurrent_page();
++                                    adapter.notifyItemRangeChanged(oldPos, orderModelList.size() - 1);
++
++                                }
++                            } else {
+                                 if (response.code() == 500) {
+                                     Toast.makeText(activity, "Server Error", Toast.LENGTH_SHORT).show();
+ 
+@@ -119,15 +207,27 @@
+                                 } else {
+                                     Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+ 
++                                    try {
+ 
++                                        Log.e("error", response.code() + "_" + response.errorBody().string());
++                                    } catch (IOException e) {
++                                        e.printStackTrace();
++                                    }
+                                 }
+                             }
+                         }
+ 
+                         @Override
+-                        public void onFailure(Call<ProductDataModel> call, Throwable t) {
+-                            binding.progBar.setVisibility(View.GONE);
++                        public void onFailure(Call<OrderDataModel> call, Throwable t) {
+                             try {
++
++                                if (orderModelList.get(orderModelList.size() - 1) == null) {
++                                    isLoading = false;
++                                    orderModelList.remove(orderModelList.size() - 1);
++                                    adapter.notifyItemRemoved(orderModelList.size() - 1);
++
++                                }
++
+                                 if (t.getMessage() != null) {
+                                     Log.e("error", t.getMessage());
+                                     if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
+@@ -139,21 +239,13 @@
+ 
+                             } catch (Exception e) {
+                             }
+-
+-
+                         }
+                     });
+         } catch (Exception e) {
+ 
+         }
+-
+-
+     }
+ 
+-    public void setItemDataOffers(SingleProductDataModel model) {
+ 
+-        Intent intent = new Intent(activity, ProductDetailsActivity.class);
+-        intent.putExtra("product_id", model.getId());
+-        startActivityForResult(intent, 100);
+-    }
++
+ }
+Index: .idea/codeStyles/Project.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"ProjectCodeStyleConfiguration\">\r\n  <code_scheme name=\"Project\" version=\"173\">\r\n    <JetCodeStyleSettings>\r\n      <option name=\"PACKAGES_TO_USE_STAR_IMPORTS\">\r\n        <value>\r\n          <package name=\"java.util\" alias=\"false\" withSubpackages=\"false\" />\r\n          <package name=\"kotlinx.android.synthetic\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"io.ktor\" alias=\"false\" withSubpackages=\"true\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"PACKAGES_IMPORT_LAYOUT\">\r\n        <value>\r\n          <package name=\"\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"java\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"javax\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"kotlin\" alias=\"false\" withSubpackages=\"true\" />\r\n          <package name=\"\" alias=\"true\" withSubpackages=\"true\" />\r\n        </value>\r\n      </option>\r\n    </JetCodeStyleSettings>\r\n    <codeStyleSettings language=\"XML\">\r\n      <indentOptions>\r\n        <option name=\"CONTINUATION_INDENT_SIZE\" value=\"4\" />\r\n      </indentOptions>\r\n      <arrangement>\r\n        <rules>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>xmlns:android</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>xmlns:.*</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n              <order>BY_NAME</order>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*:id</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*:name</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>name</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>style</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>^$</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n              <order>BY_NAME</order>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>http://schemas.android.com/apk/res/android</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n              <order>ANDROID_ATTRIBUTE_ORDER</order>\r\n            </rule>\r\n          </section>\r\n          <section>\r\n            <rule>\r\n              <match>\r\n                <AND>\r\n                  <NAME>.*</NAME>\r\n                  <XML_ATTRIBUTE />\r\n                  <XML_NAMESPACE>.*</XML_NAMESPACE>\r\n                </AND>\r\n              </match>\r\n              <order>BY_NAME</order>\r\n            </rule>\r\n          </section>\r\n        </rules>\r\n      </arrangement>\r\n    </codeStyleSettings>\r\n  </code_scheme>\r\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/codeStyles/Project.xml	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ .idea/codeStyles/Project.xml	(date 1603785178892)
+@@ -3,18 +3,9 @@
+     <JetCodeStyleSettings>
+       <option name="PACKAGES_TO_USE_STAR_IMPORTS">
+         <value>
+-          <package name="java.util" alias="false" withSubpackages="false" />
+-          <package name="kotlinx.android.synthetic" alias="false" withSubpackages="true" />
+-          <package name="io.ktor" alias="false" withSubpackages="true" />
+-        </value>
+-      </option>
+-      <option name="PACKAGES_IMPORT_LAYOUT">
+-        <value>
+-          <package name="" alias="false" withSubpackages="true" />
+-          <package name="java" alias="false" withSubpackages="true" />
+-          <package name="javax" alias="false" withSubpackages="true" />
+-          <package name="kotlin" alias="false" withSubpackages="true" />
+-          <package name="" alias="true" withSubpackages="true" />
++          <package name="java.util" withSubpackages="false" static="false" />
++          <package name="kotlinx.android.synthetic" withSubpackages="true" static="false" />
++          <package name="io.ktor" withSubpackages="true" static="false" />
+         </value>
+       </option>
+     </JetCodeStyleSettings>
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">Lmah</string>\r\n    <string name=\"map_api_key\">AIzaSyAeyMUJgKAhnNXbILHONb1um72CNzELFRY</string>\r\n    <string name=\"map_key\">AIzaSyAeyMUJgKAhnNXbILHONb1um72CNzELFRY</string>\r\n    <string name=\"open\">open</string>\r\n    <string name=\"close\">close</string>\r\n\r\n    <string name=\"home\">Home</string>\r\n    <string name=\"notifications\">Notifications</string>\r\n    <string name=\"more\">More</string>\r\n    <string name=\"terms_and_conditions\">Terms of use</string>\r\n    <string name=\"about_app\">About</string>\r\n    <string name=\"contact_us\">Contact Us</string>\r\n    <string name=\"back\">Back</string>\r\n    <string name=\"failed\">Failed</string>\r\n    <string name=\"something\">Check internet connection</string>\r\n    <string name=\"language_settings\">Language Settings</string>\r\n    <string name=\"sar\">SAR</string>\r\n    <string name=\"no_details\">No details</string>\r\n    <string name=\"cancel\">Cancel</string>\r\n    <string name=\"suc\">Success !</string>\r\n\r\n    <string name=\"just_now\">Just Now</string>\r\n    <string name=\"a_minute_ago\">a min ago</string>\r\n    <string name=\"min\">min</string>\r\n    <string name=\"an_hour_ago\">an hour ago</string>\r\n    <string name=\"hs\">h</string>\r\n    <string name=\"yesterday\">yesterday</string>\r\n\r\n\r\n    <string name=\"share\">Share</string>\r\n    <string name=\"edit\">Edit</string>\r\n    <string name=\"price\">Price</string>\r\n    <string name=\"delete\">Delete</string>\r\n    <string name=\"change_language\">Change language</string>\r\n    <string name=\"send\">Send</string>\r\n    <string name=\"ok\">OK</string>\r\n    <string name=\"no_data_to_show\">No data to show</string>\r\n    <string name=\"search2\">Search</string>\r\n    <string name=\"phone\">Phone number</string>\r\n    <string name=\"address\">Address</string>\r\n    <string name=\"email\">Email</string>\r\n    <string name=\"send_a_message\">Send a message</string>\r\n    <string name=\"name\">Name</string>\r\n    <string name=\"subject\">Subject</string>\r\n    <string name=\"message\">Message</string>\r\n    <string name=\"wait\">Wait...</string>\r\n    <string name=\"profile\">Profile</string>\r\n    <string name=\"please_sign_in_or_sign_up\">Please sign In or Sign Up</string>\r\n    <string name=\"password\">Password</string>\r\n    <string name=\"log_in\">Log In</string>\r\n    <string name=\"new_account\">New Account</string>\r\n    <string name=\"skip\">Skip</string>\r\n    <string name=\"code\">Code</string>\r\n    <string name=\"already_have_an_account\">Already have an account !</string>\r\n    <string name=\"field_required\">Field required</string>\r\n    <string name=\"pass_short\">Password too short</string>\r\n    <string name=\"inv_email\">Invalid email</string>\r\n    <string name=\"perm_img_denied\">Permission denied</string>\r\n    <string name=\"ch_img\">Choose Image</string>\r\n    <string name=\"update_profile\">Update Profile</string>\r\n    <string name=\"no_image\">No Image</string>\r\n    <string name=\"inv_phone\">Invalid phone</string>\r\n    <string name=\"logout\">Logout</string>\r\n    <string name=\"send_code\">send code</string>\r\n    <string name=\"confirmation_code\">Confirmation Code</string>\r\n    <string name=\"confirm\">confirm</string>\r\n    <string name=\"resend\">Resend</string>\r\n    <string name=\"inv_sms_code\">Invalid sms code</string>\r\n    <string name=\"rate_app\">Rate App</string>\r\n    <string name=\"sign_up\">Sign Up</string>\r\n    <string name=\"user_found\">User is found</string>\r\n    <string name=\"download\">Download</string>\r\n    <string name=\"inc_pas\">Incorrect Password</string>\r\n    <string name=\"no_notifications_to_show\">No notifications to show</string>\r\n    <string name=\"favourite\">Favorite</string>\r\n    <string name=\"confirm2\">Confirm</string>\r\n    <string name=\"confirm3\">Confirm</string>\r\n    <string name=\"done\">Done</string>\r\n    <string name=\"gallery\">Gallery</string>\r\n    <string name=\"camera\">Camera</string>\r\n    <string name=\"perm_image_denied\">Permission image denied</string>\r\n    <string name=\"privacy\">Privacy policy</string>\r\n    <string name=\"upload_image\">Upload image</string>\r\n    <string name=\"main_department\">Main department</string>\r\n    <string name=\"sub_department\">Sub department</string>\r\n    <string name=\"whats_not_av\">Not available</string>\r\n    <string name=\"inv_whatsapp\">Invalid whatsApp number</string>\r\n    <string name=\"inv_url\">Invalid url</string>\r\n    <string name=\"contact_info\">Contact info</string>\r\n    <string name=\"location\">Location</string>\r\n    <string name=\"facebook\">Facebook</string>\r\n    <string name=\"twitter\">Twitter</string>\r\n    <string name=\"instagram\">Instagram</string>\r\n    <string name=\"choose\">Choose</string>\r\n    <string name=\"ch_ad_img\">Choose ad image</string>\r\n    <string name=\"show\">Show</string>\r\n    <string name=\"country_code\">Country code</string>\r\n    <string name=\"most_seller\">Most Seller</string>\r\n    <string name=\"most_rate\">Most Rate</string>\r\n    <string name=\"shop_by_category\">Shop By Category</string>\r\n    <string name=\"shop_now\">Shop now</string>\r\n    <string name=\"total\">Total</string>\r\n    <string name=\"checkout\">Checkout</string>\r\n    <string name=\"cart\">Cart</string>\r\n    <string name=\"news\">News</string>\r\n    <string name=\"city\">City</string>\r\n    <string name=\"date_amp_time\"><![CDATA[Date & Time]]></string>\r\n    <string name=\"payment\">Payment</string>\r\n    <string name=\"next\">Next</string>\r\n    <string name=\"previous\">Previous</string>\r\n    <string name=\"delivery_date\">Delivery Date</string>\r\n    <string name=\"delivery_time\">Delivery Time</string>\r\n    <string name=\"select\">Select</string>\r\n    <string name=\"ch_date\">Choose delivery date</string>\r\n    <string name=\"ch_time\">Choose delivery time</string>\r\n    <string name=\"ch_payment_type\">Choose payment type</string>\r\n    <string name=\"search_criteria\">Search Criteria</string>\r\n    <string name=\"keyword\">Keyword</string>\r\n    <string name=\"need_help\">Need Help</string>\r\n    <string name=\"my_orders\">My Orders</string>\r\n    <string name=\"current\">Current</string>\r\n    <string name=\"prevoius\">Previous</string>\r\n    <string name=\"no_search_results\">No Search Results</string>\r\n    <string name=\"area\">Area</string>\r\n    <string name=\"read_more\">Read More</string>\r\n    <string name=\"news_details\">News  Details</string>\r\n    <string name=\"add_to_cart\">Add To Cart</string>\r\n    <string name=\"sub_categoy\">Sub Category</string>\r\n    <string name=\"products\">Products</string>\r\n    <string name=\"grid\">Grid</string>\r\n    <string name=\"list\">List</string>\r\n    <string name=\"view\">View</string>\r\n    <string name=\"my_favorite\">My Favorite</string>\r\n    <string name=\"delete_item\">Delete Item ?</string>\r\n    <string name=\"product_details\">Product Details</string>\r\n    <string name=\"order_num\">Order-Num</string>\r\n    <string name=\"added_suc\">\"Added to cart\"</string>\r\n    <string name=\"cart_empty\">Empty Cart</string>\r\n    <string name=\"welcome_in_anaqa_phone\">Welcome In Anaqa Phone</string>\r\n    <string name=\"enter_verification_code\">Enter Verification Code</string>\r\n    <string name=\"cannot_signup\">Cannot sign up without accepting terms and conditions</string>\r\n    <string name=\"favorite_offers\">Favorite Offers</string>\r\n    <string name=\"show_all\">Show All</string>\r\n    <string name=\"mobile_accessories\">Mobile ِِِAccessories</string>\r\n    <string name=\"return1\">Return</string>\r\n    <string name=\"charge\">Charge</string>\r\n    <string name=\"bank_accounts\">Bank Accounts</string>\r\n    <string name=\"offers\">Offers</string>\r\n    <string name=\"filter\">Filter</string>\r\n    <string name=\"normal\">Square</string>\r\n    <string name=\"model_num\">Model Number :</string>\r\n    <string name=\"ryal\">Ryal</string>\r\n    <string name=\"shamil_daribat_alqimih_almudafih\">(shamil daribat alqimih almudafih)</string>\r\n    <string name=\"main_advantages\">Main Advantages</string>\r\n    <string name=\"overview\">OverView</string>\r\n    <string name=\"discount\">discount</string>\r\n    <string name=\"account_number\">Account Number</string>\r\n    <string name=\"account_iban\">Account Iban</string>\r\n    <string name=\"banks\">Banks</string>\r\n    <string name=\"visa\">Visa</string>\r\n    <string name=\"paypal\">Paypal</string>\r\n    <string name=\"cash_on_delivery\">Cash On Delivery</string>\r\n    <string name=\"status\">status</string>\r\n    <string name=\"total_cost\">Total Cost</string>\r\n    <string name=\"amount\">amount</string>\r\n    <string name=\"new_order\">Pending</string>\r\n    <string name=\"in_way\">Charged</string>\r\n    <string name=\"accepted\">Accepted</string>\r\n    <string name=\"refused\">Refused</string>\r\n    <string name=\"completed\">Completed</string>\r\n    <string name=\"not_found\">Not Found</string>\r\n    <string name=\"add_coupon\">Add Coupon</string>\r\n    <string name=\"edit_profile\">Edit profile</string>\r\n    <string name=\"department\">Departments</string>\r\n    <string name=\"out_of_stock\">Out Of Stock</string>\r\n    <string name=\"arrive\">Arrive</string>\r\n    <string name=\"without_arrive\">Without Arrive</string>\r\n    <string name=\"total_order_price\">Total Order Price</string>\r\n    <string name=\"products_price\">Products Price</string>\r\n    <string name=\"arrive_price\">Arrive Price</string>\r\n    <string name=\"vat\">VAT</string>\r\n    <string name=\"all_rights_reserved_for_anaqaphone\">© All Rights Reserved For AnaqaPhone</string>\r\n    <string name=\"colors\">Color Name</string>\r\n    <string name=\"contact_us_on_whatsapp\">Contact Us On Whatsapp</string>\r\n    <string name=\"cart_not_empty\">Cart Not Empty</string>\r\n    <string name=\"if_you\">If YOU Close App Cart Will Delet</string>\r\n    <string name=\"sizes\">Memmory</string>\r\n    <string name=\"select_color\">Select Color</string>\r\n    <string name=\"select_size\">Select Memory</string>\r\n    <string name=\"successfully_added_to_the_cart\">Successfully added to the cart</string>\r\n    <string name=\"enter_verification_code_sent_to\">Enter verification code sent to</string>\r\n    <string name=\"depts\">Depts</string>\r\n    <string name=\"family_box\">Family Box</string>\r\n    <string name=\"best_offers\">Best Offers</string>\r\n    <string name=\"personal_information\">Personal Information</string>\r\n    <string name=\"electronic_cards\">Electronic Cards</string>\r\n    <string name=\"descriptions\">Descriptions</string>\r\n    <string name=\"preparation_way\">Preparation way</string>\r\n    <string name=\"quantity\">Quantity</string>\r\n    <string name=\"my_reservations\">My reservations</string>\r\n    <string name=\"settings\">Settings</string>\r\n    <string name=\"general_settings\">General Settings</string>\r\n    <string name=\"terms_of_service\">Terms Of Service</string>\r\n    <string name=\"help\">Help</string>\r\n    <string name=\"version_no\">Version Number</string>\r\n    <string name=\"notification_tone\">Notification Tone</string>\r\n    <string name=\"default1\">Default</string>\r\n    <string name=\"Become_a_partner\">Become a partner</string>\r\n    <string name=\"Social_Media\">Social Media</string>\r\n    <string name=\"no_data_found\">No Data Found</string>\r\n    <string name=\"what_are_you_looking_for\">what are you looking for</string>\r\n    <string name=\"become_a_partner_and_join_us_just_in_simple_steps\">Become a partner and join us just in simple steps</string>\r\n    <string name=\"send_order\">Send Order</string>\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/res/values/strings.xml	(date 1603791423460)
+@@ -212,4 +212,6 @@
+     <string name="what_are_you_looking_for">what are you looking for</string>
+     <string name="become_a_partner_and_join_us_just_in_simple_steps">Become a partner and join us just in simple steps</string>
+     <string name="send_order">Send Order</string>
++    <string name="from">From</string>
++    <string name="to">To</string>
+ </resources>
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <color name=\"colorPrimary\">#28245F</color>\r\n    <color name=\"colorPrimaryDark\">#28245F</color>\r\n    <color name=\"colorAccent\">#F6C712</color>\r\n    <color name=\"second\">#A5D8FF</color>\r\n    <color name=\"white\">#fff</color>\r\n    <color name=\"black\">#000000</color>\r\n    <color name=\"gray0\">#fafafa</color>\r\n    <color name=\"gray1\">#f5f5f5</color>\r\n    <color name=\"gray2\">#eee</color>\r\n    <color name=\"gray3\">#e0e0e0</color>\r\n    <color name=\"gray4\">#bababa</color>\r\n    <color name=\"gray5\">#c3c3c3</color>\r\n    <color name=\"gray6\">#a0a0a0</color>\r\n    <color name=\"gray7\">#f8f8f8</color>\r\n    <color name=\"gray8\">#b0afbb</color>\r\n    <color name=\"gray9\">#757575</color>\r\n    <color name=\"gray10\">#f2f2f2</color>\r\n    <color name=\"gray11\">#5f6366</color>\r\n    <color name=\"gray12\">#474646</color>\r\n    <color name=\"gray13\">#dcdcdc</color>\r\n    <color name=\"gray14\">#939292</color>\r\n    <color name=\"gray15\">#b1b0b0</color>\r\n    <color name=\"gray16\">#f5f5f5</color>\r\n    <color name=\"third\">#f6f6f6</color>\r\n    <color name=\"card_bg\">#f5f5f3</color>\r\n    <color name=\"text_title\">#3d64af</color>\r\n    <color name=\"transparent\">#00000000</color>\r\n    <color name=\"white_200\">#55ffffff</color>\r\n    <color name=\"black_trans\">#55000000</color>\r\n    <color name=\"second_trans\">#2223B1FB</color>\r\n    <color name=\"circle_bg\">#99017B60</color>\r\n    <color name=\"red\">#920a0c</color>\r\n    <color name=\"red2\">#ff0000</color>\r\n    <color name=\"green\">#009632</color>\r\n    <color name=\"primary_alpha\">#550a4161</color>\r\n    <color name=\"color1\">#060795</color>\r\n    <color name=\"color2\">#28245F</color>\r\n    <color name=\"color3\">#A5D8FF</color>\r\n    <color name=\"color4\">#00B389</color>\r\n    <color name=\"color5\">#F6C712</color>\r\n    <color name=\"offer_grid_1\">#ffc333</color>\r\n    <color name=\"offer_grid_2\">#C18D0F</color>\r\n    <color name=\"trans_black\">#55000000</color>\r\n    <color name=\"gray1_trans\">#ddf5f5f5</color>\r\n\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/res/values/colors.xml	(date 1603792454431)
+@@ -44,5 +44,5 @@
+     <color name="offer_grid_2">#C18D0F</color>
+     <color name="trans_black">#55000000</color>
+     <color name="gray1_trans">#ddf5f5f5</color>
+-
++<color name="icline">#f6c712</color>
+ </resources>
+Index: app/src/main/java/com/lama/activities_fragments/activity_bepartener/BePartenerActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/lama/activities_fragments/activity_bepartener/BePartenerActivity.java	(date 1603796202540)
++++ app/src/main/java/com/lama/activities_fragments/activity_bepartener/BePartenerActivity.java	(date 1603796202540)
+@@ -0,0 +1,477 @@
++package com.lama.activities_fragments.activity_bepartener;
++
++import android.Manifest;
++import android.annotation.SuppressLint;
++import android.app.Activity;
++import android.app.ProgressDialog;
++import android.content.Context;
++import android.content.Intent;
++import android.content.IntentSender;
++import android.content.pm.PackageManager;
++import android.graphics.PorterDuff;
++import android.location.Location;
++import android.os.Bundle;
++import android.os.Looper;
++import android.text.TextUtils;
++import android.util.Log;
++import android.view.View;
++import android.view.inputmethod.EditorInfo;
++import android.widget.Toast;
++
++import androidx.annotation.NonNull;
++import androidx.annotation.Nullable;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.core.app.ActivityCompat;
++import androidx.core.content.ContextCompat;
++import androidx.databinding.DataBindingUtil;
++
++import com.google.android.gms.common.ConnectionResult;
++import com.google.android.gms.common.api.GoogleApiClient;
++import com.google.android.gms.common.api.PendingResult;
++import com.google.android.gms.common.api.ResultCallback;
++import com.google.android.gms.common.api.Status;
++import com.google.android.gms.location.LocationCallback;
++import com.google.android.gms.location.LocationListener;
++import com.google.android.gms.location.LocationRequest;
++import com.google.android.gms.location.LocationResult;
++import com.google.android.gms.location.LocationServices;
++import com.google.android.gms.location.LocationSettingsRequest;
++import com.google.android.gms.location.LocationSettingsResult;
++import com.google.android.gms.location.LocationSettingsStatusCodes;
++import com.google.android.gms.maps.CameraUpdateFactory;
++import com.google.android.gms.maps.GoogleMap;
++import com.google.android.gms.maps.OnMapReadyCallback;
++import com.google.android.gms.maps.SupportMapFragment;
++import com.google.android.gms.maps.model.BitmapDescriptorFactory;
++import com.google.android.gms.maps.model.LatLng;
++import com.google.android.gms.maps.model.MapStyleOptions;
++import com.google.android.gms.maps.model.Marker;
++import com.google.android.gms.maps.model.MarkerOptions;
++import com.lama.R;
++import com.lama.activities_fragments.activity_signup.SignUpActivity;
++import com.lama.databinding.ActivityBebartenerBinding;
++import com.lama.interfaces.Listeners;
++import com.lama.language.Language;
++import com.lama.models.PlaceGeocodeData;
++import com.lama.models.PlaceMapDetailsData;
++import com.lama.models.UserModel;
++import com.lama.preferences.Preferences;
++import com.lama.remote.Api;
++import com.lama.share.Common;
++import com.lama.tags.Tags;
++
++
++import java.io.IOException;
++import java.util.Locale;
++
++import io.paperdb.Paper;
++import okhttp3.ResponseBody;
++import retrofit2.Call;
++import retrofit2.Callback;
++import retrofit2.Response;
++
++public class BePartenerActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, Listeners.BackListener {
++    private ActivityBebartenerBinding binding;
++    private String lang;
++    private double lat = 0.0, lng = 0.0;
++    private String address = "";
++    private GoogleMap mMap;
++    private Marker marker;
++    private float zoom = 15.0f;
++    private GoogleApiClient googleApiClient;
++    private LocationRequest locationRequest;
++    private LocationCallback locationCallback;
++    private final String fineLocPerm = Manifest.permission.ACCESS_FINE_LOCATION;
++    private final int loc_req = 1225;
++    private Preferences preferences;
++    private UserModel userModel;
++
++    @Override
++    protected void attachBaseContext(Context newBase) {
++        Paper.init(newBase);
++        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", Locale.getDefault().getLanguage())));
++
++    }
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        binding = DataBindingUtil.setContentView(this, R.layout.activity_bebartener);
++        initView();
++    }
++
++
++    private void initView() {
++        preferences = Preferences.getInstance();
++        userModel = preferences.getUserData(this);
++        if (userModel != null) {
++            binding.edtphone.setText(userModel.getUser().getPhone());
++        }
++        Paper.init(this);
++        lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
++        binding.setLang(lang);
++        binding.setBackListener(this);
++        binding.edtlocation.setOnEditorActionListener((v, actionId, event) -> {
++            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
++                String query = binding.edtlocation.getText().toString();
++                if (!TextUtils.isEmpty(query)) {
++                    Common.CloseKeyBoard(BePartenerActivity.this, binding.edtlocation);
++                    Search(query);
++                    return false;
++                }
++            }
++            return false;
++        });
++
++        updateUI();
++
++        CheckPermission();
++        binding.btsend.setOnClickListener(new View.OnClickListener() {
++            @Override
++            public void onClick(View v) {
++                checkdatavalid();
++            }
++        });
++
++
++    }
++
++    private void checkdatavalid() {
++        String name = binding.edtname.getText().toString();
++        String phone = binding.edtphone.getText().toString();
++        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(address)) {
++            binding.edtlocation.setError(null);
++            binding.edtphone.setError(null);
++            binding.edtname.setError(null);
++            bepartner(name, phone, address);
++        } else {
++            if (TextUtils.isEmpty(name)) {
++                binding.edtname.setError(getResources().getString(R.string.field_required));
++            } else {
++                binding.edtname.setError(null);
++            }
++            if (TextUtils.isEmpty(phone)) {
++                binding.edtphone.setError(getResources().getString(R.string.field_required));
++            } else {
++                binding.edtphone.setError(null);
++            }
++            if (TextUtils.isEmpty(address)) {
++                binding.edtlocation.setError(getResources().getString(R.string.field_required));
++            } else {
++                binding.edtlocation.setError(null);
++            }
++        }
++    }
++
++    private void bepartner(String name, String phone, String address) {
++        ProgressDialog dialog = Common.createProgressDialog(this, getString(R.string.wait));
++        dialog.setCancelable(false);
++        dialog.show();
++        Api.getService(Tags.base_url)
++                .bepartner(name, phone, lat + "", lng + "", address)
++                .enqueue(new Callback<ResponseBody>() {
++                    @Override
++                    public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
++                        dialog.dismiss();
++                        if (response.isSuccessful() && response.body() != null) {
++                            Toast.makeText(BePartenerActivity.this, getResources().getString(R.string.suc), Toast.LENGTH_LONG).show();
++                        } else {
++
++                            try {
++                                Log.e("error", response.errorBody().string());
++                            } catch (IOException e) {
++                                e.printStackTrace();
++                            }
++                        }
++                    }
++
++                    @Override
++                    public void onFailure(Call<ResponseBody> call, Throwable t) {
++                        try {
++                            dialog.dismiss();
++                            if (t.getMessage() != null) {
++                                Log.e("msg_category_error", t.getMessage() + "__");
++
++                                if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
++                                    Toast.makeText(BePartenerActivity.this, getString(R.string.something), Toast.LENGTH_SHORT).show();
++                                } else {
++                                    Toast.makeText(BePartenerActivity.this, getString(R.string.failed), Toast.LENGTH_SHORT).show();
++                                }
++                            }
++                        } catch (Exception e) {
++                            Log.e("Error", e.getMessage() + "__");
++                        }
++                    }
++                });
++    }
++
++    private void CheckPermission() {
++        if (ActivityCompat.checkSelfPermission(this, fineLocPerm) != PackageManager.PERMISSION_GRANTED) {
++            ActivityCompat.requestPermissions(this, new String[]{fineLocPerm}, loc_req);
++        } else {
++
++            initGoogleApi();
++        }
++    }
++
++    private void initGoogleApi() {
++        googleApiClient = new GoogleApiClient.Builder(this)
++                .addApi(LocationServices.API)
++                .addConnectionCallbacks(this)
++                .addOnConnectionFailedListener(this)
++                .build();
++        googleApiClient.connect();
++    }
++
++    private void updateUI() {
++
++        SupportMapFragment fragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
++        fragment.getMapAsync(this);
++
++
++    }
++
++    @Override
++    public void onMapReady(GoogleMap googleMap) {
++
++        if (googleMap != null) {
++            mMap = googleMap;
++            mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.maps));
++            mMap.setTrafficEnabled(false);
++            mMap.setBuildingsEnabled(false);
++            mMap.setIndoorEnabled(true);
++
++            if (lat == 0.0 && lng == 0.0) {
++                mMap.setOnMapClickListener(latLng -> {
++                    lat = latLng.latitude;
++                    lng = latLng.longitude;
++                    AddMarker(lat, lng, address);
++                    getGeoData(lat, lng);
++
++                });
++
++            } else {
++                AddMarker(lat, lng, address);
++
++            }
++
++
++        }
++    }
++
++    private void Search(String query) {
++
++
++        String fields = "id,place_id,name,geometry,formatted_address";
++
++        Api.getService("https://maps.googleapis.com/maps/api/")
++                .searchOnMap("textquery", query, fields, lang, getString(R.string.map_api_key))
++                .enqueue(new Callback<PlaceMapDetailsData>() {
++                    @Override
++                    public void onResponse(Call<PlaceMapDetailsData> call, Response<PlaceMapDetailsData> response) {
++
++                        if (response.isSuccessful() && response.body() != null) {
++
++
++                            if (response.body().getCandidates().size() > 0) {
++
++                                address = response.body().getCandidates().get(0).getFormatted_address().replace("Unnamed Road,", "");
++                                binding.edtlocation.setText(address + "");
++                                AddMarker(response.body().getCandidates().get(0).getGeometry().getLocation().getLat(), response.body().getCandidates().get(0).getGeometry().getLocation().getLng(), address);
++                            }
++                        } else {
++
++                            try {
++                                Log.e("error_code", response.errorBody().string());
++                            } catch (IOException e) {
++                                e.printStackTrace();
++                            }
++                        }
++
++
++                    }
++
++                    @Override
++                    public void onFailure(Call<PlaceMapDetailsData> call, Throwable t) {
++                        try {
++
++                            Toast.makeText(BePartenerActivity.this, getString(R.string.something), Toast.LENGTH_LONG).show();
++                        } catch (Exception e) {
++
++                        }
++                    }
++                });
++    }
++
++    private void getGeoData(final double lat, double lng) {
++        String location = lat + "," + lng;
++        Api.getService("https://maps.googleapis.com/maps/api/")
++                .getGeoData(location, lang, getString(R.string.map_api_key))
++                .enqueue(new Callback<PlaceGeocodeData>() {
++                    @Override
++                    public void onResponse(Call<PlaceGeocodeData> call, Response<PlaceGeocodeData> response) {
++
++                        if (response.isSuccessful() && response.body() != null) {
++
++                            if (response.body().getResults().size() > 0) {
++                                address = response.body().getResults().get(0).getFormatted_address().replace("Unnamed Road,", "");
++                                binding.edtlocation.setText(address + "");
++                            }
++                        } else {
++
++                            try {
++                                Log.e("error_code", response.errorBody().string());
++                            } catch (IOException e) {
++                                e.printStackTrace();
++                            }
++                        }
++
++
++                    }
++
++                    @Override
++                    public void onFailure(Call<PlaceGeocodeData> call, Throwable t) {
++                        try {
++
++                            Toast.makeText(BePartenerActivity.this, getString(R.string.something), Toast.LENGTH_LONG).show();
++                        } catch (Exception e) {
++
++                        }
++                    }
++                });
++    }
++
++    private void AddMarker(double lat, double lng, String address) {
++
++        this.lat = lat;
++        this.lng = lng;
++
++        if (marker == null) {
++            marker = mMap.addMarker(new MarkerOptions().position(new LatLng(lat, lng)).title(address).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
++            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoom));
++        } else {
++            marker.setPosition(new LatLng(lat, lng));
++            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(lat, lng), zoom));
++
++
++        }
++    }
++
++
++    @Override
++    public void onConnected(@Nullable Bundle bundle) {
++        initLocationRequest();
++    }
++
++    private void initLocationRequest() {
++        locationRequest = LocationRequest.create();
++        locationRequest.setFastestInterval(1000);
++        locationRequest.setInterval(60000);
++        LocationSettingsRequest.Builder request = new LocationSettingsRequest.Builder();
++        request.addLocationRequest(locationRequest);
++        request.setAlwaysShow(false);
++
++
++        PendingResult<LocationSettingsResult> result = LocationServices.SettingsApi.checkLocationSettings(googleApiClient, request.build());
++        result.setResultCallback(new ResultCallback<LocationSettingsResult>() {
++            @Override
++            public void onResult(@NonNull LocationSettingsResult locationSettingsResult) {
++                Status status = locationSettingsResult.getStatus();
++                switch (status.getStatusCode()) {
++                    case LocationSettingsStatusCodes.SUCCESS:
++                        startLocationUpdate();
++                        break;
++
++                    case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
++                        try {
++                            status.startResolutionForResult(BePartenerActivity.this, 100);
++                        } catch (IntentSender.SendIntentException e) {
++                            e.printStackTrace();
++                        }
++                        break;
++
++                }
++            }
++        });
++
++    }
++
++    @Override
++    public void onConnectionSuspended(int i) {
++        if (googleApiClient != null) {
++            googleApiClient.connect();
++        }
++    }
++
++    @Override
++    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
++
++    }
++
++
++    @SuppressLint("MissingPermission")
++    private void startLocationUpdate() {
++        locationCallback = new LocationCallback() {
++            @Override
++            public void onLocationResult(LocationResult locationResult) {
++                onLocationChanged(locationResult.getLastLocation());
++            }
++        };
++        LocationServices.getFusedLocationProviderClient(this)
++                .requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper());
++    }
++
++    @Override
++    public void onLocationChanged(Location location) {
++        lat = location.getLatitude();
++        lng = location.getLongitude();
++        AddMarker(lat, lng, address);
++        getGeoData(lat, lng);
++
++        if (googleApiClient != null) {
++            LocationServices.getFusedLocationProviderClient(this).removeLocationUpdates(locationCallback);
++            googleApiClient.disconnect();
++        }
++    }
++
++    @Override
++    public void onDestroy() {
++        super.onDestroy();
++        if (googleApiClient != null) {
++            if (locationCallback != null) {
++                LocationServices.getFusedLocationProviderClient(this).removeLocationUpdates(locationCallback);
++                googleApiClient.disconnect();
++                googleApiClient = null;
++            }
++        }
++    }
++
++    @Override
++    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
++        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
++
++        if (requestCode == loc_req) {
++            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
++                initGoogleApi();
++            } else {
++                Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
++            }
++        }
++    }
++
++    @Override
++    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
++        super.onActivityResult(requestCode, resultCode, data);
++
++        if (requestCode == 100 && resultCode == Activity.RESULT_OK) {
++
++            startLocationUpdate();
++        }
++
++    }
++
++    @Override
++    public void back() {
++        finish();
++    }
++}
+Index: app/src/main/res/values-ar/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<resources>\r\n    <string name=\"app_name\">لمه</string>\r\n    <string name=\"map_api_key\">AIzaSyAeyMUJgKAhnNXbILHONb1um72CNzELFRY</string>\r\n    <string name=\"map_key\">AIzaSyAeyMUJgKAhnNXbILHONb1um72CNzELFRY</string>\r\n    <string name=\"open\">فتح</string>\r\n    <string name=\"close\">غلق</string>\r\n    <string name=\"home\">الرئيسية</string>\r\n    <string name=\"notifications\">إشعارات</string>\r\n    <string name=\"more\">المزيد</string>\r\n    <string name=\"terms_and_conditions\">الشروط والاحكام</string>\r\n    <string name=\"about_app\">عن التطبيق</string>\r\n    <string name=\"contact_us\">اتصل بنا</string>\r\n    <string name=\"back\">رجوع</string>\r\n    <string name=\"failed\">يوجد مشكله وجار العمل عليها</string>\r\n    <string name=\"something\">تحقق من الاتصال بالانترنت</string>\r\n\r\n    <string name=\"language_settings\">إعدادات اللغة</string>\r\n    <string name=\"sar\">ر.س</string>\r\n    <string name=\"no_details\">لا توجد تفاصيل</string>\r\n    <string name=\"cancel\">إلغاء</string>\r\n    <string name=\"suc\">تم بنجاح</string>\r\n\r\n    <string name=\"share\">مشاركة</string>\r\n    <string name=\"edit\">تعديل</string>\r\n    <string name=\"price\">السعر</string>\r\n    <string name=\"delete\">حذف</string>\r\n\r\n    <string name=\"change_language\">تغير اللغة</string>\r\n\r\n\r\n    <string name=\"send\">إرسال</string>\r\n    <string name=\"ok\">حسنا!</string>\r\n    <string name=\"no_data_to_show\">لاتوجد عناصر لعرضها</string>\r\n    <string name=\"search2\">بحث</string>\r\n    <string name=\"phone\">رقم الجوال</string>\r\n    <string name=\"address\">العنوان</string>\r\n    <string name=\"email\">البريد الالكتروني</string>\r\n    <string name=\"send_a_message\">إرسل رسالتك</string>\r\n    <string name=\"name\">الإسم</string>\r\n    <string name=\"subject\">الموضوع</string>\r\n    <string name=\"message\">الرسالة</string>\r\n    <string name=\"wait\">إنتظر قليلا...</string>\r\n    <string name=\"profile\">حسابي</string>\r\n    <string name=\"please_sign_in_or_sign_up\">قم بتسجيل الدخول او انشاء حساب جديد</string>\r\n    <string name=\"password\">كلمة المرور</string>\r\n    <string name=\"log_in\">تسجيل دخول</string>\r\n    <string name=\"new_account\">حساب جديد</string>\r\n    <string name=\"skip\">تخطي</string>\r\n    <string name=\"code\">الكود</string>\r\n    <string name=\"already_have_an_account\">لدي حساب بالفعل !</string>\r\n    <string name=\"field_required\">الحقل مطلوب</string>\r\n    <string name=\"pass_short\">كلمة المرور قصيرة جدا</string>\r\n    <string name=\"inv_email\">بريد الكتروني غير صحيح</string>\r\n    <string name=\"logout\">خروج</string>\r\n    <string name=\"no_image\">لا توجد صورة</string>\r\n    <string name=\"inv_phone\">رقم جوال غير صحيح</string>\r\n    <string name=\"perm_img_denied\">الوصول الى الصور غير مسموح</string>\r\n    <string name=\"ch_img\">إختر الصورة</string>\r\n    <string name=\"update_profile\">تعديل الملف الشخصي</string>\r\n    <string name=\"send_code\">إرسال الكود</string>\r\n    <string name=\"confirmation_code\">كود التحقق</string>\r\n    <string name=\"confirm\">تأكيد</string>\r\n    <string name=\"resend\">لم أستلم كود التفعيل</string>\r\n    <string name=\"inv_sms_code\">الكود غير صحيح</string>\r\n\r\n    <string name=\"rate_app\">قيم التطبيق</string>\r\n    <string name=\"sign_up\">إنشاء حساب</string>\r\n    <string name=\"user_found\">المستخدم موجود</string>\r\n    <string name=\"download\">تنزيل</string>\r\n    <string name=\"inc_pas\">كلمة المرور غير صحيحة</string>\r\n    <string name=\"no_notifications_to_show\">لا توجد إشعارات لعرضها</string>\r\n    <string name=\"favourite\">المفضلة</string>\r\n    <string name=\"confirm2\">تأكيد</string>\r\n    <string name=\"confirm3\">تفعيل</string>\r\n\r\n    <string name=\"done\">تم</string>\r\n    <string name=\"gallery\">البوم صور</string>\r\n    <string name=\"camera\">الكاميرا</string>\r\n    <string name=\"perm_image_denied\">الوصول للصور غير مسموح</string>\r\n    <string name=\"privacy\">الخصوصية</string>\r\n    <string name=\"upload_image\">تحميل صورة</string>\r\n    <string name=\"main_department\">إختر القسم الرئيسي</string>\r\n    <string name=\"sub_department\">إختر القسم الفرعي</string>\r\n    <string name=\"whats_not_av\">غير متوفر الان</string>\r\n    <string name=\"inv_whatsapp\">رقم الواتس اب غير صحيح</string>\r\n    <string name=\"inv_url\">رابط غير صحيح</string>\r\n    <string name=\"contact_info\">معلومات الاتصال</string>\r\n    <string name=\"location\">الموقع</string>\r\n    <string name=\"facebook\">فيس بوك</string>\r\n    <string name=\"twitter\">تويتر</string>\r\n    <string name=\"instagram\">إنستجرام</string>\r\n    <string name=\"choose\">إختر</string>\r\n    <string name=\"ch_ad_img\">إختر صورة الإعلان</string>\r\n    <string name=\"show\">عرض</string>\r\n    <string name=\"country_code\">كود الدولة</string>\r\n    <string name=\"most_seller\">الاكثر مبيعا</string>\r\n    <string name=\"most_rate\">الاكثر تقييما</string>\r\n    <string name=\"shop_by_category\">تسوق حسب الاقسام</string>\r\n    <string name=\"shop_now\">تسوق الان</string>\r\n    <string name=\"total\">الإجمالى</string>\r\n    <string name=\"checkout\">الدفع</string>\r\n    <string name=\"cart\">السلة</string>\r\n    <string name=\"news\">الاخبار</string>\r\n    <string name=\"city\">المدينة</string>\r\n    <string name=\"date_amp_time\"><![CDATA[التاريخ & الوقت]]></string>\r\n    <string name=\"payment\">الدفع</string>\r\n    <string name=\"next\">التالي</string>\r\n    <string name=\"previous\">السابق</string>\r\n    <string name=\"delivery_date\">تاريخ التوصيل</string>\r\n    <string name=\"delivery_time\">وقت التوصيل</string>\r\n    <string name=\"select\">إختر</string>\r\n    <string name=\"ch_date\">إختر تاريخ التوصيل</string>\r\n    <string name=\"ch_time\">إختر وقت التوصيل</string>\r\n    <string name=\"ch_payment_type\">إختر طريقة الدفع</string>\r\n    <string name=\"search_criteria\">معايير البحث</string>\r\n    <string name=\"keyword\">بحث</string>\r\n    <string name=\"need_help\">المساعدة</string>\r\n    <string name=\"my_orders\">طلباتي</string>\r\n    <string name=\"current\">الحالية</string>\r\n    <string name=\"prevoius\">السابقة</string>\r\n    <string name=\"no_search_results\">لاتوجد نتائج البحث</string>\r\n    <string name=\"area\">المنطقة</string>\r\n    <string name=\"read_more\">قراءه المزيد</string>\r\n    <string name=\"news_details\">تفاصيل الخبر</string>\r\n    <string name=\"add_to_cart\">تمت الاضافة الى سلة المشتريات</string>\r\n    <string name=\"sub_categoy\">القسم الفرعى</string>\r\n    <string name=\"products\">المنتجات</string>\r\n    <string name=\"grid\">مربع</string>\r\n    <string name=\"list\">قائمة</string>\r\n    <string name=\"view\">عرض</string>\r\n    <string name=\"my_favorite\">المفضلة</string>\r\n    <string name=\"delete_item\">حذف عنصر ؟</string>\r\n    <string name=\"product_details\">تفاصيل المنتج</string>\r\n\r\n    <string name=\"just_now\">الان</string>\r\n    <string name=\"a_minute_ago\">منذ د</string>\r\n    <string name=\"min\">د</string>\r\n    <string name=\"an_hour_ago\">منذ س</string>\r\n    <string name=\"hs\">س</string>\r\n    <string name=\"yesterday\">امس</string>\r\n    <string name=\"order_num\">رقم الطلب</string>\r\n    <string name=\"added_suc\">تم الاضافة الى سلة التسوق</string>\r\n    <string name=\"cart_empty\">السلة فارغة</string>\r\n    <string name=\"welcome_in_anaqa_phone\">اهلا بك في أناقة الهاتف</string>\r\n    <string name=\"enter_verification_code\">ادخل كود التفعيل</string>\r\n    <string name=\"cannot_signup\">لا يمكن التسجيل دون الموافقة على الشروط والاحكام</string>\r\n    <string name=\"favorite_offers\">عروضنا المفضلة</string>\r\n    <string name=\"show_all\">عرض الكل</string>\r\n    <string name=\"mobile_accessories\">إكسسوارات الجوال</string>\r\n    <string name=\"return1\">إرجاع</string>\r\n    <string name=\"charge\">رصيدي</string>\r\n    <string name=\"bank_accounts\">الحسابات البنكية</string>\r\n    <string name=\"offers\">العروض</string>\r\n    <string name=\"filter\">فلتر</string>\r\n    <string name=\"normal\">مربع</string>\r\n    <string name=\"model_num\">رقم الموديل :</string>\r\n    <string name=\"ryal\">ريال</string>\r\n    <string name=\"shamil_daribat_alqimih_almudafih\">(شامل ضريبة القيمه المضافه)</string>\r\n    <string name=\"main_advantages\">المميزات الاساسيه</string>\r\n    <string name=\"overview\">نظره عامه</string>\r\n    <string name=\"discount\">خصم</string>\r\n    <string name=\"account_number\">رقم الحساب : </string>\r\n    <string name=\"account_iban\">رقم الايبان :</string>\r\n    <string name=\"banks\">بنوك</string>\r\n    <string name=\"visa\">الكترونى</string>\r\n    <string name=\"paypal\">باى بال</string>\r\n    <string name=\"cash_on_delivery\">الدفع عند الاستلام</string>\r\n    <string name=\"status\">حالة الطلب</string>\r\n    <string name=\"total_cost\">اجمالى السعر</string>\r\n    <string name=\"amount\">الكمية</string>\r\n    <string name=\"new_order\">قيد الانتظار</string>\r\n    <string name=\"in_way\"> تم الشحن</string>\r\n    <string name=\"accepted\">تم إستلام طلبك</string>\r\n    <string name=\"refused\">تم الرفض</string>\r\n    <string name=\"completed\">مكتمل</string>\r\n    <string name=\"not_found\">لا يوجد </string>\r\n    <string name=\"add_coupon\">اضافة كوبون</string>\r\n    <string name=\"edit_profile\">تعديل الملف الشخصي</string>\r\n    <string name=\"department\">الاقسام</string>\r\n    <string name=\"out_of_stock\">تم انتهاء الكميه </string>\r\n    <string name=\"arrive\">توصيل</string>\r\n    <string name=\"without_arrive\">بدون توصيل</string>\r\n    <string name=\"total_order_price\">اجمالى قيمة الطلب</string>\r\n    <string name=\"products_price\">سعر المنتج</string>\r\n    <string name=\"arrive_price\">سعر التوصيل</string>\r\n    <string name=\"vat\">ضريبة القيمه المضافه</string>\r\n    <string name=\"all_rights_reserved_for_anaqaphone\">© جميع الحقوق محفوظة  أناقة الهاتف</string>\r\n    <string name=\"colors\">اسم اللون</string>\r\n    <string name=\"contact_us_on_whatsapp\">راسلنا على الواتس اب </string>\r\n    <string name=\"cart_not_empty\">يوجد طلبات فى السله من فضلك يجب اكمالها قبل غلق التطبيق</string>\r\n    <string name=\"if_you\">اذا خرجت من التطبيق سوف يتم مسح السله</string>\r\n    <string name=\"sizes\">الذاكره الداخليه</string>\r\n    <string name=\"select_color\">اختر اللون</string>\r\n    <string name=\"select_size\">اختر الذاكرة الداخلية</string>\r\n    <string name=\"successfully_added_to_the_cart\">تم اضافة الى عربة التسوق بنجاح</string>\r\n    <string name=\"enter_verification_code_sent_to\">أدخل كود التفعيل المرسل الى</string>\r\n    <string name=\"depts\">الاقسام</string>\r\n    <string name=\"family_box\">بوكس العائلة</string>\r\n    <string name=\"best_offers\">افضل العروض</string>\r\n    <string name=\"personal_information\">البيانات الشخصية</string>\r\n    <string name=\"electronic_cards\">البطاقة الإلكترونية</string>\r\n    <string name=\"descriptions\">المواصفات</string>\r\n    <string name=\"preparation_way\">طريقة التحضير</string>\r\n    <string name=\"quantity\">Quantity</string>\r\n    <string name=\"my_reservations\">حجوزاتى</string>\r\n    <string name=\"settings\">الأعدادات</string>\r\n    <string name=\"general_settings\">الأعدادات العامة</string>\r\n    <string name=\"terms_of_service\">الشروط والأحكام</string>\r\n    <string name=\"help\">المساعدة</string>\r\n    <string name=\"version_no\">رقم الأصدار</string>\r\n    <string name=\"notification_tone\">نغمة التنبيه</string>\r\n    <string name=\"default1\">عادى</string>\r\n    <string name=\"Become_a_partner\">كن شريكا</string>\r\n    <string name=\"Social_Media\">مواقع التواصل</string>\r\n    <string name=\"what_are_you_looking_for\">what are you looking for</string>\r\n    <string name=\"no_data_found\">No Data Found</string>\r\n    <string name=\"become_a_partner_and_join_us_just_in_simple_steps\">كن شريكا وانضم الينا فقط بخطوات بسيطة</string>\r\n    <string name=\"send_order\">Send Order</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values-ar/strings.xml	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/res/values-ar/strings.xml	(date 1603791423506)
+@@ -217,4 +217,6 @@
+     <string name="no_data_found">No Data Found</string>
+     <string name="become_a_partner_and_join_us_just_in_simple_steps">كن شريكا وانضم الينا فقط بخطوات بسيطة</string>
+     <string name="send_order">Send Order</string>
++    <string name="from">From</string>
++    <string name="to">To</string>
+ </resources>
+\ No newline at end of file
+Index: app/src/main/java/com/lama/models/OrderModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.lama.models;\r\n\r\nimport java.io.Serializable;\r\nimport java.util.List;\r\n\r\npublic class OrderModel implements Serializable {\r\n\r\n    private int id;\r\n    private String order_code;\r\n    private int user_id;\r\n    private String order_status;\r\n    private double total_price;\r\n    private long order_date;\r\n    private String order_time;\r\n    private String pay_type;\r\n    private int coupon_id;\r\n    private String address;\r\n    private double latitude;\r\n    private double longitude;\r\n    private String details;\r\n    private String created_at;\r\n\r\n    private List<OrdersDetails> order_product;\r\n\r\n    public int getId() {\r\n        return id;\r\n    }\r\n\r\n    public String getOrder_code() {\r\n        return order_code;\r\n    }\r\n\r\n    public int getUser_id() {\r\n        return user_id;\r\n    }\r\n\r\n    public String getOrder_status() {\r\n        return order_status;\r\n    }\r\n\r\n    public double getTotal_price() {\r\n        return total_price;\r\n    }\r\n\r\n    public long getOrder_date() {\r\n        return order_date;\r\n    }\r\n\r\n    public String getOrder_time() {\r\n        return order_time;\r\n    }\r\n\r\n    public String getPay_type() {\r\n        return pay_type;\r\n    }\r\n\r\n    public int getCoupon_id() {\r\n        return coupon_id;\r\n    }\r\n\r\n    public String getAddress() {\r\n        return address;\r\n    }\r\n\r\n    public double getLatitude() {\r\n        return latitude;\r\n    }\r\n\r\n    public double getLongitude() {\r\n        return longitude;\r\n    }\r\n\r\n    public String getDetails() {\r\n        return details;\r\n    }\r\n\r\n    public String getCreated_at() {\r\n        return created_at;\r\n    }\r\n\r\n    public List<OrdersDetails> getOrder_product() {\r\n        return order_product;\r\n    }\r\n\r\n    private Data tler;\r\n\r\n    public Data getTler() {\r\n        return tler;\r\n    }\r\n\r\n    public class OrdersDetails implements Serializable {\r\n        private int id;\r\n        private int product_id;\r\n        private int order_id;\r\n        private double price;\r\n        private int amount;\r\n        private ProductInfo product_info;\r\n\r\n        public int getId() {\r\n            return id;\r\n        }\r\n\r\n        public int getProduct_id() {\r\n            return product_id;\r\n        }\r\n\r\n        public int getOrder_id() {\r\n            return order_id;\r\n        }\r\n\r\n        public double getPrice() {\r\n            return price;\r\n        }\r\n\r\n        public int getAmount() {\r\n            return amount;\r\n        }\r\n\r\n        public ProductInfo getProduct_info() {\r\n            return product_info;\r\n        }\r\n\r\n        public class ProductInfo implements Serializable {\r\n            private int id;\r\n            private String title;\r\n            private String image;\r\n            private String price;\r\n\r\n            public int getId() {\r\n                return id;\r\n            }\r\n\r\n            public String getTitle() {\r\n                return title;\r\n            }\r\n\r\n            public String getImage() {\r\n                return image;\r\n            }\r\n\r\n            public String getPrice() {\r\n                return price;\r\n            }\r\n        }\r\n\r\n        public class Item implements Serializable {\r\n            private String id;\r\n            private String sub_image;\r\n            private String price;\r\n            private String dimensions;\r\n            private String product_title;\r\n            private String content;\r\n            private String is_favourite;\r\n            private String available;\r\n\r\n            public String getId() {\r\n                return id;\r\n            }\r\n\r\n            public String getSub_image() {\r\n                return sub_image;\r\n            }\r\n\r\n            public String getPrice() {\r\n                return price;\r\n            }\r\n\r\n            public String getDimensions() {\r\n                return dimensions;\r\n            }\r\n\r\n            public String getProduct_title() {\r\n                return product_title;\r\n            }\r\n\r\n            public String getContent() {\r\n                return content;\r\n            }\r\n\r\n            public String getIs_favourite() {\r\n                return is_favourite;\r\n            }\r\n\r\n            public String getAvailable() {\r\n                return available;\r\n            }\r\n        }\r\n    }\r\n\r\n    public class Data implements Serializable {\r\n        private String url;\r\n        private String succes_url;\r\n        private String canceled_url;\r\n        private String declined_url;\r\n\r\n        public String getUrl() {\r\n            return url;\r\n        }\r\n\r\n        public String getSucces_url() {\r\n            return succes_url;\r\n        }\r\n\r\n        public String getCanceled_url() {\r\n            return canceled_url;\r\n        }\r\n\r\n        public String getDeclined_url() {\r\n            return declined_url;\r\n        }\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/lama/models/OrderModel.java	(revision 2fc32c5c3933fbe8bb727ae0b52fcdbf29d05cbf)
++++ app/src/main/java/com/lama/models/OrderModel.java	(date 1603791423483)
+@@ -19,7 +19,7 @@
+     private double longitude;
+     private String details;
+     private String created_at;
+-
++    private String title;
+     private List<OrdersDetails> order_product;
+ 
+     public int getId() {
+@@ -82,6 +82,10 @@
+         return order_product;
+     }
+ 
++    public String getTitle() {
++        return title;
++    }
++
+     private Data tler;
+ 
+     public Data getTler() {
+@@ -94,6 +98,9 @@
+         private int order_id;
+         private double price;
+         private int amount;
++        private String book_date_from;
++        private String book_date_to;
++
+         private ProductInfo product_info;
+ 
+         public int getId() {
+@@ -120,6 +127,14 @@
+             return product_info;
+         }
+ 
++        public String getBook_date_from() {
++            return book_date_from;
++        }
++
++        public String getBook_date_to() {
++            return book_date_to;
++        }
++
+         public class ProductInfo implements Serializable {
+             private int id;
+             private String title;
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_10_22_2020_1_16_PM__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_10_22_2020_1_16_PM__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Update_at_10_21_2020_1_31_PM__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Update_at_10_21_2020_1_31_PM__Default_Changelist_.xml
