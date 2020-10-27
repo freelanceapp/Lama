@@ -116,7 +116,7 @@ public class FireBaseMessaging extends FirebaseMessagingService {
 
         String not_type = map.get("notification_type");
 
-        if (not_type.equals("action_note")) {
+        if (not_type.equals("order")) {
             String sound_Path = "android.resource://" + getPackageName() + "/" + R.raw.not;
 
             String title = map.get("title");
