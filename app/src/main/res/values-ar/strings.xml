@@ -131,7 +131,7 @@
     <string name="view">عرض</string>
     <string name="my_favorite">المفضلة</string>
     <string name="delete_item">حذف عنصر ؟</string>
-    <string name="product_details">تفاصيل المنتج</string>
+    <string name="product_details">التفاصيل</string>
 
     <string name="just_now">الان</string>
     <string name="a_minute_ago">منذ د</string>
@@ -217,4 +217,5 @@
     <string name="no_data_found">No Data Found</string>
     <string name="become_a_partner_and_join_us_just_in_simple_steps">كن شريكا وانضم الينا فقط بخطوات بسيطة</string>
     <string name="send_order">Send Order</string>
+    <string name="reserve_now">أحجز الأن</string>
 </resources>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="backListener"
+            type="com.lama.interfaces.Listeners.BackListener" />
+
+
+        <variable
+            name="lang"
+            type="String" />
+
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray0"
+        android:orientation="vertical"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            app:contentInsetEnd="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetRight="0dp"
+            app:contentInsetStart="0dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center_vertical"
+                android:onClick="@{()->backListener.back()}"
+                android:orientation="horizontal"
+
+                >
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:padding="8dp"
+                    android:rotation='@{lang.equals("ar")?180:0}'
+                    android:src="@drawable/ic_left_arrow"
+                    android:tint="@color/white"
+
+                    />
+
+                <TextView
+                    android:id="@+id/tvtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:clickable="false"
+                    android:longClickable="false"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:fillViewport="true"
+                    android:fitsSystemWindows="true">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            >
+                            <com.applandeo.materialcalendarview.CalendarView
+                                android:id="@+id/calendarView1DayContinuous"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:abbreviationsBarColor="@color/colorPrimary"
+                                app:abbreviationsLabelsColor="@color/white"
+                                app:headerColor="@color/colorPrimary"
+                                app:anotherMonthsDaysLabelsColor="@color/gray6"
+                                app:headerLabelColor="@color/white"
+                                app:swipeEnabled="true"
+                                app:todayLabelColor="@color/colorPrimary"
+                                app:daysLabelsColor="@color/second"
+                                app:selectionColor="@color/colorPrimary"
+                                app:selectionLabelColor="@color/white"
+                                app:type="one_day_picker"
+                                android:visibility="gone"
+                                />
+
+                            <com.applandeo.materialcalendarview.CalendarView
+                                android:id="@+id/calendarView3DayContinuous"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:abbreviationsBarColor="@color/colorPrimary"
+                                app:abbreviationsLabelsColor="@color/white"
+                                app:headerColor="@color/colorPrimary"
+                                app:anotherMonthsDaysLabelsColor="@color/gray6"
+                                app:headerLabelColor="@color/white"
+                                app:swipeEnabled="true"
+                                app:todayLabelColor="@color/colorPrimary"
+                                app:daysLabelsColor="@color/second"
+                                app:selectionColor="@color/colorPrimary"
+                                app:selectionLabelColor="@color/white"
+                                app:maximumDaysRange="4"
+                                app:type="range_picker"
+                                android:visibility="gone"
+                                />
+
+                            <com.applandeo.materialcalendarview.CalendarView
+                                android:id="@+id/calendarViewMoreDay"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:abbreviationsBarColor="@color/colorPrimary"
+                                app:abbreviationsLabelsColor="@color/white"
+                                app:headerColor="@color/colorPrimary"
+                                app:anotherMonthsDaysLabelsColor="@color/gray6"
+                                app:headerLabelColor="@color/white"
+                                app:swipeEnabled="true"
+                                app:todayLabelColor="@color/colorPrimary"
+                                app:daysLabelsColor="@color/second"
+                                app:selectionColor="@color/colorPrimary"
+                                app:selectionLabelColor="@color/white"
+                                app:type="many_days_picker"
+                                android:visibility="gone"
+
+                                />
+
+                            <com.applandeo.materialcalendarview.CalendarView
+                                android:id="@+id/calendarViewRangeWeek"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:abbreviationsBarColor="@color/colorPrimary"
+                                app:abbreviationsLabelsColor="@color/white"
+                                app:headerColor="@color/colorPrimary"
+                                app:anotherMonthsDaysLabelsColor="@color/gray6"
+                                app:headerLabelColor="@color/white"
+                                app:swipeEnabled="true"
+                                app:todayLabelColor="@color/colorPrimary"
+                                app:daysLabelsColor="@color/second"
+                                app:selectionColor="@color/colorPrimary"
+                                app:selectionLabelColor="@color/white"
+                                app:type="range_picker"
+                                app:maximumDaysRange="8"
+                                android:visibility="gone"
+
+                                />
+                            <com.applandeo.materialcalendarview.CalendarView
+                                android:id="@+id/calendarViewRangeMonth"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:abbreviationsBarColor="@color/colorPrimary"
+                                app:abbreviationsLabelsColor="@color/white"
+                                app:headerColor="@color/colorPrimary"
+                                app:anotherMonthsDaysLabelsColor="@color/gray6"
+                                app:headerLabelColor="@color/white"
+                                app:swipeEnabled="true"
+                                app:todayLabelColor="@color/colorPrimary"
+                                app:daysLabelsColor="@color/second"
+                                app:selectionColor="@color/colorPrimary"
+                                app:selectionLabelColor="@color/white"
+                                app:type="range_picker"
+                                app:maximumDaysRange="30"
+                                android:visibility="gone"
+
+                                />
+
+                        </FrameLayout>
+
+
+
+                        <Button
+                            android:id="@+id/btnConfirm"
+                            android:layout_width="200dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/rounded_primary_btn"
+                            android:textColor="@color/white"
+                            android:textSize="15sp"
+                            android:text="@string/confirm"/>
+
+                    </LinearLayout>
+
+
+                </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+    </LinearLayout>
+
+
+</layout>

@@ -23,8 +23,13 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
 
+
         <activity
             android:name="com.lama.activities_fragments.activity_language.LanguageActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name="com.lama.activities_fragments.activity_reservation.ReservationActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity

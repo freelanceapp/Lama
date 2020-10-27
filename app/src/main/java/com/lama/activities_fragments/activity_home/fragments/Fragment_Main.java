@@ -22,6 +22,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.lama.R;
 import com.lama.activities_fragments.activity_home.HomeActivity;
+import com.lama.activities_fragments.activity_product_details.ProductDetailsActivity;
 import com.lama.adapters.CategoryAdapter;
 
 import com.lama.adapters.OffersAdapter;
@@ -99,7 +100,6 @@ public class Fragment_Main extends Fragment {
         userModel = preferences.getUserData(activity);
         Paper.init(activity);
         lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
-
         binding.progBarSlider.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         binding.progBar.getIndeterminateDrawable().setColorFilter(ContextCompat.getColor(activity, R.color.colorPrimary), PorterDuff.Mode.SRC_IN);
         categoryDataModelDataList = new ArrayList<>();
@@ -125,7 +125,6 @@ public class Fragment_Main extends Fragment {
                     int last_visible_item = ((LinearLayoutManager) binding.recView.getLayoutManager()).findLastCompletelyVisibleItemPosition();
 
                     if (total_item >= 20 && (total_item - last_visible_item) == 5 && !isLoading) {
-                        Log.e("kldkkdkdk", "dkkdkkdkdk");
                         isLoading = true;
                         int page = current_page + 1;
                         reDataList.add(null);
@@ -143,10 +142,8 @@ public class Fragment_Main extends Fragment {
     }
 
     private void getProducts() {
-//Log.e("llll",reDataList.size()+"");
         try {
             reDataList.clear();
-            // reDataList = new ArrayList<>();
             productAdapter.notifyDataSetChanged();
             binding.tvNoData.setVisibility(View.GONE);
             binding.progBar.setVisibility(View.VISIBLE);
@@ -455,8 +452,11 @@ public class Fragment_Main extends Fragment {
 
     }
 
-    public void setProduct(String product_id) {
+    public void setItemDataOffers(SingleProductDataModel model) {
 
+        Intent intent = new Intent(activity, ProductDetailsActivity.class);
+        intent.putExtra("product_id", model.getId());
+        startActivityForResult(intent, 100);
     }
 
 

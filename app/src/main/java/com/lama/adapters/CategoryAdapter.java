@@ -48,7 +48,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
         MyHolder myHolder = (MyHolder) holder;
-///        myHolder.binding.setModel(list.get(position));
+       myHolder.binding.setModel(list.get(position));
 
         myHolder.itemView.setOnClickListener(view -> {
             Log.e("sssss",list.get(holder.getLayoutPosition()).getId()+"");

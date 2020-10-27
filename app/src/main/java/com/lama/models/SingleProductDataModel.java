@@ -14,6 +14,9 @@ public class SingleProductDataModel implements Serializable {
     private int price_id;
     private String address;
     private String contents;
+    private Double latitude;
+    private Double longitude;
+
     private String details;
     private String features;
     private String model;
@@ -33,6 +36,14 @@ public class SingleProductDataModel implements Serializable {
 
     public int getId() {
         return id;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
     }
 
     public String getTitle() {

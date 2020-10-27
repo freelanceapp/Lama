@@ -56,13 +56,13 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                 if (fragment instanceof Fragment_Main) {
 
                     Fragment_Main fragment_main = (Fragment_Main) fragment;
-              //      fragment_main.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
+                    fragment_main.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
                 } else if (fragment instanceof Fragment_Profile) {
                     Fragment_Profile fragment_profile = (Fragment_Profile) fragment;
                     //fragment_order.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
                 } else if (fragment instanceof Fragment_Search) {
                     Fragment_Search fragment_search = (Fragment_Search) fragment;
-                 //   fragment_search.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
+                   fragment_search.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
                 } else if (context instanceof SearchActivity) {
                     SearchActivity searchActivity = (SearchActivity) context;
                     searchActivity.setItemDataOffers(list.get(myHolder.getAdapterPosition()));

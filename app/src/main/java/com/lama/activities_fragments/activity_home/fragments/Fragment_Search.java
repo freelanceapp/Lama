@@ -358,14 +358,13 @@ public class Fragment_Search extends Fragment {
 
     }
 
-   /* public void setItemDataOffers(SingleProductDataModel model) {
+    public void setItemDataOffers(SingleProductDataModel model) {
 
         Intent intent = new Intent(activity, ProductDetailsActivity.class);
         intent.putExtra("product_id", model.getId());
         startActivityForResult(intent, 100);
     }
 
-*/
 /*
     private void updateTabUI(MainCategoryDataModel data) {
         mainDepartmentsList.clear();

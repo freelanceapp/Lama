@@ -102,6 +102,11 @@ public class Fragment_Profile extends Fragment implements Listeners.SettingActio
     }
 
     @Override
+    public void bepartener() {
+
+    }
+
+    @Override
     public void share() {
 
     }
