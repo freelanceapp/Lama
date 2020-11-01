@@ -103,12 +103,12 @@
                                 app:anotherMonthsDaysLabelsColor="@color/gray5"
                                 app:headerLabelColor="@color/white"
                                 app:swipeEnabled="true"
+                                app:disabledDaysLabelsColor="@color/second"
                                 app:todayLabelColor="@color/colorPrimary"
                                 app:daysLabelsColor="@color/colorAccent"
                                 app:selectionColor="@color/colorPrimary"
                                 app:selectionLabelColor="@color/white"
                                 app:type="range_picker"
-
                                 />
 
                         </FrameLayout>

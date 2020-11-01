@@ -9,11 +9,27 @@
             name="backListener"
             type="com.lama.interfaces.Listeners.BackListener" />
 
+        <import type="android.view.View" />
 
         <variable
             name="lang"
             type="String" />
 
+        <variable
+            name="firstdate"
+            type="String" />
+
+        <variable
+            name="seconeddate"
+            type="String" />
+
+        <variable
+            name="size"
+            type="Double" />
+
+        <variable
+            name="model"
+            type="com.lama.models.SingleProductDataModel" />
 
     </data>
 
@@ -22,8 +38,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray1"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -67,8 +82,8 @@
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
                     android:clickable="false"
-                    android:text="@string/reservation_details"
                     android:longClickable="false"
+                    android:text="@string/reservation_details"
                     android:textColor="@color/colorPrimary"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -79,322 +94,324 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-                <androidx.core.widget.NestedScrollView
+            android:layout_height="match_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/gray1"
+                android:fillViewport="true"
+                android:fitsSystemWindows="true"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/gray1"
-                    android:fillViewport="true"
-                    android:fitsSystemWindows="true"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/gray3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:background="@drawable/rounded_primary"
+                        android:gravity="center"
+                        android:text="@string/reservation_details"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:text="@{model.title}"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18sp" />
+
+                    <View
+                        android:layout_width="150dp"
+                        android:layout_height="10dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/ic_line" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/gray3"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/ll"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight=".9"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:padding="5dp"
+                                    android:src="@drawable/ic_timer" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/from"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{firstdate}"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight=".2"
+                            android:background="@drawable/small_rounded_stroke_gray2"
+                            android:layerType="software"
+                            android:rotation='90' />
+
+                        <LinearLayout
+                            android:id="@+id/lll"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_weight=".9"
+                            android:orientation="vertical"
+
+                            >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:padding="5dp"
+                                    android:src="@drawable/ic_timer" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/to"
+                                    android:textColor="@color/black"
+                                    android:textSize="14sp" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@{seconeddate}"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+                        android:background="@drawable/small_rounded_stroke_gray2"
+                        android:layerType="software" />
+
+                    <LinearLayout
+                        android:id="@+id/llCost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="10dp"
+
                         >
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="45dp"
-                            android:text="@string/reservation_details"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:textColor="@color/white"
-                            android:background="@drawable/rounded_primary"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="45dp"
-                            android:text="شاليه الغواصه"
-                            android:textSize="18sp"
-                            android:gravity="center"
-                            android:layout_marginTop="15dp"
-                            android:textColor="@color/colorPrimary"
-                         />
-                        <View
-                            android:layout_gravity="center"
-                            android:layout_width="150dp"
-                            android:layout_height="10dp"
-                            android:background="@drawable/ic_line"
-                            android:layout_marginTop="5dp"
-                            />
 
                         <LinearLayout
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-                            <LinearLayout
-                                android:id="@+id/ll"
-                                android:layout_width="0dp"
-                                android:layout_weight=".9"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_marginTop="10dp"
-                                >
+                            android:orientation="horizontal">
 
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:padding="5dp"
+                                android:src="@drawable/ic_cash2" />
 
-                                    <ImageView
-                                        android:layout_width="25dp"
-                                        android:layout_height="25dp"
-                                        android:padding="5dp"
-                                        android:src="@drawable/ic_timer" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/from"
-                                        android:textColor="@color/black"
-                                        android:textSize="14sp"
-                                        />
-
-                                </LinearLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="20/10/2020"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp"
-                                    />
-                            </LinearLayout>
-                            <View
-                                android:layout_width="0dp"
-                                android:layout_weight=".2"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/small_rounded_stroke_gray2"
-                                android:layerType="software"
-                                android:rotation='90'
-                                />
-                            <LinearLayout
-                                android:id="@+id/lll"
-                                android:layout_width="0dp"
-                                android:layout_weight=".9"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:layout_marginTop="10dp"
-
-                                >
-
-                                <LinearLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
-
-                                    <ImageView
-                                        android:layout_width="25dp"
-                                        android:layout_height="25dp"
-                                        android:padding="5dp"
-                                        android:src="@drawable/ic_timer" />
-
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="@string/to"
-                                        android:textColor="@color/black"
-                                        android:textSize="14sp"
-                                         />
-
-                                </LinearLayout>
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="15/5/2020"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp"
-                                 />
-                            </LinearLayout>
-                        </LinearLayout>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="5dp"
-                            android:background="@drawable/small_rounded_stroke_gray2"
-                            android:layerType="software"
-                            />
-                        <LinearLayout
-                            android:id="@+id/llCost"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginTop="10dp"
-
-                            >
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:padding="5dp"
-                                    android:src="@drawable/ic_cash2" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/cost"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp"
-                                   />
-
-                            </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3 ايام  * 550 ريال = "
-        android:textColor="@color/black"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1650 ريال"
-        android:textColor="@color/colorAccent"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias=".3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-</LinearLayout>
-                        </LinearLayout>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="10dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/small_rounded_stroke_gray2"
-                            android:layerType="software"
-                            />
-
-                        <LinearLayout
-                            android:id="@+id/llDiscount"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:layout_marginTop="10dp"
-
-                            >
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <ImageView
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:padding="5dp"
-                                    android:src="@drawable/ic_discount" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/discount"
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp"
-                                    />
-
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="10% * 550 ريال = "
-                                    android:textColor="@color/black"
-                                    android:textSize="14sp"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias=".3"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="55 ريال"
-                                    android:textColor="@color/colorAccent"
-                                    android:textSize="14sp"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias=".3"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                            </LinearLayout>
-                        </LinearLayout>
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="10dp"
-                            android:layout_marginTop="5dp"
-                            android:background="@drawable/small_rounded_stroke_gray2"
-                            android:layerType="software"
-                            />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:layout_marginBottom="10dp">
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="@string/total_cost"
-                                android:textColor="@color/gray12"
-                                android:textSize="18sp"
+                                android:text="@string/cost"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='@{size+@string/days+"*"+model.price+@string/ryal+"="}'
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintHorizontal_bias=".3"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="1250 ريال"
+                                android:text="@{(size*model.price)+@string/ryal}"
                                 android:textColor="@color/colorAccent"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintHorizontal_bias=".3"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                         </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/small_rounded_stroke_gray2"
+                        android:layerType="software" />
+
+                    <LinearLayout
+                        android:id="@+id/llDiscount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:visibility='@{model.have_offer.equals("yes")?View.VISIBLE:View.GONE,default=visible}'>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:padding="5dp"
+                                android:src="@drawable/ic_discount" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/discount"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='@{model.offer_type.equals("value")?(+(size*model.price)+@string/ryal+"-"+model.offer_value+@string/ryal+"="):(model.offer_value+"% *"+(size*model.price)+@string/ryal+"=")}'
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias=".3"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text='@{model.offer_type.equals("value")?(((size*model.offer_value))+@string/ryal):(((size*model.price*model.offer_value)/100)+@string/ryal)}'
+                                android:textColor="@color/colorAccent"
+                                android:textSize="14sp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias=".3"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/small_rounded_stroke_gray2"
+                        android:layerType="software" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/total_cost"
+                            android:textColor="@color/gray12"
+                            android:textSize="18sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias=".3"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{model.offer_type.equals("value")?(((size*model.price)-((size*model.offer_value)))+@string/ryal):(((size*model.price)-((size*model.price*model.offer_value)/100))+@string/ryal)}'
+                            android:textColor="@color/colorAccent"
+                            android:textSize="16sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias=".3"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                     </LinearLayout>
 
+                </LinearLayout>
 
-                </androidx.core.widget.NestedScrollView>
 
-        <Button
-            android:id="@+id/btnConfirm"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="end"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorPrimary"
-            android:layout_alignParentBottom="true"
-            android:text="@string/confirm"
-            android:textColor="@color/white"
-            android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            </androidx.core.widget.NestedScrollView>
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/confirm"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
