@@ -1,6 +1,7 @@
 package com.lama.adapters;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
@@ -52,15 +53,14 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         if (holder instanceof MyHolder) {
             MyHolder myHolder = (MyHolder) holder;
             myHolder.binding.setModel(list.get(position));
+            myHolder.binding.tvOldprice.setPaintFlags(myHolder.binding.tvOldprice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
             myHolder.itemView.setOnClickListener(view -> {
                 if (fragment instanceof Fragment_Main) {
 
                     Fragment_Main fragment_main = (Fragment_Main) fragment;
                     fragment_main.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
-                } else if (fragment instanceof Fragment_Profile) {
-                    Fragment_Profile fragment_profile = (Fragment_Profile) fragment;
-                    //fragment_order.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
-                } else if (fragment instanceof Fragment_Search) {
+                }  else if (fragment instanceof Fragment_Search) {
                     Fragment_Search fragment_search = (Fragment_Search) fragment;
                    fragment_search.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
                 } else if (context instanceof SearchActivity) {

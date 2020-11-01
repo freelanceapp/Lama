@@ -92,7 +92,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             >
-                            <com.applandeo.materialcalendarview.CalendarView
+<!--                            <com.applandeo.materialcalendarview.CalendarView
                                 android:id="@+id/calendarView1DayContinuous"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -166,7 +166,7 @@
                                 app:maximumDaysRange="8"
                                 android:visibility="gone"
 
-                                />
+                                />-->
                             <com.applandeo.materialcalendarview.CalendarView
                                 android:id="@+id/calendarViewRangeMonth"
                                 android:layout_width="match_parent"
@@ -174,16 +174,14 @@
                                 app:abbreviationsBarColor="@color/colorPrimary"
                                 app:abbreviationsLabelsColor="@color/white"
                                 app:headerColor="@color/colorPrimary"
-                                app:anotherMonthsDaysLabelsColor="@color/gray6"
+                                app:anotherMonthsDaysLabelsColor="@color/gray5"
                                 app:headerLabelColor="@color/white"
                                 app:swipeEnabled="true"
                                 app:todayLabelColor="@color/colorPrimary"
-                                app:daysLabelsColor="@color/second"
+                                app:daysLabelsColor="@color/colorAccent"
                                 app:selectionColor="@color/colorPrimary"
                                 app:selectionLabelColor="@color/white"
                                 app:type="range_picker"
-                                app:maximumDaysRange="30"
-                                android:visibility="gone"
 
                                 />
 

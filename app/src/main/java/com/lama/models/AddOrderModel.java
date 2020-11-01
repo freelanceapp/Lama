@@ -48,32 +48,9 @@ public class AddOrderModel extends BaseObservable implements Serializable {
         setCash_pay(0.0);
     }
 
-    public boolean isStep1Valid(Context context) {
-        if (!address.trim().isEmpty()) {
-            error_address.set(null);
-            return true;
-        } else {
-            error_address.set(context.getString(R.string.field_required));
-            return false;
-        }
-    }
 
-//    public boolean isStep2Valid(Context context) {
-//        if (order_date != 0 && order_time != 0) {
-//            return true;
-//        } else {
-//
-//            if (date == 0) {
-//                Toast.makeText(context, R.string.ch_date, Toast.LENGTH_SHORT).show();
-//            }
-//
-//            if (time == 0) {
-//                Toast.makeText(context, R.string.ch_time, Toast.LENGTH_SHORT).show();
-//
-//            }
-//            return false;
-//        }
-//    }
+
+
 
     public boolean isStep3Valid(Context context) {
         if (!pay_type.isEmpty()) {

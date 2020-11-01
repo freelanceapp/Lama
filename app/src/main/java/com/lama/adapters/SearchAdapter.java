@@ -55,7 +55,7 @@ public class SearchAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             myHolder.itemView.setOnClickListener(view -> {
               if (fragment instanceof Fragment_Search) {
                     Fragment_Search fragment_search = (Fragment_Search) fragment;
-                 //   fragment_search.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
+                   fragment_search.setItemDataOffers(list.get(myHolder.getAdapterPosition()));
                 }
             });
 

@@ -215,4 +215,6 @@
     <string name="from">From</string>
     <string name="to">To</string>
     <string name="reserve_now">أحجز الأن</string>
+    <string name="reservation_details">تفاصيل الحجز</string>
+    <string name="cost">التكلفة</string>
 </resources>

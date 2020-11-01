@@ -167,7 +167,7 @@
     <string name="paypal">باى بال</string>
     <string name="cash_on_delivery">الدفع عند الاستلام</string>
     <string name="status">حالة الطلب</string>
-    <string name="total_cost">اجمالى السعر</string>
+    <string name="total_cost"> التكلفة النهائية</string>
     <string name="amount">الكمية</string>
     <string name="new_order">قيد الانتظار</string>
     <string name="in_way"> تم الشحن</string>
@@ -220,4 +220,6 @@
     <string name="from">من</string>
     <string name="to">الى</string>
     <string name="reserve_now">أحجز الأن</string>
+    <string name="reservation_details">تفاصيل الحجز</string>
+    <string name="cost">التكلفة</string>
 </resources>

@@ -411,11 +411,11 @@ public class Fragment_Address extends Fragment implements OnMapReadyCallback, Go
     @Override
     public void onNext() {
 
-        if (addOrderModel.isStep1Valid(activity)) {
+      //  if (addOrderModel.isStep1Valid(activity)) {
             addOrderModel.setProducts(singleton.getItemCartModelList());
             activity.updateModel(addOrderModel);
             activity.createOrder();
-        }
+     //   }
 
 
     }

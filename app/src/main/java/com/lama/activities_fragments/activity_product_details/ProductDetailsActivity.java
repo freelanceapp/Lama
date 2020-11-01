@@ -1,8 +1,9 @@
-package com.lama.activities_fragments.activity_product_details;
+  package com.lama.activities_fragments.activity_product_details;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
@@ -104,6 +105,9 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
                 startActivity(intent);
             }
         });
+
+        binding.tvOldprice.setPaintFlags(binding.tvOldprice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
     }
 
     private void updateUI() {
