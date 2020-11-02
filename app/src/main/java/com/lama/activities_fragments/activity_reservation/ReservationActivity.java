@@ -66,21 +66,20 @@ public class ReservationActivity extends AppCompatActivity implements Listeners.
         binding.setBackListener(this);
         binding.setLang(lang);
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2020, 11, 3);
+        calendar.set(2020, 12, 3);
         Calendar calendar1 = Calendar.getInstance();
-        calendar1.set(2020, 11, 25);
+        calendar1.set(2020, 12, 25);
         calendarList.add(calendar);
         calendarList.add(calendar1);
+
         //binding.calendarViewRangeMonth.setMinimumDate(calendar);
         //  binding.calendarViewRangeMonth.setSelectedDates(calendarList);
         binding.calendarViewRangeMonth.setDisabledDays(calendarList);
+
         binding.calendarViewRangeMonth.setOnDayClickListener(new OnDayClickListener() {
             @Override
             public void onDayClick(EventDay eventDay) {
-                if (eventDay.isEnabled()) {
-                    eventDay.setEnabled(false);
 
-                }
             }
         });
 //        binding.calendarViewRangeMonth.setSelectedDates(calendarList);
