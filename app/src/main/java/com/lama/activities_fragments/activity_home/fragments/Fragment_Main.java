@@ -458,7 +458,15 @@ public class Fragment_Main extends Fragment {
         intent.putExtra("product_id", model.getId());
         startActivityForResult(intent, 100);
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if (requestCode == 100) {
+            activity.displayFragmentMyReservations();
+        }
+
+    }
 
     private void stopTimer() {
 

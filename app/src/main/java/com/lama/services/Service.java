@@ -4,6 +4,7 @@ package com.lama.services;
 import com.lama.models.AddOrderModel;
 import com.lama.models.BankDataModel;
 import com.lama.models.CategoryProductDataModel;
+import com.lama.models.Create_Order_Model;
 import com.lama.models.FavouriteDataModel;
 import com.lama.models.NotificationCount;
 import com.lama.models.NotificationDataModel;
@@ -239,4 +240,8 @@ public interface Service {
             @Field("longitude") String longitude,
             @Field("address") String address
     );
+    @POST("api/send-order")
+    Call<ResponseBody> accept_orders(
+            @Header("Authorization") String Authorization,
+            @Body Create_Order_Model create_order_model);
 }

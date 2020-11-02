@@ -185,7 +185,7 @@ public class Fragment_Current_Order extends Fragment implements SwipeRefreshLayo
                                 orderModelList.addAll(response.body().getData());
 
                                 if (response.body().getData().size() > 0) {
-                                    current_page = response.body().getMeta().getCurrent_page();
+                                    current_page = response.body().getCurrent_page();
                                     adapter.notifyItemRangeChanged(oldPos, orderModelList.size() - 1);
 
                                 }

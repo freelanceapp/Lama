@@ -55,7 +55,7 @@ public class Fragment_Search extends Fragment {
     private List<SingleProductDataModel> offersDataList;
     private SearchAdapter offersAdapter;
     private String department_id = "all";
-    private String query="all";
+    private String query = "all";
 
     public static Fragment_Search newInstance() {
         return new Fragment_Search();
@@ -143,6 +143,7 @@ public class Fragment_Search extends Fragment {
             }
         });
     }
+
     private void getCategory() {
 
        /* Api.getService(Tags.base_url)
@@ -290,7 +291,7 @@ public class Fragment_Search extends Fragment {
                 uid = 0;
             }
             Api.getService(Tags.base_url).
-                    Search("off", uid, query, "all","all","all").
+                    Search("off", uid, query, "all", "all", "all").
                     enqueue(new Callback<ProductDataModel>() {
                         @Override
                         public void onResponse(Call<ProductDataModel> call, Response<ProductDataModel> response) {
@@ -365,6 +366,15 @@ public class Fragment_Search extends Fragment {
         startActivityForResult(intent, 100);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 100) {
+            activity.displayFragmentMyReservations();
+        }
+
+    }
 /*
     private void updateTabUI(MainCategoryDataModel data) {
         mainDepartmentsList.clear();

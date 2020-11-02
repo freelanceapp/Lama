@@ -103,7 +103,7 @@
                                 app:anotherMonthsDaysLabelsColor="@color/gray5"
                                 app:headerLabelColor="@color/white"
                                 app:swipeEnabled="true"
-                                app:disabledDaysLabelsColor="@color/second"
+                                app:disabledDaysLabelsColor="@color/black"
                                 app:todayLabelColor="@color/colorPrimary"
                                 app:daysLabelsColor="@color/colorAccent"
                                 app:selectionColor="@color/colorPrimary"

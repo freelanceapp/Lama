@@ -112,7 +112,9 @@ public class Fragment_My_Reservations extends Fragment {
 
     }
 
-    private void getOrders() {
+    public void getOrders() {
+        orderModelList.clear();
+        adapter.notifyDataSetChanged();
         try {
             current_page = 1;
             Api.getService(Tags.base_url)
@@ -196,7 +198,7 @@ public class Fragment_My_Reservations extends Fragment {
                                 orderModelList.addAll(response.body().getData());
 
                                 if (response.body().getData().size() > 0) {
-                                    current_page = response.body().getMeta().getCurrent_page();
+                                    current_page = response.body().getCurrent_page();
                                     adapter.notifyItemRangeChanged(oldPos, orderModelList.size() - 1);
 
                                 }

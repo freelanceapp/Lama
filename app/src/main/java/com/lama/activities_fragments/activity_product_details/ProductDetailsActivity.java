@@ -104,6 +104,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
                 Intent intent=new Intent(ProductDetailsActivity.this, ReservationActivity.class);
                 intent.putExtra("product",singleProductDataModel);
                 startActivity(intent);
+                finish();
             }
         });
 
