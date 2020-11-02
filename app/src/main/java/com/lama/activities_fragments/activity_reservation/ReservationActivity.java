@@ -77,7 +77,7 @@ public class ReservationActivity extends AppCompatActivity implements Listeners.
         binding.calendarViewRangeMonth.setOnDayClickListener(new OnDayClickListener() {
             @Override
             public void onDayClick(EventDay eventDay) {
-                if(eventDay.isEnabled()){
+                if (eventDay.isEnabled()) {
                     eventDay.setEnabled(false);
 
                 }
