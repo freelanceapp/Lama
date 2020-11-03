@@ -218,5 +218,6 @@
     <string name="reservation_details">تفاصيل الحجز</string>
     <string name="cost">Cost</string>
     <string name="days">Days</string>
+    <string name="unavaliable">Unavaliable</string>
 
 </resources>

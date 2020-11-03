@@ -53,6 +53,7 @@ public class OffersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         if (holder instanceof MyHolder) {
             MyHolder myHolder = (MyHolder) holder;
             myHolder.binding.setModel(list.get(position));
+            myHolder.binding.setLang(lang);
             myHolder.binding.tvOldprice.setPaintFlags(myHolder.binding.tvOldprice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
             myHolder.itemView.setOnClickListener(view -> {

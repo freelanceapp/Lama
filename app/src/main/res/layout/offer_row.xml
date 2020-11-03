@@ -69,6 +69,7 @@
                         android:text="@{model.address}"
                         android:textColor="@color/gray9"
                         android:textSize="12sp" />
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
@@ -112,12 +113,19 @@
             <LinearLayout
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/ic_offer"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:visibility='@{model.have_offer.equals("yes")?View.VISIBLE:View.INVISIBLE,default=invisible}'
-                android:rotation='@{lang.equals("ar")?180:0}'>
 
+                android:visibility='@{model.have_offer.equals("yes")?View.VISIBLE:View.INVISIBLE,default=invisible}'>
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_offer"
+
+    android:rotation='@{lang.equals("en")?180:0}'
+    >
+
+</FrameLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

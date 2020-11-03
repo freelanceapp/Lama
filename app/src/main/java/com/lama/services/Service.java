@@ -17,6 +17,7 @@ import com.lama.models.PlaceMapDetailsData;
 import com.lama.models.SettingModel;
 import com.lama.models.SingleProductDataModel;
 import com.lama.models.Slider_Model;
+import com.lama.models.TimesModel;
 import com.lama.models.UserModel;
 
 import okhttp3.MultipartBody;
@@ -244,4 +245,11 @@ public interface Service {
     Call<ResponseBody> accept_orders(
             @Header("Authorization") String Authorization,
             @Body Create_Order_Model create_order_model);
+
+    @FormUrlEncoded
+    @POST("api/place-dates")
+    Call<TimesModel> getTimes(
+            @Header("Authorization") String Authorization,
+            @Field("product_id") String product_id);
+
 }
