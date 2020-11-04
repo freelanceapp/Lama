@@ -37,8 +37,10 @@ public class AboutAppActivity extends AppCompatActivity implements Listeners.Bac
     @Override
     protected void attachBaseContext(Context newBase) {
         Paper.init(newBase);
-        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", "ar")));
+        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", Locale.getDefault().getLanguage())));
+
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,11 +72,10 @@ public class AboutAppActivity extends AppCompatActivity implements Listeners.Bac
         } else if (type == 2) {
             binding.setTitle(getString(R.string.terms_and_conditions));
 
-        }else if (type == 3) {
+        } else if (type == 3) {
             binding.setTitle(getString(R.string.privacy));
 
         }
-
 
 
         getAppData();

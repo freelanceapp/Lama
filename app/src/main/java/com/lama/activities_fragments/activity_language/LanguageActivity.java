@@ -15,6 +15,8 @@ import com.lama.activities_fragments.activity_home.HomeActivity;
 import com.lama.databinding.ActivityLanguageBinding;
 import com.lama.language.Language;
 
+import java.util.Locale;
+
 import io.paperdb.Paper;
 
 public class LanguageActivity extends AppCompatActivity {
@@ -25,9 +27,10 @@ public class LanguageActivity extends AppCompatActivity {
     private String selectedLang = "";
 
     @Override
-    protected void attachBaseContext(Context base) {
-        Paper.init(base);
-        super.attachBaseContext(Language.updateResources(base, Paper.book().read("lang","ar")));
+    protected void attachBaseContext(Context newBase) {
+        Paper.init(newBase);
+        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", Locale.getDefault().getLanguage())));
+
     }
 
     @Override
@@ -39,7 +42,7 @@ public class LanguageActivity extends AppCompatActivity {
 
     private void initView() {
         Paper.init(this);
-        lang = Paper.book().read("lang", "ar");
+        lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         selectedLang = lang;
 
         binding.setLang(lang);
@@ -115,6 +118,7 @@ public class LanguageActivity extends AppCompatActivity {
     public void RefreshActivity(String lang) {
         Paper.book().write("lang", lang);
         Language.setNewLocale(this, lang);
+
         new Handler()
                 .postDelayed(new Runnable() {
                     @Override

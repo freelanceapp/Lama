@@ -38,6 +38,7 @@ import com.google.android.material.tabs.TabLayout;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import io.paperdb.Paper;
 import retrofit2.Call;
@@ -81,7 +82,7 @@ public class Fragment_Search extends Fragment {
         offersDataList = new ArrayList<>();
         activity = (HomeActivity) getActivity();
         Paper.init(activity);
-        lang = Paper.book().read("lang", "ar");
+        lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         binding.setLang(lang);
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(activity);

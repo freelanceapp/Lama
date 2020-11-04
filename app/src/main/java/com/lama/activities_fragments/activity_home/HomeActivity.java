@@ -57,6 +57,7 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import io.paperdb.Paper;
@@ -79,10 +80,11 @@ public class HomeActivity extends AppCompatActivity {
     private String token;
     private CartSingleton singleton;
     private int back = 0;
-
+    @Override
     protected void attachBaseContext(Context newBase) {
         Paper.init(newBase);
-        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", "ar")));
+        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", Locale.getDefault().getLanguage())));
+
     }
 
 
@@ -100,7 +102,8 @@ public class HomeActivity extends AppCompatActivity {
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(this);
         Paper.init(this);
-        lang = Paper.book().read("lang", "ar");
+        lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
+        Log.e("sllslslls",lang);
         binding.setLang(lang);
 
 

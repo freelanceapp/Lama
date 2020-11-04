@@ -57,8 +57,10 @@ public class MyFavoriteActivity extends AppCompatActivity implements Listeners.B
     @Override
     protected void attachBaseContext(Context newBase) {
         Paper.init(newBase);
-        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", "ar")));
+        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", Locale.getDefault().getLanguage())));
+
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

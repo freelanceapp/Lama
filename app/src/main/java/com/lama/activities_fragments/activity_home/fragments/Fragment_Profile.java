@@ -28,6 +28,7 @@ import com.lama.tags.Tags;
 
 
 import java.io.IOException;
+import java.util.Locale;
 
 import io.paperdb.Paper;
 import retrofit2.Call;
@@ -68,7 +69,7 @@ public class Fragment_Profile extends Fragment implements Listeners.SettingActio
         preferences = Preferences.getInstance();
         userModel = preferences.getUserData(activity);
         Paper.init(activity);
-        lang = Paper.book().read("lang", "ar");
+        lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         binding.setLang(lang);
         binding.setAction(this);
         binding.setModel(userModel);

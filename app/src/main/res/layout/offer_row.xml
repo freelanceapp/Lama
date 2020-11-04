@@ -112,7 +112,7 @@
             <LinearLayout
                 android:layout_width="50dp"
                 android:layout_height="match_parent"
-                android:background='@{lang.equals("en")?@drawable/ic_offer:@drawable/ic_offer2}'
+                android:background='@{lang.equals("en")?@drawable/ic_offer2:@drawable/ic_offer}'
                 android:gravity="center"
                 android:orientation="vertical"
                 android:visibility='@{model.have_offer.equals("yes")?View.VISIBLE:View.INVISIBLE,default=invisible}'

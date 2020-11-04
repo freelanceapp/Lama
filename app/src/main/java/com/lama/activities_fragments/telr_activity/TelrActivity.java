@@ -18,6 +18,8 @@ import com.lama.R;
 import com.lama.language.Language;
 import com.lama.models.OrderModel;
 
+import java.util.Locale;
+
 import io.paperdb.Paper;
 
 public class TelrActivity extends AppCompatActivity {
@@ -29,7 +31,8 @@ public class TelrActivity extends AppCompatActivity {
     @Override
     protected void attachBaseContext(Context newBase) {
         Paper.init(newBase);
-        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", "ar")));
+        super.attachBaseContext(Language.updateResources(newBase, Paper.book().read("lang", Locale.getDefault().getLanguage())));
+
     }
 
     @Override

@@ -21,18 +21,18 @@
             android:id="@+id/carddelete"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_gravity="center_vertical"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
-            android:layout_gravity="center_vertical"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                image="@{model.order_product.get(0).product_info.image}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="5dp"
-                android:scaleType="fitXY"
-             />
+                android:scaleType="fitXY" />
         </androidx.cardview.widget.CardView>
 
         <FrameLayout
@@ -58,12 +58,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{model.title}"
                         android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@{model.order_product.get(0).product_info.title}"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias=".4"
+                        app:layout_constraintHorizontal_bias=".6"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,8 +77,7 @@
 
                         app:layout_constraintEnd_toStartOf="@+id/lll"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                  >
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -114,6 +114,7 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/lll"
                         android:layout_width="0dp"
@@ -123,8 +124,7 @@
 
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/ll"
-                        app:layout_constraintTop_toTopOf="parent"
-                  >
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <LinearLayout
                             android:layout_width="wrap_content"
