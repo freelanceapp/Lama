@@ -28,6 +28,7 @@ public class SettingModel implements Serializable {
         private String whatsapp;
         private String instagram;
         private String facebook;
+        private String google_plus;
         private String twitter;
         private String offer_muted;
         private double delivery_value;
@@ -49,6 +50,10 @@ public class SettingModel implements Serializable {
 
         public String getInstagram() {
             return instagram;
+        }
+
+        public String getGoogle_plus() {
+            return google_plus;
         }
 
         public String getFacebook() {

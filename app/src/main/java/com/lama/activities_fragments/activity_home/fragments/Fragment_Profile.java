@@ -73,6 +73,9 @@ public class Fragment_Profile extends Fragment implements Listeners.SettingActio
         binding.setLang(lang);
         binding.setAction(this);
         binding.setModel(userModel);
+        if (userModel!=null){
+            binding.txtphone.setText("96605xxxxxxx");
+        }
 
     }
 
@@ -108,15 +111,40 @@ public class Fragment_Profile extends Fragment implements Listeners.SettingActio
     }
 
     @Override
+    public void facebook() {
+
+    }
+
+    @Override
+    public void google() {
+
+    }
+
+    @Override
+    public void instgram() {
+
+    }
+
+    @Override
+    public void twitter() {
+
+    }
+
+    @Override
     public void share() {
 
     }
 
     @Override
     public void onEditProfile() {
-        Intent intent = new Intent(activity, EditProfileActivity.class);
-        intent.putExtra("data",preferences.getUserData(activity));
-        startActivityForResult(intent,2);
+        if (userModel != null) {
+            Intent intent = new Intent(activity, EditProfileActivity.class);
+            intent.putExtra("data",preferences.getUserData(activity));
+            startActivityForResult(intent,2);
+        } else {
+            Common.CreateDialogAlert(activity, getString(R.string.please_sign_in_or_sign_up));
+        }
+
     }
 
     @Override

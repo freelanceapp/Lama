@@ -223,6 +223,9 @@
     <string name="reservation_details">تفاصيل الحجز</string>
     <string name="cost">التكلفة</string>
     <string name="days">أيام</string>
-    <string name="unavaliable">Unavaliable</string>
+    <string name="unavaliable">غير متاح حجز هذه الايام لان يوجد من ضمنها ايام محجوزة بالفعل</string>
+    <string name="Color_reservations">لون الحجوزات السابقة</string>
+    <string name="current_month">لون ايام الشهر الحالى</string>
+    <string name="you_reserve">لون الايام التى تريد حجزها</string>
 
 </resources>

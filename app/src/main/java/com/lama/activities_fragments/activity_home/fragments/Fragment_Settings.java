@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -77,7 +78,7 @@ public class Fragment_Settings extends Fragment implements Listeners.SettingActi
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView();
-       // getAppData();
+        getAppData();
 
     }
 
@@ -104,6 +105,55 @@ public class Fragment_Settings extends Fragment implements Listeners.SettingActi
         }
     }
 
+    private void getAppData() {
+
+        Api.getService(Tags.base_url)
+                .getSetting(lang)
+                .enqueue(new Callback<SettingModel>() {
+                    @Override
+                    public void onResponse(Call<SettingModel> call, Response<SettingModel> response) {
+                        if (response.isSuccessful() && response.body() != null) {
+                            if (response.isSuccessful() && response.body() != null) {
+
+                                settingmodel = response.body();
+
+                            } else {
+                                try {
+
+                                    Log.e("error", response.code() + "_" + response.errorBody().string());
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                if (response.code() == 500) {
+                                    Toast.makeText(activity, "Server Error", Toast.LENGTH_SHORT).show();
+
+                                } else {
+                                    Toast.makeText(activity, getString(R.string.failed), Toast.LENGTH_SHORT).show();
+
+
+                                }
+                            }
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<SettingModel> call, Throwable t) {
+                        try {
+
+                            if (t.getMessage() != null) {
+                                Log.e("error", t.getMessage());
+                                if (t.getMessage().toLowerCase().contains("failed to connect") || t.getMessage().toLowerCase().contains("unable to resolve host")) {
+                                    Toast.makeText(activity, R.string.something, Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Toast.makeText(activity, t.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            }
+
+                        } catch (Exception e) {
+                        }
+                    }
+                });
+
+    }
 
     @Override
     public void terms() {
@@ -213,6 +263,114 @@ public class Fragment_Settings extends Fragment implements Listeners.SettingActi
     public void bepartener() {
         Intent intent = new Intent(activity, BePartenerActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void facebook() {
+        if (settingmodel!=null)
+        {
+            if (settingmodel.getSettings().getFacebook()!=null)
+            {
+                String pattern = "https?://.+\\..{2,}";
+                if (settingmodel.getSettings().getFacebook().matches(pattern))
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(settingmodel.getSettings().getFacebook()));
+                    startActivity(intent);
+                }else
+                {
+                    Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        }else {
+            Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    @Override
+    public void google() {
+        if (settingmodel!=null)
+        {
+            if (settingmodel.getSettings().getGoogle_plus()!=null)
+            {
+                String pattern = "https?://.+\\..{2,}";
+                if (settingmodel.getSettings().getGoogle_plus().matches(pattern))
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(settingmodel.getSettings().getGoogle_plus()));
+                    startActivity(intent);
+                }else
+                {
+                    Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        }else {
+            Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    @Override
+    public void instgram() {
+        if (settingmodel!=null)
+        {
+            if (settingmodel.getSettings().getInstagram()!=null)
+            {
+                String pattern = "https?://.+\\..{2,}";
+                if (settingmodel.getSettings().getInstagram().matches(pattern))
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(settingmodel.getSettings().getInstagram()));
+                    startActivity(intent);
+                }else
+                {
+                    Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        }else {
+            Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
+    @Override
+    public void twitter() {
+        if (settingmodel!=null)
+        {
+            if (settingmodel.getSettings().getTwitter()!=null)
+            {
+                String pattern = "https?://.+\\..{2,}";
+                if (settingmodel.getSettings().getTwitter().matches(pattern))
+                {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(settingmodel.getSettings().getTwitter()));
+                    startActivity(intent);
+                }else
+                {
+                    Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+
+            }
+
+
+        }else {
+            Toast.makeText(activity, R.string.inv_url, Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     @Override

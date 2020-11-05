@@ -21,8 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray0"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
@@ -75,64 +74,123 @@
         </androidx.appcompat.widget.Toolbar>
 
 
-                <androidx.core.widget.NestedScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:fillViewport="true"
-                    android:fitsSystemWindows="true">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true">
 
-                    <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.applandeo.materialcalendarview.CalendarView
+                        android:id="@+id/calendarViewRangeMonth"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        app:abbreviationsBarColor="@color/colorPrimary"
+                        app:abbreviationsLabelsColor="@color/white"
+                        app:anotherMonthsDaysLabelsColor="@color/gray5"
+                        app:daysLabelsColor="@color/colorAccent"
+                        app:disabledDaysLabelsColor="@color/red"
+                        app:headerColor="@color/colorPrimary"
+                        app:headerLabelColor="@color/white"
+                        app:selectionColor="@color/colorPrimary"
+                        app:selectionLabelColor="@color/white"
+                        app:swipeEnabled="true"
+                        app:todayLabelColor="@color/colorPrimary"
+                        app:type="range_picker" />
+
+                </FrameLayout>
+
+
+                <Button
+                    android:id="@+id/btnConfirm"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_primary_btn"
+                    android:text="@string/confirm"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         >
 
-                        <FrameLayout
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_margin="5dp"
+                            android:background="@color/red" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            >
-
-                            <com.applandeo.materialcalendarview.CalendarView
-                                android:id="@+id/calendarViewRangeMonth"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                app:abbreviationsBarColor="@color/colorPrimary"
-                                app:abbreviationsLabelsColor="@color/white"
-                                app:headerColor="@color/colorPrimary"
-                                app:anotherMonthsDaysLabelsColor="@color/gray5"
-                                app:headerLabelColor="@color/white"
-                                app:swipeEnabled="true"
-                                app:daysLabelsColor="@color/colorAccent"
-                                app:disabledDaysLabelsColor="@color/black"
-                                app:todayLabelColor="@color/colorPrimary"
-                                app:selectionColor="@color/colorPrimary"
-                                app:selectionLabelColor="@color/white"
-                                app:type="range_picker"
-                                />
-
-                        </FrameLayout>
-
-
-
-                        <Button
-                            android:id="@+id/btnConfirm"
-                            android:layout_width="200dp"
-                            android:layout_height="40dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/rounded_primary_btn"
-                            android:textColor="@color/white"
-                            android:textSize="15sp"
-                            android:text="@string/confirm"/>
-
+                            android:text="@string/Color_reservations"
+                            android:textSize="14sp"
+                            android:layout_margin="5dp"/>
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        >
 
-                </androidx.core.widget.NestedScrollView>
+                        <TextView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_margin="5dp"
+                            android:background="@color/colorPrimary" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/you_reserve"
+                            android:textSize="14sp"
+                            android:layout_margin="5dp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                       >
+
+                        <TextView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_margin="5dp"
+                            android:background="@color/colorAccent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/current_month"
+                            android:textSize="14sp"
+                            android:layout_margin="5dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
 
 
-
+        </androidx.core.widget.NestedScrollView>
 
 
     </LinearLayout>

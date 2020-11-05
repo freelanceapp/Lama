@@ -443,24 +443,28 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:padding="3dp"
+                        android:onClick="@{()->actions.facebook()}"
                         android:src="@drawable/facebook" />
 
                     <ImageView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:padding="3dp"
+                        android:onClick="@{()->actions.google()}"
                         android:src="@drawable/google_plus" />
 
                     <ImageView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:padding="3dp"
+                        android:onClick="@{()->actions.instgram()}"
                         android:src="@drawable/instagram" />
 
                     <ImageView
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:padding="3dp"
+                        android:onClick="@{()->actions.twitter()}"
                         android:src="@drawable/twitter" />
                 </LinearLayout>
 

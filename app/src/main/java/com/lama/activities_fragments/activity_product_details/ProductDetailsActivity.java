@@ -94,6 +94,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
     private void initView() {
         Paper.init(this);
         preferences = Preferences.getInstance();
+        userModel = preferences.getUserData(this);
         lang = Paper.book().read("lang", Locale.getDefault().getLanguage());
         binding.setBackListener(this);
         binding.setLang(lang);
@@ -103,10 +104,15 @@ public class ProductDetailsActivity extends AppCompatActivity implements Listene
         binding.btnReserve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ProductDetailsActivity.this, ReservationActivity.class);
-                intent.putExtra("product",singleProductDataModel);
-                startActivity(intent);
-                finish();
+                if (userModel!=null){
+                    Intent intent=new Intent(ProductDetailsActivity.this, ReservationActivity.class);
+                    intent.putExtra("product",singleProductDataModel);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Common.CreateDialogAlert(ProductDetailsActivity.this, getString(R.string.please_sign_in_or_sign_up));
+                }
+
             }
         });
 

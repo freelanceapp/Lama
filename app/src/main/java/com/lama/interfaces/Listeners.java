@@ -37,6 +37,11 @@ public interface Listeners {
         void about();
         void logout();
         void bepartener();
+        void facebook();
+        void google();
+        void instgram();
+        void twitter();
+
 
     }
 

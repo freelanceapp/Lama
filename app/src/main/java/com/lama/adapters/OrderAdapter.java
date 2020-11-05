@@ -74,15 +74,15 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 OrderModel model2 = list.get(holder.getAdapterPosition());
 
                 if (fragment instanceof Fragment_Current_Order) {
-                    Fragment_Current_Order fragmentCurrentOrder = (Fragment_Current_Order) fragment;
-                    fragmentCurrentOrder.setItemData(model2);
+                /*    Fragment_Current_Order fragmentCurrentOrder = (Fragment_Current_Order) fragment;
+                    fragmentCurrentOrder.setItemData(model2);*/
                 } else if (fragment instanceof Fragment_Previous_Order) {
-                    Fragment_Previous_Order fragmentPreviousOrder = (Fragment_Previous_Order) fragment;
-                    fragmentPreviousOrder.setItemData(model2);
+                 /*   Fragment_Previous_Order fragmentPrevio.usOrder = (Fragment_Previous_Order) fragment;
+                    fragmentPreviousOrder.setItemData(model2);*/
                 }
                 else if (fragment instanceof Fragment_My_Reservations) {
-                    Fragment_My_Reservations fragment_my_reservations = (Fragment_My_Reservations) fragment;
-                    fragment_my_reservations.setItemData(model2);
+                 /*   Fragment_My_Reservations fragment_my_reservations = (Fragment_My_Reservations) fragment;
+                    fragment_my_reservations.setItemData(model2);*/
                 }
             });
         } else if (holder instanceof LoadHolder) {

@@ -122,7 +122,7 @@
                             android:src="@drawable/ic_email"
                             android:padding="10dp"
                             android:layout_gravity="start"
-
+                            android:visibility="gone"
 
                             />
                         <TextView

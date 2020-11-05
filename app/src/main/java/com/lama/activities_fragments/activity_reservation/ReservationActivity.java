@@ -92,8 +92,7 @@ public class ReservationActivity extends AppCompatActivity implements Listeners.
 
                 //     dialog.dismiss();
                 if (response.isSuccessful()) {
-
-// Common.CreateSignAlertDialog(activity, getResources().getString(R.string.sucess));
+                    // Common.CreateSignAlertDialog(activity, getResources().getString(R.string.sucess));
                     update(response.body());
 
                 } else {

@@ -218,6 +218,9 @@
     <string name="reservation_details">تفاصيل الحجز</string>
     <string name="cost">Cost</string>
     <string name="days">Days</string>
-    <string name="unavaliable">Unavaliable</string>
+    <string name="unavaliable">It is not possible to reserve these days because there are already booked days</string>
+    <string name="Color_reservations">Color reservations</string>
+    <string name="current_month">The color of the current month</string>
+    <string name="you_reserve">Color the days that you want to reserve</string>
 
 </resources>
