@@ -6,11 +6,11 @@
     <data>
         <variable
             name="action"
-            type="com.lama.interfaces.Listeners.SettingActions" />
+            type="com.lmah.interfaces.Listeners.SettingActions" />
 
         <variable
             name="model"
-            type="com.lama.models.UserModel" />
+            type="com.lmah.models.UserModel" />
         <variable
             name="lang"
             type="String" />

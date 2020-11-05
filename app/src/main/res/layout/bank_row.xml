@@ -7,7 +7,7 @@
 
         <variable
             name="bankModel"
-            type="com.lama.models.BankDataModel.BankModel" />
+            type="com.lmah.models.BankDataModel.BankModel" />
 
         <import type="android.view.View" />
 

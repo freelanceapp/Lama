@@ -9,7 +9,7 @@
 
         <variable
             name="backListener"
-            type="com.lama.interfaces.Listeners.BackListener" />
+            type="com.lmah.interfaces.Listeners.BackListener" />
 
         <variable
             name="lang"

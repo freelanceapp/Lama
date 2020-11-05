@@ -15,6 +15,74 @@
       },
       "oauth_client": [
         {
+          "client_id": "1004124992709-pkhpiksfjnp0tqavq6gi17rejm6hgtgs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lama",
+            "certificate_hash": "636ec7f8e9ebc097d9417189972ef8f1feb676f4"
+          }
+        },
+        {
+          "client_id": "1004124992709-cbg9137v8u24n3eamvqcbfelq5cs86v0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lama",
+            "certificate_hash": "307ae9a68d2eec407c16fda7887f0bcd02f4671e"
+          }
+        },
+        {
+          "client_id": "1004124992709-1ora1idltm3gdadg9426i9dp91q90qjl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lama",
+            "certificate_hash": "e6a73e70c3fc31d4b07d77141e133d0dd6e6939e"
+          }
+        },
+        {
+          "client_id": "1004124992709-p51lt3qjrue17uarrrspl4he9qtgrh2j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAzeVqmWvBie38W_r5zZSVIb3MwiMlJRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004124992709-p51lt3qjrue17uarrrspl4he9qtgrh2j.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1004124992709-mglsu10fcbufdlc7ieg7sm2ki1e20gpf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ragaaab.Lamah"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004124992709:android:9ad230b5dc19aff2f92cac",
+        "android_client_info": {
+          "package_name": "com.lmah"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004124992709-kufrgi3mah2p6i4q1pjl4mqgn8g18guu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lmah",
+            "certificate_hash": "e6a73e70c3fc31d4b07d77141e133d0dd6e6939e"
+          }
+        },
+        {
           "client_id": "1004124992709-p51lt3qjrue17uarrrspl4he9qtgrh2j.apps.googleusercontent.com",
           "client_type": 3
         }

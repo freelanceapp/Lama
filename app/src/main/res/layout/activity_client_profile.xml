@@ -17,11 +17,11 @@
 
         <variable
             name="model"
-            type="com.lama.models.UserModel" />
+            type="com.lmah.models.UserModel" />
 
         <variable
             name="backListener"
-            type="com.lama.interfaces.Listeners.BackListener" />
+            type="com.lmah.interfaces.Listeners.BackListener" />
     </data>
 
     <LinearLayout

@@ -13,16 +13,16 @@
 
         <variable
             name="backListener"
-            type="com.lama.interfaces.Listeners.BackListener" />
+            type="com.lmah.interfaces.Listeners.BackListener" />
         \
 
         <variable
             name="editModel"
-            type="com.lama.models.EditProfileModel" />
+            type="com.lmah.models.EditProfileModel" />
 
         <variable
             name="updateListener"
-            type="com.lama.interfaces.Listeners.UpdateProfileListener" />
+            type="com.lmah.interfaces.Listeners.UpdateProfileListener" />
 
     </data>
 

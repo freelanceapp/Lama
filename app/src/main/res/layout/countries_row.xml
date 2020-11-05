@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.lama.models.CountryModel" />
+            type="com.lmah.models.CountryModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

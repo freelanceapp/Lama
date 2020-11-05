@@ -7,7 +7,7 @@
 
         <variable
             name="backListener"
-            type="com.lama.interfaces.Listeners.BackListener" />
+            type="com.lmah.interfaces.Listeners.BackListener" />
 
         <variable
             name="cartCount"
@@ -21,7 +21,7 @@
 
         <variable
             name="model"
-            type="com.lama.models.SingleProductDataModel" />
+            type="com.lmah.models.SingleProductDataModel" />
 
         <variable
             name="marketName"

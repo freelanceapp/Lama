@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.lama">
+    package="com.lmah">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -33,16 +33,16 @@
             android:name="org.apache.http.legacy"
             android:required="false" />
         <activity
-            android:name="com.lama.activities_fragments.activity_language.LanguageActivity"
+            android:name=".activities_fragments.activity_language.LanguageActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name="com.lama.activities_fragments.activity_reservation_details.ReservationDetailsActivity"
+            android:name=".activities_fragments.activity_reservation_details.ReservationDetailsActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.lama.activities_fragments.activity_reservation.ReservationActivity"
+            android:name=".activities_fragments.activity_reservation.ReservationActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
@@ -50,84 +50,84 @@
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.lama.activities_fragments.activity_order_details.OrderDetailsActivity"
+            android:name=".activities_fragments.activity_order_details.OrderDetailsActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.lama.activities_fragments.activity_cart.CartActivity"
+            android:name=".activities_fragments.activity_cart.CartActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.lama.activities_fragments.activity_edit_profile.EditProfileActivity"
+            android:name=".activities_fragments.activity_edit_profile.EditProfileActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name="com.lama.activities_fragments.activity_checkout.CheckoutActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-
-        <activity
-            android:name="com.lama.activities_fragments.activity_login.LoginActivity"
+            android:name=".activities_fragments.activity_checkout.CheckoutActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name="com.lama.activities_fragments.activity_verification_code.VerificationCodeActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name="com.lama.activities_fragments.activity_product_details.ProductDetailsActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name="com.lama.activities_fragments.activity_client_profile.ClientProfileActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name="com.lama.activities_fragments.bank_activity.BanksActivity"
-            android:configChanges="keyboardHidden|screenSize|orientation"
-            android:windowSoftInputMode="stateAlwaysHidden" />
-        <activity
-            android:name="com.lama.activities_fragments.activity_signup.SignUpActivity"
+            android:name=".activities_fragments.activity_login.LoginActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name="com.lama.activities_fragments.activity_about_app.AboutAppActivity"
+            android:name=".activities_fragments.activity_verification_code.VerificationCodeActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activities_fragments.activity_product_details.ProductDetailsActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activities_fragments.activity_client_profile.ClientProfileActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activities_fragments.bank_activity.BanksActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".activities_fragments.activity_signup.SignUpActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden" />
 
         <activity
-            android:name="com.lama.activities_fragments.activity_home.HomeActivity"
+            android:name=".activities_fragments.activity_about_app.AboutAppActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            android:windowSoftInputMode="stateAlwaysHidden" />
+
+        <activity
+            android:name=".activities_fragments.activity_home.HomeActivity"
             android:configChanges="keyboardHidden|screenSize|orientation" />
 
         <activity
-            android:name="com.lama.activities_fragments.activity_my_favorite.MyFavoriteActivity"
+            android:name=".activities_fragments.activity_my_favorite.MyFavoriteActivity"
             android:configChanges="keyboardHidden|screenSize|orientation" />
 
         <activity
-            android:name="com.lama.activities_fragments.activity_search.SearchActivity"
+            android:name=".activities_fragments.activity_search.SearchActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
             android:windowSoftInputMode="stateAlwaysHidden"
 
             />
 
         <activity
-            android:name="com.lama.activities_fragments.activity_notification.NotificationActivity"
+            android:name=".activities_fragments.activity_notification.NotificationActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             />
         <activity
-            android:name="com.lama.activities_fragments.telr_activity.TelrActivity"
+            android:name=".activities_fragments.telr_activity.TelrActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             />
         <activity
-            android:name="com.lama.activities_fragments.activity_images.ImagesActivity"
+            android:name=".activities_fragments.activity_images.ImagesActivity"
             android:configChanges="keyboardHidden|screenSize|orientation"
 
             />
-        <activity android:name="com.lama.activities_fragments.activity_splash.SplashActivity">
+        <activity android:name=".activities_fragments.activity_splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.lama.models.NotificationDataModel.NotificationModel" />
+            type="com.lmah.models.NotificationDataModel.NotificationModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

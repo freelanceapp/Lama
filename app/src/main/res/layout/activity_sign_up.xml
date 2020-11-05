@@ -7,11 +7,11 @@
 
         <variable
             name="listener"
-            type="com.lama.interfaces.Listeners.SignUpListener" />
+            type="com.lmah.interfaces.Listeners.SignUpListener" />
 
         <variable
             name="model"
-            type="com.lama.models.SignUpModel" />
+            type="com.lmah.models.SignUpModel" />
     </data>
 
     <FrameLayout

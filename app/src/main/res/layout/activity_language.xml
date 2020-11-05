@@ -9,7 +9,7 @@
             type="String" />
         <variable
             name="actions"
-            type="com.lama.interfaces.Listeners.SettingActions" />
+            type="com.lmah.interfaces.Listeners.SettingActions" />
 
     </data>
     <ScrollView

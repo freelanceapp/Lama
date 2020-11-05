@@ -11,11 +11,11 @@
 
         <variable
             name="listener"
-            type="com.lama.interfaces.Listeners.LoginListener" />
+            type="com.lmah.interfaces.Listeners.LoginListener" />
 
         <variable
             name="loginModel"
-            type="com.lama.models.LoginModel" />
+            type="com.lmah.models.LoginModel" />
     </data>
 
     <FrameLayout

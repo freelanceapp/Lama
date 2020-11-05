@@ -6,7 +6,7 @@
 
         <variable
             name="action"
-            type="com.lama.interfaces.Listeners.PaymentTypeAction" />
+            type="com.lmah.interfaces.Listeners.PaymentTypeAction" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

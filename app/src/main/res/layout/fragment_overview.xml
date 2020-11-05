@@ -16,7 +16,7 @@
 
         <variable
             name="model"
-            type="com.lama.models.SingleProductDataModel" />
+            type="com.lmah.models.SingleProductDataModel" />
     </data>
 
 

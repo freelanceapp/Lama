@@ -5,7 +5,7 @@
 
         <variable
             name="model"
-            type="com.lama.models.CategoryProductDataModel.Data" />
+            type="com.lmah.models.CategoryProductDataModel.Data" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"

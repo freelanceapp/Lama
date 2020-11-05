@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        applicationId "com.lama"
+        applicationId "com.lmah"
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 1

@@ -6,7 +6,7 @@
 
         <variable
             name="model"
-            type="com.lama.models.OrderModel" />
+            type="com.lmah.models.OrderModel" />
     </data>
 
     <LinearLayout

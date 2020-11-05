@@ -5,7 +5,7 @@
 
         <variable
             name="model"
-            type="com.lama.models.ItemCartUploadModel.Orders_details" />
+            type="com.lmah.models.ItemCartUploadModel.Orders_details" />
 
         <variable
             name="lang"
